@@ -1,0 +1,189 @@
+# 0) Load Libraries
+#------------------
+library(affy)
+library(vsn)
+library(AnnotationDbi)
+library(mouse4302mmenstcdf, lib.loc = "/Users/lydiasteiner/Desktop/Datascience/project/packages") #download source files from brain array for "Affymetrix Mouse Genome 430 2.0 Array"
+library(mouse4302mmenstprobe, lib.loc = "/Users/lydiasteiner/Desktop/Datascience/project/packages") #download source files from brain array for "Affymetrix Mouse Genome 430 2.0 Array"
+
+library(limma)
+library(AnnotationDbi)
+library(tidyverse)
+
+# 1) Read in .CEL files 
+#----------------------
+
+setwd("/Users/lydiasteiner/Desktop/Datascience/project/rawdata/GSE28389_RAW")
+
+data.mouse=ReadAffy()
+data.mouse@cdfName <- "Mouse4302_Mm_ENST"
+
+setwd("/Users/lydiasteiner/Desktop/Datascience/project/workspaces")
+save.image(file="rawdata_mouse_28389.rda")
+
+
+# 2) Quality Control
+#-------------------------
+# 2.1) Single Chip Control
+#-------------------------
+
+#x11(width=9, height = 9)
+
+
+setwd("/Users/lydiasteiner/Desktop/Datascience/project/plots/qc")
+
+image(data.mouse[,1], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E7_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,2], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E7_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,3], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E7_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,4], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E8_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,5], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E8_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,6], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E8_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,7], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E9_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,8], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E9_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,9], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E9_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,10], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E10_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,11], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E10_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,12], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E10_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,13], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E12_5_rep1.pdf", width= 9 , height=9) #looks suspicious
+
+image(data.mouse[,14], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E12_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,15], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E14_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,16], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E14_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,17], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E16_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,18], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E16_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,19], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E18_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,20], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E18_5_rep2.pdf", width= 9 , height=9)
+
+#exclude broken chip(s) from data
+data.mouse <- data.mouse[,-c("number of chip")]
+
+colnames(data.mouse)
+
+#create a vector which contains the sample collection stage and replicate number instead of
+#chip codes in order to use them in the plots and tables. Values are taken from p-Data.
+
+#e <- c("")
+
+
+#R wants me to do the meanSD plot first
+
+
+# 2.2) Normalization
+#------------------
+
+mouse.vsnrma <- vsnrma(data.mouse)
+
+setwd("/Users/lydiasteiner/Desktop/Datascience/project/workspaces")
+save.image(file="normalized_data_28389.rda")
+
+
+# 2.3) meanSdPlot
+#----------------.
+x11(width=9, height = 9)
+meanSdPlot(mouse.vsnrma)
+
+setwd("/Users/lydiasteiner/Desktop/Datascience/project/plots")
+dev.copy2pdf(file="GSE28389_meanSdPlot_normalized.pdf")
+
+
+# 2.4) Boxplot
+#-------------
+# Before normalization:
+x11(width=9, height = 9)
+par(las=2)
+mmi=c(1.5,1,1.04,0.9)
+par(mai=mmi)
+boxplot(data.mouse, col= rainbow(20), cex.axis=0.75,
+        main="Gene expression in different stages of mouse embroyogenesis before vsnrma-normalization \nGSE28389 (Irie et al., 2011)")
+
+dev.copy2pdf(file="GSE28389_BoxPlot_before_norm.pdf")
+
+# After Normalization:
+x11(width=9, height = 9)
+par(las=2)
+mmi=c(1.5,1,1.1,0.9)
+par(mai=mmi)
+boxplot(exprs(mouse.vsnrma), col= rainbow(20), cex.axis=0.75,
+        main="Gene expression in different stages of mouse embroyogenesis after vsnrma-normalization \nGSE28389 (Irie et al., 2011)")
+
+dev.copy2pdf(file="GSE28389_BoxPlot_normalizeddata.pdf")
+#dev.off()
+
+
+# 2.6) RNA Degradation Plot
+#-----------------------------
+rnadeg.raw = AffyRNAdeg(data.mouse)
+
+x11(width=8, height = 8)
+plotAffyRNAdeg(rnadeg.raw, col=rainbow(20))
+title(sub="mouse embroyogenesis data before vsnrma normalization")
+
+dev.copy2pdf(file="GSE28389_RNAdegrad_RawData_shifted_scaled.pdf")
+
+x11(width=8, height = 8)
+plotAffyRNAdeg(rnadeg.raw, col=rainbow(20), transform= "shift.only")
+title(sub="mouse embroyogenesis data before vsnrma normalization- shifted")
+
+dev.copy2pdf(file="GSE28389_RNAdegrad_RawData_Shifted_only.pdf")
+
+# 2.7) Scatter Plot
+#-------------------
+
+for(i in 1:19){
+  
+  plot(exprs(mouse.vsnrma)[,c(i,i+1)],pch=".")
+  abline(0,1,col="red")
+  
+  title(main=paste("Scatterplot of probe '", colnames(mouse.vsnrma)[i],"' and '", 
+                   colnames(mouse.vsnrma)[i+1],"'",sep = " ", collapse= NULL))
+  
+  permission =readline(prompt = "type y for next image: ")
+  
+  if(permission=="y"){
+  }
+  else{
+    break
+  }
+  
+  file.name= paste("GSE28389_scatterplot_probe",as.character(i),"_and_probe", as.character(i+1),".pdf")
+  dev.copy2pdf(file= file.name, width=9, height=9)
+  dev.off()
+}
