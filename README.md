@@ -12,3 +12,5 @@ Das heist aber auch dass wir noch ein Markdown erstellen sollten und gemeinsam u
  
  Ich finde das hier noch nicht so intuitiv aber freue mich total, dass du dich hier schon wohl fühlst :) -Lydia 
  Ich suche gerade noch nach dem richtigen Ort, um die QC Bilder mit euch zu teilen 
+
+-> Wenn du es ebenfalls einfach hier hochladen willst, speicher sie einzeln im Ordner wo du auch die R Datei gespeichet hast :)
