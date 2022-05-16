@@ -1,0 +1,13 @@
+Package: mouse4302mmenstprobe
+Title: Probe sequence data for microarrays of type mouse4302mmenst
+Version: 25.0.0
+Created: Tue Dec 15 23:22:27 2020
+Author: The Bioconductor Project www.bioconductor.org 
+Description: This package was automatically created by package AnnotationForge version 1.32.0. The probe sequence data was obtained from http://www.affymetrix.com. 
+Maintainer: Manhong Dai <daimh@umich.edu>
+Depends: R (>= 3.5.0), AnnotationDbi (>= 1.32.0)
+License: LGPL
+biocViews: AnnotationData, AffymetrixChip, probe, mouse4302mmenst,
+        Mus_musculus
+NeedsCompilation: no
+Packaged: 2020-12-16 04:22:35 UTC; daimh
