@@ -1,0 +1,27 @@
+citHeader("To cite custom CDF in publications use:")
+citEntry(entry="article",
+         title = "Evolving gene/transcript definitions significantly alter the interpretation of GeneChip data",
+         author = personList(person(last="Dai", first="Manhong", email="daimh@umich.edu"),
+                             person(last="Pinglang", first="Wang"),
+                             person(last="Boyd", first="Andrew", middle="D."),
+                             person(last="Kostov", first="Georgi"),
+                             person(last="Athey", first="Brian"),
+                             person(last="Jones", first="Edward", middle="G."),
+                             person(last="Bunney", first="William", middle="E."),
+                             person(last="Myers", first="Richard", middle="M."),
+                             person(last="Speed", first="Terry", middle="P."),
+                             person(last="Akil", first="Huda"),
+                             person(last="Watson", first="Stanley", middle="J."),
+                             person(last="Meng", first="Fan", email="mengf@umich.edu")
+     ),
+         journal = "Nucleic Acids Research",
+         year = "2005",
+         pages = "e175",
+         volume = "33(20)",
+         textVersion = paste("Manhong Dai, Pinglang Wang, Andrew D. Boyd, Georgi Kostov, Brian Athey, Edward G. Jones, William E. Bunney, Richard M. Myers, Terry P. Speed, Huda Akil, Stanley J. Watson and Fan Meng.", 
+                             "Evolving gene/transcript definitions significantly alter the interpretation of GeneChip data.", 
+                             "Nucleic Acid Research 33 (20), e175, 2005."))
+
+citFooter("We have invested a lot of time and effort in creating custom CDFs,",
+          "please cite it when using it for data analysis."
+       )
