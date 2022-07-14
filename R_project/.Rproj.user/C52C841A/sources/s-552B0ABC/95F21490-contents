@@ -1,0 +1,223 @@
+#PCA
+library("limma")
+library("Biobase")
+library("tidyverse")
+
+tra_data
+
+tra_data2.pca <- prcomp(t(tra_data [,3:22]), center = TRUE, scale = TRUE) #scale true sets the standard deviations of all variables to be equal to 1, so all variables can have an equal effect on the ordination.
+
+# Inspect new PCA object and its variation accounting
+tra_data2.pca.varprop <- tra_data2.pca %>% summary() %>% pluck("importance")
+tra_data2.pca.varprop[c(1,2), ]
+
+# Plot the PCA
+pca_tra.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC1, y = PC2)) +
+  ggtitle("tra PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra.fig
+
+dev.copy2pdf(file="tra_PCA.pdf")
+
+
+#PC2 v PC3
+pca_tra_2v3.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC2, y = PC3)) +
+  ggtitle("tra PC2 vs. PC3 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_2v3.fig
+
+dev.copy2pdf(file="tra_PCA_2v3.pdf")
+
+
+#PC3 v PC4
+pca_tra_3v4.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC3, y = PC4)) +
+  ggtitle("tra PC3 vs. PC4 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_3v4.fig
+
+dev.copy2pdf(file="tra_PCA_3v4.pdf")
+
+
+#PC4 v PC5
+pca_tra_4v5.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC4, y = PC5)) +
+  ggtitle("tra PC4 vs. PC5 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_4v5.fig
+
+dev.copy2pdf(file="tra_PCA_4v5.pdf")
+
+
+#PC5 v PC6
+pca_tra_5v6.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC5, y = PC6)) +
+  ggtitle("tra PC5 vs. PC6 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_5v6.fig
+
+dev.copy2pdf(file="tra_PCA_5v6.pdf")
+
+
+#PC6 v PC7
+pca_tra_6v7.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC6, y = PC7)) +
+  ggtitle("tra PC6 vs. PC7 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_6v7.fig
+
+dev.copy2pdf(file="tra_PCA_6v7.pdf")
+
+
+#PC7 v PC8
+pca_tra_7v8.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC7, y = PC8)) +
+  ggtitle("tra PC7 vs. PC8 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_7v8.fig
+
+dev.copy2pdf(file="tra_PCA_7v8.pdf")
+
+
+#PC8 v PC9
+pca_tra_8v9.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC8, y = PC9)) +
+  ggtitle("tra PC8 vs. PC9 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_8v9.fig
+
+dev.copy2pdf(file="tra_PCA_8v9.pdf")
+
+
+#PC9 v PC10
+pca_tra_9v10.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC9, y = PC10)) +
+  ggtitle("tra PC9 vs. PC10 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_9v10.fig
+
+dev.copy2pdf(file="tra_PCA_9v10.pdf")
+
+#PC10 v PC11
+pca_tra_10v11.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC10, y = PC11)) +
+  ggtitle("tra PC10 vs. PC11 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_10v11.fig
+
+dev.copy2pdf(file="tra_PCA_10v11.pdf")
+
+#PC11 v PC12
+pca_tra_11v12.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC11, y = PC12)) +
+  ggtitle("tra PC11 vs. PC12 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_11v12.fig
+
+dev.copy2pdf(file="tra_PCA_11v12.pdf")
+
+#PC12 v PC13
+pca_tra_12v13.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC12, y = PC13)) +
+  ggtitle("tra PC12 vs. PC13 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_tra_12v13.fig
+
+dev.copy2pdf(file="tra_PCA_12v13.pdf")
+
+autoplot(tra_data2.pca, label = TRUE, label.size = 2.5, ylim = c(-0.4, 0.4), xlim = c(-0.4, 0.5))+
+  aes(color = Days, legend = FALSE)
+dev.copy2pdf(file="tra_PCA_with_labels.pdf")
+
+Days=c("7.5", "7.5", "7.5", "8.5", "8.5", "8.5", "9.5", "9.5", "9.5", "10.5", "10.5", "10.5", "12.5", "12.5", "14.5", "14.5", "16.5", "16.5", "18.5", "18.5")
+Days = factor(Days, 
+              levels = c("7.5", "8.5", "9.5", "10.5", "12.5", "14.5", "16.5", "18.5"))
+
+
+plot1=autoplot(tra_data2.pca, label = TRUE, label.size = 3)
+plot1
+
+summary(eset2.pca)
+
+biplot(eset2.pca$PC1, eset2.pca$PC2, scale = 0)
+
+#‘arm-bend’ represents a decrease in cumulative contribution -looks like we need 3 or 4
+plot(eset2.pca, main="Arm bend PCA", type="lines")
+dev.copy2pdf(file="Arm_bend_PCA_tra.pdf")
+
+
+autoplot(eset2.pca$PC2, eset2.pca$PC3, label = TRUE)
+
+autoplot(prcomp(tra_data[,3:22]), data = tra_data, colour = 'red', loadings = TRUE)
+
+#-------------------------------------------------------------------------------
+#calculate principal components
+results <- prcomp(tra_data [,3:22], scale = TRUE)
+
+#reverse the signs
+results$rotation <- -1*results$rotation
+
+#display principal components
+results$rotation
+
+#reverse the signs of the scores
+results$x <- -1*results$x
+
+#display the first six scores
+head(results$x)
+
+#Visualize the Results with a Biplot
+biplot(results, scale = 0)
+
+autoplot(results, label = TRUE, label.size = 3,
+         loadings = TRUE, loadings.label = TRUE, loadings.label.size  = 3)
+
+
+
+
+##----------------------------------------
+## t-SNE
+##----------------------------------------
+#Using the Bioconductor M3C package: Monte Carlo Reference-based Consensus Clustering
+library(Rtsne)
+library(M3C)
+
+
+#Create a matrix with Samples x PCs
+PCxSamples_Vector_tra= c(pca_tra.fig$data$PC1, pca_tra.fig$data$PC2, pca_tra.fig$data$PC3, pca_tra.fig$data$PC4, pca_tra.fig$data$PC5, pca_tra.fig$data$PC6, pca_tra.fig$data$PC7, pca_tra.fig$data$PC8, pca_tra.fig$data$PC9, pca_tra.fig$data$PC10, pca_tra.fig$data$PC11, pca_tra.fig$data$PC12, pca_tra.fig$data$PC13, pca_tra.fig$data$PC14, pca_tra.fig$data$PC15, pca_tra.fig$data$PC16, pca_tra.fig$data$PC17, pca_tra.fig$data$PC18, pca_tra.fig$data$PC19, pca_tra.fig$data$PC20)
+PCxSamples_Matrix_tra= matrix(PCxSamples_Vector_tra,byrow=FALSE,nrow=20,ncol=20,dimnames=NULL)
+PCxSamples_Matrix_tra
+
+
+#Remove PCs coming after PC 14
+PCxSamples_Matrix_tra = PCxSamples_Matrix_tra [,-c(15, 16, 17, 18, 19, 20)]
+
+
+tsne(pca_tra.fig$data, perplex=0.0001, colvec=c('gold'))
+tsne(pca_chem.fig[["data"]], colvec=c('gold'))
+tsne(PCxSamples_Matrix_tra, perplex=1, colvec=c(rep('gold', 2), rep('red', 5), rep('blue', 7)))
+tsne(pca_tra.fig$data,labels=as.factor(pollen$celltypes))
+
+
+
+##----------------------------------------
+## UMAP
+##----------------------------------------
+#Using the Bioconductor M3C package: Monte Carlo Reference-based Consensus Clustering
+
+umap(pca_chem.fig[["data"]],colvec=c('skyblue'))
+

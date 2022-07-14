@@ -1,0 +1,9 @@
+top_7.5_8.5 = anno_7.5_8.5[order(abs(anno_7.5_8.5$logFC), decreasing = TRUE),]
+top100_7.5_8.5 = top_7.5_8.5[1:100,]
+
+
+
+
+
+names = as.character(anno_7.5_8.5$Gene.name)
+volcanoplot(fit2, coef = 1, style = "p-value", highlight = 20, names = names, xlab = "logFC", ylab = NULL, hl.col ="red")

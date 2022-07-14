@@ -7,8 +7,9 @@
 
 
 #############################################
-#Quality Control
+#Quality Control ----
 #############################################
+
 
 #Load Libraries
 #------------------
@@ -17,12 +18,15 @@ library(vsn)
 library(AnnotationDbi)
 library(mouse4302mmenstcdf, lib.loc = "./packages") #download source files from brain array for "Affymetrix Mouse Genome 430 2.0 Array"
 library(mouse4302mmenstprobe, lib.loc = "./packages") #download source files from brain array for "Affymetrix Mouse Genome 430 2.0 Array"
+library(mouse4302cdf)
 library(hexbin)
 library(limma)
 library(AnnotationDbi)
 library(tidyverse)
 library(pheatmap)
 
+#setting seed for end-to-end run-through
+set.seed(123456)
 
 #Read in .CEL files 
 #----------------------
@@ -38,9 +42,8 @@ setwd("./sessions/rds_files")
 save(data.mouse, file="rawdata_mouse_28389.rds")
 
 
-#Quality Control
 #-------------------------
-#Single Chip Control
+#Single Chip Control ----
 #-------------------------
 
 setwd("..")
@@ -108,8 +111,8 @@ image(data.mouse[,20], col=rainbow(100, start=0, end=0.75)[100:1])
 dev.copy2pdf(file="GSM701717_Mouse_E18_5_rep2.pdf", width= 9 , height=9)
 
 
-
-#Normalization
+#------------------
+#Normalization----
 #------------------
 
 mouse.vsnrma <- vsnrma(data.mouse)
@@ -192,15 +195,16 @@ for(i in 1:19){
 
 
 #############################################
-#Exploratory Data Analysis
+#Exploratory Data Analysis----
 #############################################
 
 setwd("./../../..")
 setwd("./raw_data")
-eset=exprs(mouse.vsnrma)
-eset=eset[65:53573,] #delete Affymetrix internal quality control
+eset = exprs(mouse.vsnrma)
+eset = eset[65:53573,] #delete Affymetrix internal quality control
+eset = read.csv(file = "eset1.csv", row.names = 1)
 
-anno=read_table(file="mart_export1.txt")
+anno = read_table(file="mart_export1.txt")
 
 
 tra_table = read_table(file="tra.2014.mouse.4301.5x.table.tsv")
@@ -221,479 +225,253 @@ tra_table = tra_table %>%
     everything(),
     ~ map_chr(.x, ~ gsub("\"", "", .x))
   ))
+names(tra_table) = gsub('"', "", names(tra_table))
 
 
 #Annotating our gene expression table
 
-anno_data = merge(eset, anno, by.x = "row.names", by.y = "AFFY.Mouse430.2.probe", all = FALSE)
-anno_data = anno_data[!duplicated(anno_data$Gene.stable.ID),]
+anno_data = merge(eset, anno, by.x = 0, by.y = "AFFY.Mouse430.2.probe", all = FALSE)
+anno_data = anno_data[!duplicated(anno_data$Gene.stable.ID),] #delete duplicates
 write.csv(anno_data, file = "anno_data.csv")
 
 
-tra_table = as.data.frame(tra_table)
+#Merging TRA table with annotated gene expression table, not-overlapping entries excluded
 
-tra_data = merge(anno_data, tra_table, by.x = "Transcript.stable.ID", by.y ='"ensembl.transcript"', all = FALSE)
-tra_data = tra_data[, colSums(is.na(tra_data))<nrow(tra_data)] #delete empty columns
-rownames(tra_data)= tra_data[,1]
+tra_table = as.data.frame(tra_table)
+tra_data = merge(anno_data, tra_table, by.x = "Transcript.stable.ID", by.y ="ensembl.transcript", all = FALSE)
+tra_data = tra_data[!duplicated(tra_data$Row.names),]
+colnames(tra_data)[2] = "AFFY.Mouse430.2.probe"
 write.csv(tra_data, file = "TRA_data.csv")
+
+
+#Annotating TRA table
+
+tra_anno = merge(anno, tra_table, by.x = "Transcript.stable.ID",by.y = "ensembl.transcript", all = FALSE)
+write.csv(tra_anno, file = "tra_anno.csv")
 
 #Barplot of frequency of TRAs in our data frame
 
-setwd("..")
-setwd("./plots")
+setwd("./../plots/TRAs_barplots")
 
 ggplot(data = tra_data) +
   geom_bar(mapping = aes(x = max.tissue, fill = max.tissue), show.legend = FALSE) +
   coord_flip() +
-  ggtitle("5906 TRAs in GSE28389") +
+  labs(title = "6521 TRAs in GSE28389") +
+  ylab("Tissues") +
   theme(plot.title = element_text(hjust = 0.5))
 
 ggsave("barplot_tras_in_the_dataset.jpg", width = 12, height = 10)
 
 
-#Differential expression  ???
-
-#GSM701716 	[E-MTAB-368] Mouse developmental stage E7.5 1
-#GSM701717 	[E-MTAB-368] Mouse developmental stage E7.5 2
-#GSM701718 	[E-MTAB-368] Mouse developmental stage E7.5 3
-#GSM701719 	[E-MTAB-368] Mouse developmental stage E8.5 1
-#GSM701720 	[E-MTAB-368] Mouse developmental stage E8.5 2
-#GSM701721 	[E-MTAB-368] Mouse developmental stage E8.5 3
-#GSM701722 	[E-MTAB-368] Mouse developmental stage E9.5 1
-#GSM701723 	[E-MTAB-368] Mouse developmental stage E9.5 2
-#GSM701724 	[E-MTAB-368] Mouse developmental stage E9.5 3
-#GSM701725 	[E-MTAB-368] Mouse developmental stage E10.5 1
-#GSM701726 	[E-MTAB-368] Mouse developmental stage E10.5 2
-#GSM701727 	[E-MTAB-368] Mouse developmental stage E10.5 3
-#GSM701728 	[E-MTAB-368] Mouse developmental stage E12.5 1
-#GSM701729 	[E-MTAB-368] Mouse developmental stage E12.5 2
-#GSM701730 	[E-MTAB-368] Mouse developmental stage E14.5 1
-#GSM701731 	[E-MTAB-368] Mouse developmental stage E14.5 2
-#GSM701732 	[E-MTAB-368] Mouse developmental stage E16.5 1
-#GSM701733 	[E-MTAB-368] Mouse developmental stage E16.5 2
-#GSM701734 	[E-MTAB-368] Mouse developmental stage E18.5 1
-#GSM701735 	[E-MTAB-368] Mouse developmental stage E18.5 2
-
-
-#day7-8 ???
-
-D78 = cbind(tra_data[,3]-tra_data[,6],
-            tra_data[,4]-tra_data[,7],
-            tra_data[,5]-tra_data[,8])
-
-colnames(D78)=paste(rep("7.5 vs 8.5",3), as.character(1:3), sep=".")
-rownames(D78)=rownames(tra_data)
-tra_data1=tra_data[,2:38]
-
-#limma
-
-design = as.matrix(rep(1,3))
-colnames(design)= "7.5 - 8.5"
-
-#calculate fit and p-value
-
-fit1 = lmFit(D78,design)
-fit1=eBayes(fit1)
-
-pvalue01 = sum(p.adjust(fit1$p.value, "BH")<0.01)
-pvalue01 #1637
-
-pvalue05 = sum(p.adjust(fit1$p.value, "BH")<0.05)
-pvalue05 #2124
-
-pvalue1 = sum(p.adjust(fit1$p.value, "BH")<0.1)
-pvalue1 #2414
-
-pvalue2 = sum(p.adjust(fit$p.value, "BH")<0.2)
-pvalue2 #2813
-
-pvalue3 = sum(p.adjust(fit1$p.value, "BH")<0.3)
-pvalue3 #3217
-
-pvalue5 = sum(p.adjust(fit1$p.value, "BH")<0.5)
-pvalue5 #3939
-
-DEG_7.5_8.5 = topTable(fit1, number = pvalue05, lfc = 1, p.value=0.05, sort.by = "logFC")
-#189 transcripts differentially expressed
-
-setwd("./tables")
-write.csv(DEG_7.5_8.5, file = "differentially_expressed_genes_7.5_vs_8.5")
-
-#annotating 
-
-anno_info = tra_data1[,22:37] #!!!! add gene_symbols ???
-deg1 = merge(DEG_7.5_8.5, anno_info, by = 0, all = FALSE)
-
-#heatmap ???
-
-
-#rownames_7.5_8.5 = which(rownames(DEG_7.5_8.5) %in% rownames(tra_data1) == T)
-#genes_7.5_8.5 = tra_data1[rownames_7.5_8.5, 2:7]
-
-x11(width = 5, height = 10)
-heatmap(D78, cexRow = 1, cexCol = 0.8, main = "DEG 7.5-8.5") #???
-
-
-
-
-
-
-
 #############################################
-#PCA for TRA
+#PCA for TRA----
 #############################################
 
 library("limma")
 library("Biobase")
 library("tidyverse")
+library("ggfortify")
 
-tra_data
-
+set.seed(123456)
 tra_data2.pca <- prcomp(t(tra_data [,3:22]), center = TRUE, scale = TRUE) #scale true sets the standard deviations of all variables to be equal to 1, so all variables can have an equal effect on the ordination.
 
+
 #Set the labels
+
 Days=c("7.5", "7.5", "7.5", "8.5", "8.5", "8.5", "9.5", "9.5", "9.5", "10.5", "10.5", "10.5", "12.5", "12.5", "14.5", "14.5", "16.5", "16.5", "18.5", "18.5")
 Days = factor(Days, 
               levels = c("7.5", "8.5", "9.5", "10.5", "12.5", "14.5", "16.5", "18.5"))
 
 
 # Inspect new PCA object and its variation accounting
+
 tra_data2.pca.varprop <- tra_data2.pca %>% summary() %>% pluck("importance")
 tra_data2.pca.varprop[c(1,2), ]
+summary(tra_data2.pca) #Importance of components
 
-# Plot the PCA
+
+# Plotting PC1 vs. PC2
+
 pca_tra.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC1, y = PC2)) +
-  ggtitle("tra PCA") +
+  ggtitle("TRAs PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra.fig
 
-dev.copy2pdf(file="tra_PCA.pdf")
+setwd("./../PCA/PCA_TRAs")
+dev.copy2pdf(file="tra_PCA_1vs2.pdf")
 
 
-#PC2 v PC3
-pca_tra_2v3.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
+autoplot(tra_data2.pca, label = TRUE, label.size = 2.5, ylim = c(-0.4, 0.4), xlim = c(-0.4, 0.5))+
+  aes(color = Days, legend = FALSE) +
+  ggtitle("TRAs PCA")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+dev.copy2pdf(file="tra_PCA_with_labels.pdf")
+
+
+autoplot(tra_data2.pca, label = FALSE, label.size = 2.5, ylim = c(-0.4, 0.4), xlim = c(-0.4, 0.5))+
+  aes(color = Days, legend = FALSE) +
+  ggtitle("TRAs PCA")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+dev.copy2pdf(file="tra_PCA_no_labels.pdf")
+
+# Plotting PC2 vs. PC3
+
+pca_tra_2vs3.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC2, y = PC3)) +
-  ggtitle("tra PC2 vs. PC3 PCA") +
+  ggtitle("TRAs PC2 vs. PC3") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
-pca_tra_2v3.fig
+pca_tra_2vs3.fig
 
-dev.copy2pdf(file="tra_PCA_2v3.pdf")
+dev.copy2pdf(file="tra_PCA_2vs3.pdf")
 
 
-#PC3 v PC4
+#Plotting PC3 vs. PC4
+
 pca_tra_3v4.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC3, y = PC4)) +
-  ggtitle("tra PC3 vs. PC4 PCA") +
+  ggtitle("TRAs PC3 vs. PC4") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_3v4.fig
 
-dev.copy2pdf(file="tra_PCA_3v4.pdf")
+dev.copy2pdf(file="tra_PCA_3vs4.pdf")
 
 
-#PC4 v PC5
+#Plotting PC4 vs. PC5
+
 pca_tra_4v5.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC4, y = PC5)) +
-  ggtitle("tra PC4 vs. PC5 PCA") +
+  ggtitle("TRAs PC4 vs. PC5") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_4v5.fig
 
-dev.copy2pdf(file="tra_PCA_4v5.pdf")
+dev.copy2pdf(file="tra_PCA_4vs5.pdf")
 
 
-#PC5 v PC6
+#Plotting PC5 vs. PC6
+
 pca_tra_5v6.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC5, y = PC6)) +
-  ggtitle("tra PC5 vs. PC6 PCA") +
+  ggtitle("TRAs PC5 vs. PC6") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_5v6.fig
 
-dev.copy2pdf(file="tra_PCA_5v6.pdf")
+dev.copy2pdf(file="tra_PCA_5vs6.pdf")
 
 
-#PC6 v PC7
+#Plotting PC6 vs. PC7
+
 pca_tra_6v7.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC6, y = PC7)) +
-  ggtitle("tra PC6 vs. PC7 PCA") +
+  ggtitle("TRAs PC6 vs. PC7") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_6v7.fig
 
-dev.copy2pdf(file="tra_PCA_6v7.pdf")
+dev.copy2pdf(file="tra_PCA_6vs7.pdf")
 
 
-#PC7 v PC8
+#plotting PC7 vs PC8
+
 pca_tra_7v8.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC7, y = PC8)) +
-  ggtitle("tra PC7 vs. PC8 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
+  ggtitle("TRAs PC7 vs. PC8") +
   aes(color = Days, legend = FALSE)
 
 pca_tra_7v8.fig
 
-dev.copy2pdf(file="tra_PCA_7v8.pdf")
+dev.copy2pdf(file="tra_PCA_7vs8.pdf")
 
 
-#PC8 v PC9
+#Plotting PC8 vs PC9
+
 pca_tra_8v9.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC8, y = PC9)) +
-  ggtitle("tra PC8 vs. PC9 PCA") +
+  ggtitle("TRAs PC8 vs. PC9") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_8v9.fig
 
-dev.copy2pdf(file="tra_PCA_8v9.pdf")
+dev.copy2pdf(file="tra_PCA_8vs9.pdf")
 
 
-#PC9 v PC10
+#Plotting PC9 vs PC10
+
 pca_tra_9v10.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC9, y = PC10)) +
-  ggtitle("tra PC9 vs. PC10 PCA") +
+  ggtitle("TRAs PC9 vs. PC10") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_9v10.fig
 
-dev.copy2pdf(file="tra_PCA_9v10.pdf")
+dev.copy2pdf(file="tra_PCA_9vs10.pdf")
 
-#PC10 v PC11
+
+#Plotting PC10 vs PC11
+
 pca_tra_10v11.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC10, y = PC11)) +
-  ggtitle("tra PC10 vs. PC11 PCA") +
+  ggtitle("TRAs PC10 vs. PC11") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_10v11.fig
 
-dev.copy2pdf(file="tra_PCA_10v11.pdf")
+dev.copy2pdf(file="tra_PCA_10vs11.pdf")
 
-#PC11 v PC12
+
+#Plotting PC11 vs PC12
+
 pca_tra_11v12.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC11, y = PC12)) +
-  ggtitle("tra PC11 vs. PC12 PCA") +
+  ggtitle("TRAs PC11 vs. PC12") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_11v12.fig
 
-dev.copy2pdf(file="tra_PCA_11v12.pdf")
+dev.copy2pdf(file="tra_PCA_11vs12.pdf")
 
-#PC12 v PC13
+
+#Plotting PC12 vs PC13
+
 pca_tra_12v13.fig <- ggplot(tra_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC12, y = PC13)) +
-  ggtitle("tra PC12 vs. PC13 PCA") +
+  ggtitle("TRAs PC12 vs. PC13") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_tra_12v13.fig
 
-dev.copy2pdf(file="tra_PCA_12v13.pdf")
-
-autoplot(tra_data2.pca, label = TRUE, label.size = 2.5, ylim = c(-0.4, 0.4), xlim = c(-0.4, 0.5))+
-  aes(color = Days, legend = FALSE)
-dev.copy2pdf(file="tra_PCA_with_labels.pdf")
+dev.copy2pdf(file="tra_PCA_12vs13.pdf")
 
 
-plot1=autoplot(tra_data2.pca, label = TRUE, label.size = 3)
-plot1
+#‘arm-bend’ represents a decrease in cumulative contribution 
 
-summary(eset2.pca)
-
-biplot(eset2.pca$PC1, eset2.pca$PC2, scale = 0)
-
-#‘arm-bend’ represents a decrease in cumulative contribution -looks like we need 3 or 4 ???
-plot(eset2.pca, main="Arm bend PCA", type="lines")
+plot(tra_data2.pca, main="Arm bend PCA", type="lines")
 dev.copy2pdf(file="Arm_bend_PCA_tra.pdf")
 
 
-autoplot(eset2.pca$PC2, eset2.pca$PC3, label = TRUE)
-
-autoplot(prcomp(tra_data[,3:22]), data = tra_data, colour = 'red', loadings = TRUE)
-
-#-------------------------------------------------------------------------------
-#calculate principal components
-results <- prcomp(tra_data [,3:22], scale = TRUE)
-
-#reverse the signs
-results$rotation <- -1*results$rotation
-
-#display principal components
-results$rotation
-
-#reverse the signs of the scores
-results$x <- -1*results$x
-
-#display the first six scores
-head(results$x)
-
-#Visualize the Results with a Biplot
-biplot(results, scale = 0)
-
-autoplot(results, label = TRUE, label.size = 3,
-         loadings = TRUE, loadings.label = TRUE, loadings.label.size  = 3)
-
-
 
 #############################################
-#PCA for Chemokines
+#t-SNE----
 #############################################
-
-
-library("limma")
-library("Biobase")
-library("tidyverse")
-library("EMCluster")
-library("BAMMtools")
-
-chem_data
-
-chem_data2.pca <- prcomp(t(chem_data [,2:21]), center = TRUE, scale = TRUE)
-chem_data2.pca_unlist = unlist(chem_data2.pca)
-
-# Inspect new PCA object and its variation accounting
-chem_data2.pca.varprop <- chem_data2.pca %>% summary() %>% pluck("importance")
-chem_data2.pca.varprop[c(1,2), ]
-
-# Plot the PCAs agains each other until PC13 which includes 95% of the variance
-
-#PC1 v PC2
-pca_chem.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC1, y = PC2)) +
-  ggtitle("Chemokine PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem.fig
-
-dev.copy2pdf(file="Chem_PCA.pdf")
-
-
-#PC2 v PC3
-pca_chem_2v3.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC2, y = PC3)) +
-  ggtitle("Chemokine PC2 vs. PC3 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_2v3.fig
-
-dev.copy2pdf(file="Chem_PCA_2v3.pdf")
-
-
-#PC3 v PC4
-pca_chem_3v4.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC3, y = PC4)) +
-  ggtitle("Chemokine PC3 vs. PC4 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_3v4.fig
-
-dev.copy2pdf(file="Chem_PCA_3v4.pdf")
-
-
-#PC4 v PC5
-pca_chem_4v5.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC4, y = PC5)) +
-  ggtitle("Chemokine PC4 vs. PC5 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_4v5.fig
-
-dev.copy2pdf(file="Chem_PCA_4v5.pdf")
-
-
-#PC5 v PC6
-pca_chem_5v6.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC5, y = PC6)) +
-  ggtitle("Chemokine PC5 vs. PC6 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_5v6.fig
-
-dev.copy2pdf(file="Chem_PCA_5v6.pdf")
-
-
-#PC6 v PC7
-pca_chem_6v7.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC6, y = PC7)) +
-  ggtitle("Chemokine PC6 vs. PC7 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_6v7.fig
-
-dev.copy2pdf(file="Chem_PCA_6v7.pdf")
-
-
-#PC7 v PC8
-pca_chem_7v8.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC7, y = PC8)) +
-  ggtitle("Chemokine PC7 vs. PC8 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_7v8.fig
-
-dev.copy2pdf(file="Chem_PCA_7v8.pdf")
-
-
-#PC8 v PC9
-pca_chem_8v9.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC8, y = PC9)) +
-  ggtitle("Chemokine PC8 vs. PC9 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_8v9.fig
-
-dev.copy2pdf(file="Chem_PCA_8v9.pdf")
-
-
-#PC9 v PC10
-pca_chem_9v10.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC9, y = PC10)) +
-  ggtitle("Chemokine PC9 vs. PC10 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_9v10.fig
-
-dev.copy2pdf(file="Chem_PCA_9v10.pdf")
-
-#PC10 v PC11
-pca_chem_10v11.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC10, y = PC11)) +
-  ggtitle("Chemokine PC10 vs. PC11 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_10v11.fig
-
-dev.copy2pdf(file="Chem_PCA_10v11.pdf")
-
-#PC11 v PC12
-pca_chem_11v12.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC11, y = PC12)) +
-  ggtitle("Chemokine PC11 vs. PC12 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_11v12.fig
-
-dev.copy2pdf(file="Chem_PCA_11v12.pdf")
-
-#PC12 v PC13
-pca_chem_12v13.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
-  geom_point(aes(x = PC12, y = PC13)) +
-  ggtitle("Chemokine PC12 vs. PC13 PCA") +
-  aes(color = Days, legend = FALSE)
-
-pca_chem_12v13.fig
-
-dev.copy2pdf(file="Chem_PCA_12v13.pdf")
-
-
-
-
-
-
-#############################################
-#t-SNE
-#############################################
-
-##t-SNE for TRAs
 
 library(devtools)
 library(factoextra) #for visualization of PCA results
@@ -701,46 +479,62 @@ library(Rtsne)
 library(tibble) #to convert rownames to column
 
 #Explore the PCA results
-get_eig(tra_data2.pca)
 
+get_eig(tra_data2.pca)
 results_of_variables_tra = get_pca_var(tra_data2.pca)
 
+
 # Coordinates of variables
+
 coordinates_tra = results_of_variables_tra$coord
 coordinates_tra
 
+
 # Cos2 of variables
+
 results_of_variables_tra$cos2
 
+
 # Contribution of variables
+
 results_of_variables_tra$contrib
-
-
-
 
 
 PCA_matrix_not_transposed = tra_data2.pca[["x"]]
 
+
+setwd("./../../t-SNE")
 #Only do t-SNE on the first 14 PCs to cover 95%
+
 PCA_matrix_not_transposed = PCA_matrix_not_transposed[ ,1:14]
 
 
-#With not transposed matirces 
+#Reproducibility
+
+set.seed(12356)
+
+
+#Performing t-SNE calculation
+
 tsne_results_matrix_2 = Rtsne(PCA_matrix_not_transposed, perplexity=2, check_duplicates = FALSE)
 tsne_results_matrix_3 = Rtsne(PCA_matrix_not_transposed, perplexity=3, check_duplicates = FALSE)
 tsne_results_matrix_4 = Rtsne(PCA_matrix_not_transposed, perplexity=4, check_duplicates = FALSE)
 
 
 
-#Plot the results ??? should this stay?
+#Plot the results 
+
 plot(tsne_results_matrix_2$Y, col = "blue", pch = 1, cex = 1.5, main ="t-SNE with perplexity 2", xlab = "t-SNE 1", ylab = "t-SNE 2", xlim = c(-200, 400))
 text(tsne_results_matrix_2$Y, labels, cex=0.6, pos=4, col="red")
+dev.copy2pdf(file="t-SNE_perplexity_2.pdf")
 
 plot(tsne_results_matrix_3$Y, col = "blue", pch = 1, cex = 1.5, main ="t-SNE with perplexity 3", xlab = "t-SNE 1", ylab = "t-SNE 2", xlim = c(-200, 400))
 text(tsne_results_matrix_3$Y, labels, cex=0.6, pos=4, col="red")
+dev.copy2pdf(file="t-SNE_perplexity_3.pdf")
 
 plot(tsne_results_matrix_4$Y, col = "blue", pch = 1, cex = 1.5, main ="t-SNE with perplexity 4", xlab = "t-SNE 1", ylab = "t-SNE 2", xlim = c(-200, 400))
 text(tsne_results_matrix_4$Y, labels, cex=0.6, pos=4, col="red")
+dev.copy2pdf(file="t-SNE_perplexity_4.pdf")
 
 
 
@@ -771,12 +565,11 @@ df = data.frame(df)
 rownames(df) = labels
 
 #find out optimal count of clusters
-fviz_nbclust(df, FUNcluster = kmeans, method = "wss")
+fviz_nbclust(df, FUNcluster = kmeans, method = "wss")+
+  labs(subtitle = "Perplexity = 2")
 
-#Reproducability
-set.seed(1)
 
-#Durchführen von k-Means Clustering mit k = 4 Clustern
+#kmeans with k = 4 clusters
 km <- kmeans(df, centers = 4, nstart = 25)
 
 #Plot it
@@ -789,8 +582,9 @@ dev.copy2pdf(file="t-SNE_perplexity_2_kmeans.pdf")
 df3 <- tsne_results_matrix_3$Y
 df3 = data.frame(df3)
 rownames(df3) = labels
-fviz_nbclust(df3, FUNcluster = kmeans, method = "wss")
-km3 <- kmeans(df3, centers = 2, nstart = 25)
+fviz_nbclust(df3, FUNcluster = kmeans, method = "wss")+
+  labs(subtitle = "Perplexity = 3")
+km3 <- kmeans(df3, centers = 4, nstart = 25)
 fviz_cluster(km3, data = df3, axes = c(-4, 4), main = "t-SNE with perplexity 3, k-means clustering",
              xlab = "t-SNE 1", ylab = "t-SNE 2", xlim = c(-2, 2), ylim = c(-2,2))
 dev.copy2pdf(file="t-SNE_perplexity_3_kmeans.pdf")
@@ -800,7 +594,8 @@ dev.copy2pdf(file="t-SNE_perplexity_3_kmeans.pdf")
 df4 <- tsne_results_matrix_4$Y
 df4 = data.frame(df4)
 rownames(df4) = labels
-fviz_nbclust(df4, FUNcluster = kmeans, method = "wss")
+fviz_nbclust(df4, FUNcluster = kmeans, method = "wss")+
+  labs(subtitle = "Perplexity = 4")
 km4 <- kmeans(df4, centers = 3, nstart = 25)
 fviz_cluster(km4, data = df4, axes = c(-4, 4), main = "t-SNE with perplexity 4, k-means clustering",
              xlab = "t-SNE 1", ylab = "t-SNE 2", xlim = c(-2, 2), ylim = c(-2,2))
@@ -813,9 +608,9 @@ dev.copy2pdf(file="t-SNE_perplexity_4_kmeans.pdf")
 #############################################
 library(umap)
 
+setwd("./../UMAP")
+
 set.seed(123456)
-umap_tra = umap(tra_SNE_data)
-plot(umap_tra$layout, pch = ".") 
 
 umap_results_matrix_nneighbor_15 = umap(PCA_matrix_not_transposed, n_neighbors=15)
 umap_results_matrix_nneighbor_20 = umap(PCA_matrix_not_transposed, n_neighbors=20)
@@ -852,10 +647,189 @@ fviz_cluster(km5, data = df5, axes = c(-4, 4), main = "UMAP, nearest neighbors =
 dev.copy2pdf(file="UMAP_nneighobs_5_kmeans.pdf")
 
 
+
 #############################################
-#k-means clustering
+#limma for TRAs p=0.05----
 #############################################
 
+
+tra_data_not_anno = tra_data[,2:22]
+
+setwd("./../../tables/limma_TRAs_p005")
+
+
+#making design matrix
+
+design = model.matrix(~ 0+factor(c(1,1,1,2,2,2,3,3,3,4,4,4,5,5,6,6,7,7,8,8)))
+colnames(design) = c("Day_7.5", "Day_8.5", "Day_9.5", "Day_10.5", "Day_12.5", "Day_14.5", "Day_16.5", "Day_18.5")
+
+fit = lmFit(tra_data_not_anno, design) #Fit linear model for each gene given a series of arrays
+
+# making pairwise comparisons
+
+contrast.matrix = makeContrasts(Day_7.5-Day_8.5, Day_8.5-Day_9.5, Day_9.5-Day_10.5, Day_10.5-Day_12.5, Day_12.5-Day_14.5, Day_14.5-Day_16.5, Day_16.5-Day_18.5, levels = design)
+fit2 = contrasts.fit(fit, contrast.matrix)
+fit2 = eBayes(fit2)
+
+#extracting a list of top exressed genes
+
+topTable7.5_8.5 = topTable(fit2, coef = 1, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable7.5_8.5, file = "topTable7.5_8.5.csv")
+topTable8.5_9.5 = topTable(fit2, coef = 2, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable8.5_9.5, file = "topTable8.5_9.5.csv")
+topTable9.5_10.5 = topTable(fit2, coef = 3, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable9.5_10.5, file = "topTable9.5_10.5.csv")
+topTable10.5_12.5 = topTable(fit2, coef = 4, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable10.5_12.5, file = "topTable10.5_12.5.csv")
+topTable12.5_14.5 = topTable(fit2, coef = 5, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable12.5_14.5, file = "topTable12.5_14.5.csv")
+topTable14.5_16.5 = topTable(fit2, coef = 6, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable14.5_16.5, file = "topTable14.5_16.5.csv")
+topTable16.5_18.5 = topTable(fit2, coef = 7, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable16.5_18.5, file = "topTable16.5_18.5.csv")
+
+
+# annotating differentially expressed genes
+
+deg_list = list(topTable7.5_8.5, topTable8.5_9.5, topTable9.5_10.5, topTable10.5_12.5, topTable12.5_14.5, topTable14.5_16.5, topTable16.5_18.5)
+deg_list = lapply(deg_list, function(x) merge(x, tra_anno, by.x = "AFFY.Mouse430.2.probe", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
+
+
+#splitting of the list into dataframes
+
+setwd("./annotated")
+
+anno_7.5_8.5 = deg_list[[1]]
+anno_7.5_8.5 = anno_7.5_8.5[!duplicated(anno_7.5_8.5$AFFY.Mouse430.2.probe),]
+write.csv(anno_7.5_8.5, file = "anno_7.5_8.5.csv")
+
+anno_8.5_9.5 = deg_list[[2]]
+anno_8.5_9.5 = anno_8.5_9.5[!duplicated(anno_8.5_9.5$AFFY.Mouse430.2.probe),]
+write.csv(anno_8.5_9.5, file = "anno_8.5_9.5.csv")
+
+anno_9.5_10.5 = deg_list[[3]]
+anno_9.5_10.5 = anno_9.5_10.5[!duplicated(anno_9.5_10.5$AFFY.Mouse430.2.probe),]
+write.csv(anno_9.5_10.5, file = "anno_9.5_10.5.csv")
+
+anno_10.5_12.5 = deg_list[[4]]
+anno_10.5_12.5 = anno_10.5_12.5[!duplicated(anno_10.5_12.5$AFFY.Mouse430.2.probe),]
+write.csv(anno_10.5_12.5, file = "anno_10.5_12.5.csv")
+
+anno_12.5_14.5 = deg_list[[5]]
+anno_12.5_14.5 = anno_12.5_14.5[!duplicated(anno_12.5_14.5$AFFY.Mouse430.2.probe),]
+write.csv(anno_12.5_14.5, file = "anno_12.5_14.5.csv")
+
+anno_14.5_16.5 = deg_list[[6]]
+anno_14.5_16.5 = anno_14.5_16.5[!duplicated(anno_14.5_16.5$AFFY.Mouse430.2.probe),]
+write.csv(anno_14.5_16.5, file = "anno_14.5_16.5.csv")
+
+anno_16.5_18.5 = deg_list[[7]]
+anno_16.5_18.5 = anno_16.5_18.5[!duplicated(anno_16.5_18.5$AFFY.Mouse430.2.probe),]
+write.csv(anno_16.5_18.5, file = "anno_16.5_18.5.csv")
+
+
+#barplots 
+
+setwd("./../../../plots/limma_TRAs/Barplots_p005")
+
+degs_barplot_names = c("7.5 and 8.5", "8.5 and 9.5", "9.5 and 10.5", "10.5 and 12.5", "12.5 and 14.5", "14.5 and 16.5", "16.5 and 18.5")
+save_degs_barplot_names = c("7.5_8.5", "8.5_9.5", "9.5_10.5", "10.5_12.5", "12.5_14.5", "14.5_16.5", "16.5_18.5")
+
+for (i in 1:length(deg_list)){
+  ggplot(data = deg_list[[i]]) +
+    geom_bar(mapping = aes(x = max.tissue, fill = max.tissue), show.legend = FALSE) +
+    coord_flip() +
+    ggtitle(paste("Differentially expressed genes between", degs_barplot_names[i], sep = " ", collapse= NULL))+
+    theme(plot.title = element_text(hjust = 0.5))
+  ggsave(paste("barplot_", save_degs_barplot_names[i], ".jpeg"), width = 12, height = 10)
+}
+
+
+
+#############################################
+#limma for TRAs p=0.01----
+#############################################
+
+setwd("./../../../tables/limma_TRAs_p001")
+
+topTable7.5_8.5_p001 = topTable(fit2, coef = 1, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable7.5_8.5_p001, file = "topTable7.5_8.5_p001.csv")
+topTable8.5_9.5_p001 = topTable(fit2, coef = 2, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable8.5_9.5_p001, file = "topTable8.5_9.5_p001.csv")
+topTable9.5_10.5_p001 = topTable(fit2, coef = 3, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable9.5_10.5_p001, file = "topTable9.5_10.5_p001.csv")
+topTable10.5_12.5_p001 = topTable(fit2, coef = 4, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable10.5_12.5_p001, file = "topTable10.5_12.5_p001.csv")
+topTable12.5_14.5_p001 = topTable(fit2, coef = 5, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable12.5_14.5_p001, file = "topTable12.5_14.5_p001.csv")
+topTable14.5_16.5_p001 = topTable(fit2, coef = 6, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable14.5_16.5_p001, file = "topTable14.5_16.5_p001.csv")
+topTable16.5_18.5_p001 = topTable(fit2, coef = 7, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable16.5_18.5_p001, file = "topTable16.5_18.5_p001.csv")
+
+
+# annotating differentialy expressed genes
+
+deg_list_p001 = list(topTable7.5_8.5_p001, topTable8.5_9.5_p001, topTable9.5_10.5_p001, topTable10.5_12.5_p001, topTable12.5_14.5_p001, topTable14.5_16.5_p001, topTable16.5_18.5_p001)
+deg_list_p001 = lapply(deg_list_p001, function(x) merge(x, tra_anno, by.x = "AFFY.Mouse430.2.probe", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
+
+
+#splitting of the list into dataframes
+
+setwd("./annotated")
+
+anno_7.5_8.5_p001 = deg_list_p001[[1]]
+anno_7.5_8.5_p001 = anno_7.5_8.5_p001[!duplicated(anno_7.5_8.5_p001$AFFY.Mouse430.2.probe),]
+write.csv(anno_7.5_8.5_p001, file = "anno_7.5_8.5_p001.csv")
+
+anno_8.5_9.5_p001 = deg_list_p001[[2]]
+anno_8.5_9.5_p001 = anno_8.5_9.5_p001[!duplicated(anno_8.5_9.5_p001$AFFY.Mouse430.2.probe),]
+write.csv(anno_8.5_9.5_p001, file = "anno_8.5_9.5_p001.csv")
+
+anno_9.5_10.5_p001 = deg_list_p001[[3]]
+anno_9.5_10.5_p001 = anno_9.5_10.5_p001[!duplicated(anno_9.5_10.5_p001$AFFY.Mouse430.2.probe),]
+write.csv(anno_9.5_10.5_p001, file = "anno_9.5_10.5_p001.csv")
+
+anno_10.5_12.5_p001 = deg_list_p001[[4]]
+anno_10.5_12.5_p001 = anno_10.5_12.5_p001[!duplicated(anno_10.5_12.5_p001$AFFY.Mouse430.2.probe),]
+write.csv(anno_10.5_12.5_p001, file = "anno_10.5_12.5_p001.csv")
+
+anno_12.5_14.5_p001 = deg_list_p001[[5]]
+anno_12.5_14.5_p001 = anno_12.5_14.5_p001[!duplicated(anno_12.5_14.5_p001$AFFY.Mouse430.2.probe),]
+write.csv(anno_12.5_14.5_p001, file = "anno_12.5_14.5_p001.csv")
+
+anno_14.5_16.5_p001 = deg_list_p001[[6]]
+anno_14.5_16.5_p001 = anno_14.5_16.5_p001[!duplicated(anno_14.5_16.5_p001$AFFY.Mouse430.2.probe),]
+write.csv(anno_14.5_16.5_p001, file = "anno_14.5_16.5_p001.csv")
+
+anno_16.5_18.5_p001 = deg_list_p001[[7]]
+anno_16.5_18.5_p001 = anno_16.5_18.5_p001[!duplicated(anno_16.5_18.5_p001$AFFY.Mouse430.2.probe),]
+write.csv(anno_16.5_18.5_p001, file = "anno_16.5_18.5_p001.csv")
+
+
+#barplots 
+
+setwd("./../../../plots/limma_TRAs/Barplots_p001")
+
+degs_barplot_names = c("7.5 and 8.5", "8.5 and 9.5", "9.5 and 10.5", "10.5 and 12.5", "12.5 and 14.5", "14.5 and 16.5", "16.5 and 18.5")
+save_degs_barplot_names = c("7.5_8.5", "8.5_9.5", "9.5_10.5", "10.5_12.5", "12.5_14.5", "14.5_16.5", "16.5_18.5")
+
+for (i in 1:length(deg_list_p001)){
+  ggplot(data = deg_list_p001[[i]]) +
+    geom_bar(mapping = aes(x = max.tissue, fill = max.tissue), show.legend = FALSE) +
+    coord_flip() +
+    ggtitle(paste("Differentially expressed genes (p=0.001) between", degs_barplot_names[i], sep = " ", collapse= NULL))+
+    theme(plot.title = element_text(hjust = 0.5))
+  ggsave(paste("barplot_", save_degs_barplot_names[i], "p001.jpeg"), width = 12, height = 10)
+}
+
+
+l
+#############################################
+#k-means clustering ----
+#############################################
+
+set.seed(123456)
 
 #Load Annotated DGE Files in Environment
 setwd("./raw_data")
@@ -1015,7 +989,7 @@ volcanoplot(fit2, 1, "p-value", 50, names=names, hl.col= "orange", xlab="Log2 Fo
 
 dev.copy2pdf(file="volcano_plot",width=15, height=15)
 
-#fit2[["genes"]][["Row.names"]] to get the names from the fit2 list
+#fit2[["genes"]][["AFFY.Mouse430.2.probe"]] to get the names from the fit2 list
 
 
 
@@ -1217,169 +1191,10 @@ p4.1
 ggsave("barplot_tras_in_the_dataset_2.jpg", width = 12, height = 10)
 
 
-#############################################
-#limma for TRAs p=0.05
-#############################################
-
-
-tra_data_not_anno = tra_data[,2:22]
-setwd("./plots")
-tra_anno = read.csv("tra_anno.csv")
-
-#setwd("./limma_TRA")
-
-# all-in-one limma
-#-----------------
-
-design = model.matrix(~ 0+factor(c(1,1,1,2,2,2,3,3,3,4,4,4,5,5,6,6,7,7,8,8)))
-colnames(design) = c("Day_7.5", "Day_8.5", "Day_9.5", "Day_10.5", "Day_12.5", "Day_14.5", "Day_16.5", "Day_18.5")
-fit = lmFit(tra_data_not_anno, design) #Fit linear model for each gene given a series of arrays
-
-# making pairwise comparisons
-
-contrast.matrix = makeContrasts(Day_7.5-Day_8.5, Day_8.5-Day_9.5, Day_9.5-Day_10.5, Day_10.5-Day_12.5, Day_12.5-Day_14.5, Day_14.5-Day_16.5, Day_16.5-Day_18.5, levels = design)
-fit2 = contrasts.fit(fit, contrast.matrix)
-fit2 = eBayes(fit2)
-
-#extracting a list of top exressed genes
-
-topTable7.5_8.5 = topTable(fit2, coef = 1, adjust.method="BH", p.value = 0.05, number = 6631)
-write.csv(topTable7.5_8.5, file = "topTable7.5_8.5.csv")
-topTable8.5_9.5 = topTable(fit2, coef = 2, adjust.method="BH", p.value = 0.05, number = 6631)
-write.csv(topTable8.5_9.5, file = "topTable8.5_9.5.csv")
-topTable9.5_10.5 = topTable(fit2, coef = 3, adjust.method="BH", p.value = 0.05, number = 6631)
-write.csv(topTable9.5_10.5, file = "topTable9.5_10.5.csv")
-topTable10.5_12.5 = topTable(fit2, coef = 4, adjust.method="BH", p.value = 0.05, number = 6631)
-write.csv(topTable10.5_12.5, file = "topTable10.5_12.5.csv")
-topTable12.5_14.5 = topTable(fit2, coef = 5, adjust.method="BH", p.value = 0.05, number = 6631)
-write.csv(topTable12.5_14.5, file = "topTable12.5_14.5.csv")
-topTable14.5_16.5 = topTable(fit2, coef = 6, adjust.method="BH", p.value = 0.05, number = 6631)
-write.csv(topTable14.5_16.5, file = "topTable14.5_16.5.csv")
-topTable16.5_18.5 = topTable(fit2, coef = 7, adjust.method="BH", p.value = 0.05, number = 6631)
-write.csv(topTable16.5_18.5, file = "topTable16.5_18.5.csv")
-
-
-# annotating differentialy expressed genes
-
-deg_list = list(topTable7.5_8.5, topTable8.5_9.5, topTable9.5_10.5, topTable9.5_10.5, topTable10.5_12.5, topTable12.5_14.5, topTable14.5_16.5, topTable16.5_18.5)
-deg_list = lapply(deg_list, function(x) merge(x, tra_anno, by.x = "Row.names", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
-
-setwd("./deg")
-
-#splitting of the list into dataframes
-
-anno_7.5_8.5 = deg_list[[1]]
-anno_7.5_8.5 = anno_7.5_8.5[!duplicated(anno_7.5_8.5$Row.names),]
-write.csv(anno_7.5_8.5, file = "anno_7.5_8.5.csv")
-
-anno_8.5_9.5 = deg_list[[2]]
-anno_8.5_9.5 = anno_8.5_9.5[!duplicated(anno_8.5_9.5$Row.names),]
-write.csv(anno_8.5_9.5, file = "anno_8.5_9.5.csv")
-
-anno_9.5_10.5 = deg_list[[3]]
-anno_9.5_10.5 = anno_9.5_10.5[!duplicated(anno_9.5_10.5$Row.names),]
-write.csv(anno_9.5_10.5, file = "anno_9.5_10.5.csv")
-
-anno_10.5_12.5 = deg_list[[4]]
-anno_10.5_12.5 = anno_10.5_12.5[!duplicated(anno_10.5_12.5$Row.names),]
-write.csv(anno_10.5_12.5, file = "anno_10.5_12.5.csv")
-
-anno_12.5_14.5 = deg_list[[5]]
-anno_12.5_14.5 = anno_12.5_14.5[!duplicated(anno_12.5_14.5$Row.names),]
-write.csv(anno_12.5_14.5, file = "anno_12.5_14.5.csv")
-
-anno_14.5_16.5 = deg_list[[6]]
-anno_14.5_16.5 = anno_14.5_16.5[!duplicated(anno_14.5_16.5$Row.names),]
-write.csv(anno_14.5_16.5, file = "anno_14.5_16.5.csv")
-
-anno_16.5_18.5 = deg_list[[7]]
-anno_16.5_18.5 = anno_16.5_18.5[!duplicated(anno_16.5_18.5$Row.names),]
-write.csv(anno_16.5_18.5, file = "anno_16.5_18.5.csv")
-
-
-#barplots 
-
-setwd("./raw_data")
-setwd("./deg")
-anno_degs_filenames = list.files(pattern = "*.csv", full.names = TRUE)
-anno_degs = lapply(anno_degs_filenames, read.csv)
-
-degs_barplot_names = c("7.5 and 8.5", "8.5 and 9.5", "9.5 and 10.5", "10.5 and 12.5", "12.5 and 14.5", "14.5 and 16.5", "16.5 and 18.5")
-save_degs_barplot_names = c("7.5_8.5", "8.5_9.5", "9.5_10.5", "10.5_12.5", "12.5_14.5", "14.5_16.5", "16.5_18.5")
-
-for (i in 1:length(anno_degs)){
-  ggplot(data = anno_degs[[i]]) +
-    geom_bar(mapping = aes(x = X.max.tissue., fill = X.max.tissue.), show.legend = FALSE) +
-    coord_flip() +
-    ggtitle(paste("Differentially expressed genes between", degs_barplot_names[i], sep = " ", collapse= NULL))+
-    theme(plot.title = element_text(hjust = 0.5))
-  ggsave(paste("barplot_", save_degs_barplot_names[i], ".jpeg"), width = 12, height = 10)
-}
-
 
 
 #############################################
-#limma for TRAs p=0.01
-#############################################
-
-
-topTable7.5_8.5_p001 = topTable(fit2, coef = 1, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable7.5_8.5_p001, file = "topTable7.5_8.5_p001.csv")
-topTable8.5_9.5_p001 = topTable(fit2, coef = 2, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable8.5_9.5_p001, file = "topTable8.5_9.5_p001.csv")
-topTable9.5_10.5_p001 = topTable(fit2, coef = 3, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable9.5_10.5_p001, file = "topTable9.5_10.5_p001.csv")
-topTable10.5_12.5_p001 = topTable(fit2, coef = 4, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable10.5_12.5_p001, file = "topTable10.5_12.5_p001.csv")
-topTable12.5_14.5_p001 = topTable(fit2, coef = 5, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable12.5_14.5_p001, file = "topTable12.5_14.5_p001.csv")
-topTable14.5_16.5_p001 = topTable(fit2, coef = 6, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable14.5_16.5_p001, file = "topTable14.5_16.5_p001.csv")
-topTable16.5_18.5_p001 = topTable(fit2, coef = 7, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable16.5_18.5_p001, file = "topTable16.5_18.5_p001.csv")
-
-
-# annotating differentialy expressed genes
-
-deg_list_p001 = list(topTable7.5_8.5_p001, topTable8.5_9.5_p001, topTable9.5_10.5_p001, topTable9.5_10.5_p001, topTable10.5_12.5_p001, topTable12.5_14.5_p001, topTable14.5_16.5_p001, topTable16.5_18.5_p001)
-deg_list_p001 = lapply(deg_list_p001, function(x) merge(x, tra_anno, by.x = "Row.names", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
-
-setwd("./deg")
-
-#splitting of the list into dataframes
-
-anno_7.5_8.5_p001 = deg_list_p001[[1]]
-anno_7.5_8.5_p001 = anno_7.5_8.5_p001[!duplicated(anno_7.5_8.5_p001$Row.names),]
-write.csv(anno_7.5_8.5_p001, file = "anno_7.5_8.5_p001.csv")
-
-anno_8.5_9.5_p001 = deg_list_p001[[2]]
-anno_8.5_9.5_p001 = anno_8.5_9.5_p001[!duplicated(anno_8.5_9.5_p001$Row.names),]
-write.csv(anno_8.5_9.5_p001, file = "anno_8.5_9.5_p001.csv")
-
-anno_9.5_10.5_p001 = deg_list_p001[[3]]
-anno_9.5_10.5_p001 = anno_9.5_10.5_p001[!duplicated(anno_9.5_10.5_p001$Row.names),]
-write.csv(anno_9.5_10.5_p001, file = "anno_9.5_10.5_p001.csv")
-
-anno_10.5_12.5_p001 = deg_list_p001[[4]]
-anno_10.5_12.5_p001 = anno_10.5_12.5_p001[!duplicated(anno_10.5_12.5_p001$Row.names),]
-write.csv(anno_10.5_12.5_p001, file = "anno_10.5_12.5_p001.csv")
-
-anno_12.5_14.5_p001 = deg_list_p001[[5]]
-anno_12.5_14.5_p001 = anno_12.5_14.5_p001[!duplicated(anno_12.5_14.5_p001$Row.names),]
-write.csv(anno_12.5_14.5_p001, file = "anno_12.5_14.5_p001.csv")
-
-anno_14.5_16.5_p001 = deg_list_p001[[6]]
-anno_14.5_16.5_p001 = anno_14.5_16.5_p001[!duplicated(anno_14.5_16.5_p001$Row.names),]
-write.csv(anno_14.5_16.5_p001, file = "anno_14.5_16.5_p001.csv")
-
-anno_16.5_18.5_p001 = deg_list_p001[[7]]
-anno_16.5_18.5_p001 = anno_16.5_18.5_p001[!duplicated(anno_16.5_18.5_p001$Row.names),]
-write.csv(anno_16.5_18.5_p001, file = "anno_16.5_18.5_p001.csv")
-
-
-
-#############################################
-#limma for Chemokines p=0.05
+#limma for Chemokines p=0.05 ----
 #############################################
 save.image(file='Data_Project.RData')
 
@@ -1517,6 +1332,155 @@ anno_chem_16.5_18.5 = anno_chem_16.5_18.5[!duplicated(anno_chem_16.5_18.5$X),]
 write.csv(anno_chem_16.5_18.5, file = "anno_chem_16.5_18.5.csv")
 
 
+
+#############################################
+#PCA for Chemokines----
+#############################################
+
+
+library("limma")
+library("Biobase")
+library("tidyverse")
+library("EMCluster")
+library("BAMMtools")
+
+
+chem_data2.pca <- prcomp(t(chem_data [,2:21]), center = TRUE, scale = TRUE)
+chem_data2.pca_unlist = unlist(chem_data2.pca)
+
+# Inspect new PCA object and its variation accounting
+chem_data2.pca.varprop <- chem_data2.pca %>% summary() %>% pluck("importance")
+chem_data2.pca.varprop[c(1,2), ]
+
+# Plot the PCAs agains each other until PC13 which includes 95% of the variance
+
+#PC1 v PC2
+pca_chem.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC1, y = PC2)) +
+  ggtitle("Chemokine PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem.fig
+
+dev.copy2pdf(file="Chem_PCA.pdf")
+
+
+#PC2 v PC3
+pca_chem_2v3.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC2, y = PC3)) +
+  ggtitle("Chemokine PC2 vs. PC3 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_2v3.fig
+
+dev.copy2pdf(file="Chem_PCA_2v3.pdf")
+
+
+#PC3 v PC4
+pca_chem_3v4.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC3, y = PC4)) +
+  ggtitle("Chemokine PC3 vs. PC4 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_3v4.fig
+
+dev.copy2pdf(file="Chem_PCA_3v4.pdf")
+
+
+#PC4 v PC5
+pca_chem_4v5.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC4, y = PC5)) +
+  ggtitle("Chemokine PC4 vs. PC5 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_4v5.fig
+
+dev.copy2pdf(file="Chem_PCA_4v5.pdf")
+
+
+#PC5 v PC6
+pca_chem_5v6.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC5, y = PC6)) +
+  ggtitle("Chemokine PC5 vs. PC6 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_5v6.fig
+
+dev.copy2pdf(file="Chem_PCA_5v6.pdf")
+
+
+#PC6 v PC7
+pca_chem_6v7.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC6, y = PC7)) +
+  ggtitle("Chemokine PC6 vs. PC7 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_6v7.fig
+
+dev.copy2pdf(file="Chem_PCA_6v7.pdf")
+
+
+#PC7 v PC8
+pca_chem_7v8.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC7, y = PC8)) +
+  ggtitle("Chemokine PC7 vs. PC8 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_7v8.fig
+
+dev.copy2pdf(file="Chem_PCA_7v8.pdf")
+
+
+#PC8 v PC9
+pca_chem_8v9.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC8, y = PC9)) +
+  ggtitle("Chemokine PC8 vs. PC9 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_8v9.fig
+
+dev.copy2pdf(file="Chem_PCA_8v9.pdf")
+
+
+#PC9 v PC10
+pca_chem_9v10.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC9, y = PC10)) +
+  ggtitle("Chemokine PC9 vs. PC10 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_9v10.fig
+
+dev.copy2pdf(file="Chem_PCA_9v10.pdf")
+
+#PC10 v PC11
+pca_chem_10v11.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC10, y = PC11)) +
+  ggtitle("Chemokine PC10 vs. PC11 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_10v11.fig
+
+dev.copy2pdf(file="Chem_PCA_10v11.pdf")
+
+#PC11 v PC12
+pca_chem_11v12.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC11, y = PC12)) +
+  ggtitle("Chemokine PC11 vs. PC12 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_11v12.fig
+
+dev.copy2pdf(file="Chem_PCA_11v12.pdf")
+
+#PC12 v PC13
+pca_chem_12v13.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
+  geom_point(aes(x = PC12, y = PC13)) +
+  ggtitle("Chemokine PC12 vs. PC13 PCA") +
+  aes(color = Days, legend = FALSE)
+
+pca_chem_12v13.fig
+
+dev.copy2pdf(file="Chem_PCA_12v13.pdf")
 
 
 
