@@ -1,0 +1,85 @@
+# all-in-one limma for Chemokines with p=0.01
+
+
+#extracting a list of top expressed genes
+#create a table of top genes from linear model fit via topTable
+
+topTable_chem_7.5_8.5_p001 = topTable(fit2_chem, coef = 1, adjust.method="BH", p.value = 0.01, number = 6631) 
+write.csv(topTable_chem_7.5_8.5_p001, file = "topTable_chem_7.5_8.5_p001.csv")
+topTable_chem_8.5_9.5_p001 = topTable(fit2_chem, coef = 2, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_8.5_9.5_p001, file = "topTable_chem_8.5_9.5_p001.csv")
+topTable_chem_9.5_10.5_p001 = topTable(fit2_chem, coef = 3, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_9.5_10.5_p001, file = "topTable_chem_9.5_10.5_p001.csv")
+topTable_chem_10.5_12.5_p001 = topTable(fit2_chem, coef = 4, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_10.5_12.5_p001, file = "topTable_chem_10.5_12.5_p001.csv")
+topTable_chem_12.5_14.5_p001 = topTable(fit2_chem, coef = 5, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_12.5_14.5_p001, file = "topTable_chem_12.5_14.5_p001.csv")
+topTable_chem_14.5_16.5_p001 = topTable(fit2_chem, coef = 6, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_14.5_16.5_p001, file = "topTable_chem_14.5_16.5_p001.csv")
+topTable_chem_16.5_18.5_p001 = topTable(fit2_chem, coef = 7, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_16.5_18.5_p001, file = "topTable_chem_16.5_18.5_p001.csv")
+
+
+# annotating differentially expressed genes
+
+deg_list_chem_p001 = list(topTable_chem_7.5_8.5_p001, topTable_chem_8.5_9.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_10.5_12.5_p001, topTable_chem_12.5_14.5_p001, topTable_chem_14.5_16.5_p001, topTable_chem_16.5_18.5_p001)
+deg_list_chem_p001 = lapply(deg_list_chem_p001, function(x) merge(x, anno_chem, by.x = "X", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
+
+setwd("./deg_chem")
+
+#splitting of the list into dataframes
+
+anno_chem_7.5_8.5_p001 = deg_list_chem_p001[[1]]
+anno_chem_7.5_8.5_p001 = anno_chem_7.5_8.5_p001[!duplicated(anno_chem_7.5_8.5_p001$X),]
+write.csv(anno_chem_7.5_8.5_p001, file = "anno_chem_7.5_8.5_p001.csv")
+
+anno_chem_8.5_9.5_p001 = deg_list_chem_p001[[2]]
+anno_chem_8.5_9.5_p001 = anno_chem_8.5_9.5_p001[!duplicated(anno_chem_8.5_9.5_p001$X),]
+write.csv(anno_chem_8.5_9.5_p001, file = "anno_chem_8.5_9.5_p001.csv")
+
+anno_chem_9.5_10.5_p001 = deg_list_chem_p001[[3]]
+anno_chem_9.5_10.5_p001 = anno_chem_9.5_10.5_p001[!duplicated(anno_chem_9.5_10.5_p001$X),]
+write.csv(anno_chem_9.5_10.5_p001, file = "anno_chem_9.5_10.5_p001.csv")
+
+anno_chem_10.5_12.5_p001 = deg_list_chem_p001[[4]]
+anno_chem_10.5_12.5_p001 = anno_chem_10.5_12.5_p001[!duplicated(anno_chem_10.5_12.5_p001$X),]
+write.csv(anno_chem_10.5_12.5_p001, file = "anno_chem_10.5_12.5_p001.csv")
+
+anno_chem_12.5_14.5_p001 = deg_list_chem_p001[[5]]
+anno_chem_12.5_14.5_p001 = anno_chem_12.5_14.5_p001[!duplicated(anno_chem_12.5_14.5_p001$X),]
+write.csv(anno_chem_12.5_14.5_p001, file = "anno_chem_12.5_14.5_p001.csv")
+
+anno_chem_14.5_16.5_p001 = deg_list_chem_p001[[6]]
+anno_chem_14.5_16.5_p001 = anno_chem_14.5_16.5_p001[!duplicated(anno_chem_14.5_16.5_p001$X),]
+write.csv(anno_chem_14.5_16.5_p001, file = "anno_chem_14.5_16.5_p001.csv")
+
+anno_chem_16.5_18.5_p001 = deg_list_chem_p001[[7]]
+anno_chem_16.5_18.5_p001 = anno_chem_16.5_18.5_p001[!duplicated(anno_chem_16.5_18.5_p001$X),]
+write.csv(anno_chem_16.5_18.5_p001, file = "anno_chem_16.5_18.5_p001.csv")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

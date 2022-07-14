@@ -1,0 +1,161 @@
+save.image(file='Data_Project.RData')
+
+load('Data_Project.RData')
+
+#annotating chemokines
+
+setwd("rawdata")
+library(readr)
+anno_chem = read_table("mart_export_chemokines.txt")
+
+chemokines = grep("chemokine",anno_chem$Gene.description)
+anno_chem = anno_chem[chemokines,]
+anno_chem = as.data.frame(anno_chem)
+write.csv(anno_chem, file = "anno_chem.csv")
+
+anno_chem = read.csv(file = "anno_chem.csv")
+
+
+#load our main data frame
+
+setwd("./rawdata")
+eset = read.csv("eset.csv")
+
+#----------------------------------------
+#Exploratory Data Analysis for Chemokines
+#----------------------------------------
+
+
+
+chem_data = merge(eset, anno_chem, by.x = "X", by.y = "AFFY.Mouse430.2.probe", all = FALSE)
+chem_data = chem_data[!duplicated(chem_data$X),]
+chem_data = chem_data[,1:21]
+rownames(chem_data) = chem_data$X
+chem_data = chem_data[, 2:21]
+write.csv(chem_data, file = "chem_data.csv")
+
+#> chem_data = read.csv("chem_data.csv", row.names = 1)
+
+
+
+#Differential expression
+
+#GSM701716 	[E-MTAB-368] Mouse developmental stage E7.5 1
+#GSM701717 	[E-MTAB-368] Mouse developmental stage E7.5 2
+#GSM701718 	[E-MTAB-368] Mouse developmental stage E7.5 3
+#GSM701719 	[E-MTAB-368] Mouse developmental stage E8.5 1
+#GSM701720 	[E-MTAB-368] Mouse developmental stage E8.5 2
+#GSM701721 	[E-MTAB-368] Mouse developmental stage E8.5 3
+#GSM701722 	[E-MTAB-368] Mouse developmental stage E9.5 1
+#GSM701723 	[E-MTAB-368] Mouse developmental stage E9.5 2
+#GSM701724 	[E-MTAB-368] Mouse developmental stage E9.5 3
+#GSM701725 	[E-MTAB-368] Mouse developmental stage E10.5 1
+#GSM701726 	[E-MTAB-368] Mouse developmental stage E10.5 2
+#GSM701727 	[E-MTAB-368] Mouse developmental stage E10.5 3
+#GSM701728 	[E-MTAB-368] Mouse developmental stage E12.5 1
+#GSM701729 	[E-MTAB-368] Mouse developmental stage E12.5 2
+#GSM701730 	[E-MTAB-368] Mouse developmental stage E14.5 1
+#GSM701731 	[E-MTAB-368] Mouse developmental stage E14.5 2
+#GSM701732 	[E-MTAB-368] Mouse developmental stage E16.5 1
+#GSM701733 	[E-MTAB-368] Mouse developmental stage E16.5 2
+#GSM701734 	[E-MTAB-368] Mouse developmental stage E18.5 1
+#GSM701735 	[E-MTAB-368] Mouse developmental stage E18.5 2
+
+chem_data_not_anno = chem_data#[,1:20] #von row.names bis zum letzten Chip.
+
+
+# all-in-one limma
+#-----------------
+
+design = model.matrix(~ 0+factor(c(1,1,1,2,2,2,3,3,3,4,4,4,5,5,6,6,7,7,8,8)))
+colnames(design) = c("Day_7.5", "Day_8.5", "Day_9.5", "Day_10.5", "Day_12.5", "Day_14.5", "Day_16.5", "Day_18.5")
+fit = lmFit(chem_data_not_anno, design) #Fit linear model for each gene given a series of arrays
+
+# making pairwise comparisons
+
+contrast.matrix_chem = makeContrasts(Day_7.5-Day_8.5, Day_8.5-Day_9.5, Day_9.5-Day_10.5, Day_10.5-Day_12.5, Day_12.5-Day_14.5, Day_14.5-Day_16.5, Day_16.5-Day_18.5, levels = design)
+fit2_chem = contrasts.fit(fit, contrast.matrix_chem)
+fit2_chem = eBayes(fit2_chem)
+
+#extracting a list of top expressed genes
+#create a table of top genes from linear model fit via topTable
+
+topTable_chem_7.5_8.5 = topTable(fit2_chem, coef = 1, adjust.method="BH", p.value = 0.05, number = 6631) #104 for chem
+write.csv(topTable_chem_7.5_8.5, file = "topTable_chem_7.5_8.5.csv")
+topTable_chem_8.5_9.5 = topTable(fit2_chem, coef = 2, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable_chem_8.5_9.5, file = "topTable_chem_8.5_9.5.csv")
+topTable_chem_9.5_10.5 = topTable(fit2_chem, coef = 3, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable_chem_9.5_10.5, file = "topTable_chem_9.5_10.5.csv")
+topTable_chem_10.5_12.5 = topTable(fit2_chem, coef = 4, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable_chem_10.5_12.5, file = "topTable_chem_10.5_12.5.csv")
+topTable_chem_12.5_14.5 = topTable(fit2_chem, coef = 5, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable_chem_12.5_14.5, file = "topTable_chem_12.5_14.5.csv")
+topTable_chem_14.5_16.5 = topTable(fit2_chem, coef = 6, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable_chem_14.5_16.5, file = "topTable_chem_14.5_16.5.csv")
+topTable_chem_16.5_18.5 = topTable(fit2_chem, coef = 7, adjust.method="BH", p.value = 0.05, number = 6631)
+write.csv(topTable_chem_16.5_18.5, file = "topTable_chem_16.5_18.5.csv")
+
+
+# annotating differentially expressed genes
+
+deg_list_chem = list(topTable_chem_7.5_8.5, topTable_chem_8.5_9.5, topTable_chem_9.5_10.5, topTable_chem_9.5_10.5, topTable_chem_10.5_12.5, topTable_chem_12.5_14.5, topTable_chem_14.5_16.5, topTable_chem_16.5_18.5)
+deg_list_chem = lapply(deg_list_chem, function(x) merge(x, anno_chem, by.x = "X", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
+
+setwd("./deg_chem")
+
+#splitting of the list into dataframes
+
+anno_chem_7.5_8.5 = deg_list_chem[[1]]
+anno_chem_7.5_8.5 = anno_chem_7.5_8.5[!duplicated(anno_chem_7.5_8.5$X),]
+write.csv(anno_chem_7.5_8.5, file = "anno_chem_7.5_8.5.csv")
+
+anno_chem_8.5_9.5 = deg_list_chem[[2]]
+anno_chem_8.5_9.5 = anno_chem_8.5_9.5[!duplicated(anno_chem_8.5_9.5$X),]
+write.csv(anno_chem_8.5_9.5, file = "anno_chem_8.5_9.5.csv")
+
+anno_chem_9.5_10.5 = deg_list_chem[[3]]
+anno_chem_9.5_10.5 = anno_chem_9.5_10.5[!duplicated(anno_chem_9.5_10.5$X),]
+write.csv(anno_chem_9.5_10.5, file = "anno_chem_9.5_10.5.csv")
+
+anno_chem_10.5_12.5 = deg_list_chem[[4]]
+anno_chem_10.5_12.5 = anno_chem_10.5_12.5[!duplicated(anno_chem_10.5_12.5$X),]
+write.csv(anno_chem_10.5_12.5, file = "anno_chem_10.5_12.5.csv")
+
+anno_chem_12.5_14.5 = deg_list_chem[[5]]
+anno_chem_12.5_14.5 = anno_chem_12.5_14.5[!duplicated(anno_chem_12.5_14.5$X),]
+write.csv(anno_chem_12.5_14.5, file = "anno_chem_12.5_14.5.csv")
+
+anno_chem_14.5_16.5 = deg_list_chem[[6]]
+anno_chem_14.5_16.5 = anno_chem_14.5_16.5[!duplicated(anno_chem_14.5_16.5$X),]
+write.csv(anno_chem_14.5_16.5, file = "anno_chem_14.5_16.5.csv")
+
+anno_chem_16.5_18.5 = deg_list_chem[[7]]
+anno_chem_16.5_18.5 = anno_chem_16.5_18.5[!duplicated(anno_chem_16.5_18.5$X),]
+write.csv(anno_chem_16.5_18.5, file = "anno_chem_16.5_18.5.csv")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

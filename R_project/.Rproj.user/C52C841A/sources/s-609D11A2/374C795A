@@ -1,0 +1,28 @@
+{
+    "id": "374C795A",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1657826486667.0,
+    "source_on_save": false,
+    "relative_order": 7,
+    "properties": {
+        "id": "d8422b7e367e450f84f43f2873a230c2",
+        "name": "deg_list_chem",
+        "title": "deg_list_chem",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 140682880221604,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1657826486667,
+    "read_only": false,
+    "read_only_alternatives": []
+}

@@ -829,102 +829,9 @@ for (i in 1:length(deg_list_p001)){
 #k-means clustering ----
 #############################################
 
-set.seed(123456)
+library(ggpubr)
 
-#Load Annotated DGE Files in Environment
-setwd("./raw_data")
-setwd("./deg")
-anno_7.5_8.5 = read.csv("anno_7.5_8.5.csv")
-anno_8.5_9.5 = read.csv("anno_8.5_9.5.csv")
-anno_9.5_10.5.csv = read.csv("anno_9.5_10.5.csv")
-anno_10.5_12.5.csv = read.csv("anno_10.5_12.5.csv")
-anno_12.5_14.5.csv = read.csv("anno_12.5_14.5.csv")
-anno_14.5_16.5.csv = read.csv("anno_14.5_16.5.csv")
-anno_16.5_18.5.csv = read.csv("anno_16.5_18.5.csv")
-
-#K MEANS CLUSTERING MIT K=4 UND DER WEG DAHIN
-#Versuch2
-k.max <- 15
-data <- anno_7.5_8.5_scaled
-wss <- sapply(1:k.max, 
-              function(k){kmeans(data, k, nstart=50,iter.max = 15 )$tot.withinss})
-wss
-plot(1:k.max, wss,
-     type="b", pch = 20, frame = FALSE, 
-     xlab="Number of clusters K",
-     ylab="Total within-clusters sum of squares",
-     main="Optimal Number of Clusters")
-dev.copy2pdf(file="anno_7.5_8.5_Elbow_method.pdf",width=15, height=8)
-
-
-
-#Compute k-means with k=4 for logfc and average expression
-km.res <- kmeans(anno_7.5_8.5[,3:4], 4, nstart = 25)
-
-#print the results gives a list
-print(km.res)
-
-#visualize the kmeans 
-fviz_cluster(km.res, data = anno_7.5_8.5[,3:4])
-dev.copy2pdf(file="anno_7.5_8.5_cluster_plot.pdf",width=15, height=15)
-
-#-------------------------------------------
-#get the X out of the chromosomes
-chrom_vec = anno_7.5_8.5$X.chrom.
-chrom_vec_nox = replace(chrom_vec,            # Replace values
-                        chrom_vec == "X",
-                        20)
-
-
-#kmeans via step by step guide -> needs to be done
-df = anno_7.5_8.5
-
-# Compute k-means with k = 4 and select colums of interest
-set.seed(123)
-res.km_df <- kmeans(scale(df[, c(3,4,21,23)]), 4, nstart = 25)
-# K-means clusters showing the group of each individuals
-res.km$cluster
-
-
-
-
-
-
-
-#k-means clustering
-#------------------
-
-
-set.seed(123)
-km.res <- kmeans(anno_7.5_8.5[, 3:4], centers = 4, nstart = 25)
-print(km.res)
-
-aggregate(anno_7.5_8.5[,3:4], by = list(cluster=km.res$cluster), mean) #shows means of each vaiables by 
-kmeans_7.5_8.5 = cbind(anno_7.5_8.5, cluster = km.res$cluster)
-
-top_7.5_8.5 = anno_7.5_8.5[order(abs(anno_7.5_8.5$logFC), decreasing = TRUE),]
-top100_7.5_8.5 = top_7.5_8.5[1:100,]
-
-
-
-
-
-#vizualisation of k-means clustering
-
-fviz_cluster(km.res, data = anno_7.5_8.5[,3:4],
-             geom = "point",
-             ellipse = TRUE,
-             ellipse.type = "convex",
-             main = "Cluster plot for day 7.5 to 8.5",
-)
-dd = anno_7.5_8.5[, c(3,4,21,23)]
-dd$X.chrom.[dd$X.chrom.=="X"] <- 20
-
-res.pca = prcomp(dd, scale = TRUE)
-
-
-
-#defining otimal number of clusters
+#defining optimal number of clusters using different methods
 
 set.seed(123)
 fviz_nbclust(anno_7.5_8.5[,3:4], kmeans, method = "wss") +
@@ -942,298 +849,124 @@ fviz_nbclust(anno_7.5_8.5[,3:4], kmeans, method = "silhouette")+
   labs(subtitle = "Silhouette method")
 
 
-ggscatter(kmeans_7.5_8.5,
-          x = "logFC", 
-          y = "AveExpr",
-          color = "X.max.tissue.",
-          title = "K-means clustering of differentially expressed genes between day 7.5 and 8.5",
-          xlab = "Log fold change",
-          ylab = "Average expression"
-)
-ggsave("ggg.jpg", width = 20, height = 20)
+#vizualisation of k-means clustering
+
+degs_kmeans_names = c("7.5 to 8.5", "8.5 to 9.5", "9.5 to 10.5", "10.5 to 12.5", "12.5 to 14.5", "14.5 to 16.5", "16.5 to 18.5")
+save_degs_kmeans_names = c("7.5_8.5", "8.5_9.5", "9.5_10.5", "10.5_12.5", "12.5_14.5", "14.5_16.5", "16.5_18.5")
 
 
+#p = 0.005
 
-ggscatter(top100_7.5_8.5,
-          x = "logFC", 
-          y = "AveExpr",
-          color = "X.max.tissue.",
-          size = 10,
-          title = "K-means clustering of differentially expressed genes between day 7.5 and 8.5",
-          xlab = "Log fold change",
-          ylab = "Average expression"
-)
-ggsave("ggg.jpg", width = 20, height = 20)
+setwd("./../../kmeans/kmeans_p005") 
 
-
-EnhancedVolcano(anno_7.5_8.5[,c(3,4,5,6,7,8,14)],
-                lab = anno_7.5_8.5$Gene.name,
-                x = "log2FoldChange",
-                y = "pvalue",
-                title = "7.5 vs 8.5",
-                FCcutoff = 1,
-                pointSize = 3,
-)
+set.seed(123456)
+for (i in 1:length(deg_list)){
+  fviz_cluster(kmeans(deg_list[[i]][,2:3], 4, nstart = 25), data = deg_list[[i]][, 2:3],
+               geom = "point",
+               ellipse = TRUE,
+               ellipse.type = "convex",
+               main = paste("Cluster plot for day" , degs_kmeans_names[i], sep = " ", collapse= NULL),
+               ylab = "Average expression")
+  ggsave(paste("Kmeans_" , save_degs_kmeans_names[i], "_p005.png"))
+}
 
 
+#p = 0.001
 
+setwd("./../kmeans_p001") 
 
-
-
-#############################################
-#volcano plot
-#############################################
-
-names=as.character(anno_7.5_8.5$Gene.name)
-volcanoplot(fit2, 1, "p-value", 50, names=names, hl.col= "orange", xlab="Log2 Fold Change", ylab=NULL, pch=16, cex=0.35)
-
-dev.copy2pdf(file="volcano_plot",width=15, height=15)
-
-#fit2[["genes"]][["AFFY.Mouse430.2.probe"]] to get the names from the fit2 list
-
-
-
-#Some other dude's guide
-
-data = cbind(anno_7.5_8.5$Gene.name, de)
-data
-colnames(data)=c("Gene.name", "logFC", "P.Value")
-
-#Volcano plots are basically scatter plots. I will use the adjusted pvalue (was it adjusted with the false discovery rate?)
-p1 = ggplot(data, aes(logFC, -log(P.Value,10))) + # -log10 conversion  
-  geom_point(size = 2/5) +
-  xlab(expression("log"[2]*"FC")) + 
-  ylab(expression("-log"[10]*"P.Value"))
-p1
-
-ggsave("barplot_tras_in_the_dataset.jpg", width = 12, height = 10)
-
-#How it would look like without the -log10
-p1.5 = ggplot(data, aes(logFC, P.Value)) +   
-  geom_point(size = 2/5) +
-  xlab(expression("log"[2]*"FC")) + 
-  ylab(expression("P.Value"))
-p1.5
-
-
-
-#The higher the position of a point, the more significant its value is (y axis). 
-#Points with positive fold change values (to the right) are up-regulated and 
-#points with negative fold change values (to the left) are down-regulated (x axis)
-
-#Adding colour to DEGs
-#DEGs are those with a logFC greater or equal to 2 and pvalue of 0.05 or less, adding the expression
-data <- data %>% 
-  mutate(
-    Expression = case_when(logFC >= log(2) &  P.Value<= 0.05 ~ "Up-regulated",
-                           logFC <= -log(2) & P.Value <= 0.05 ~ "Down-regulated",
-                           TRUE ~ "Unchanged")
-  )
-head(data) 
-
-#Map the column Expression to the colour aesthetic 
-p2 <- ggplot(data, aes(logFC, -log(P.Value,10))) +
-  geom_point(aes(color = Expression), size = 2/5) +
-  xlab(expression("log"[2]*"FC")) + 
-  ylab(expression("-log"[10]*"P.Value")) +
-  scale_color_manual(values = c("dodgerblue3", "gray50", "firebrick3")) +
-  guides(colour = guide_legend(override.aes = list(size=1.5))) 
-p2
-
-
-#Find out how many genes are up or down regulated or unchanged
-data %>% 
-  count(Expression) %>% 
-  knitr::kable()
-
-
-#Colour genes according to their significance level
-#First add another column with Significance, classify genes according to their significance thresholds
-#Did I just add a threshold on top of the already existing threshold?
-data <- data %>% 
-  mutate(
-    Significance = case_when(
-      abs(logFC) >= log(2) & P.Value <= 0.05 & P.Value > 0.01 ~ "P.Value 0.05", 
-      abs(logFC) >= log(2) & P.Value <= 0.01 & P.Value > 0.001 ~ "P.Value 0.01",
-      abs(logFC) >= log(2) & P.Value <= 0.001 ~ "P.Value 0.001", 
-      TRUE ~ "Unchanged")
-  )
-head(data) %>% 
-  knitr::kable()
-
-
-#Map colour of the points to their corresponding significance thresholds
-p3 <- ggplot(data, aes(logFC, -log(P.Value,10))) +
-  geom_point(aes(color = Significance), size = 2/5) +
-  xlab(expression("log"[2]*"FC")) + 
-  ylab(expression("-log"[10]*"P.Value")) +
-  scale_color_viridis_d() +
-  guides(colour = guide_legend(override.aes = list(size=1.5))) 
-
-p3
-
-
-#Counting how many genes are up- or down- regulated according to the different significance thresholds
-data %>% 
-  count(Expression, Significance) %>% 
-  knitr::kable()
-
-
-#Add labels to selected genes 
-top <- 10
-top_genes <- bind_rows(
-  data %>% 
-    filter(Expression == 'Up-regulated') %>% 
-    arrange(P.Value, desc(abs(logFC))) %>% 
-    head(top),
-  data %>% 
-    filter(Expression == 'Down-regulated') %>% 
-    arrange(P.Value, desc(abs(logFC))) %>% 
-    head(top)
-)
-top_genes %>% 
-  knitr::kable()
-
-
-p4 <-  p3 +
-  geom_label_repel(data = top_genes,
-                   mapping = aes(logFC, -log(P.Value,10), label = Gene.name),
-                   size = 2)
-p4
-
-ggsave("barplot_tras_in_the_dataset_a.jpg", width = 12, height = 10)
-
-
-
-
-
-
-#Now do the same thing without the condition that LogFC has to be greater than 2 fold
-
-data.1 <- data %>% 
-  mutate(
-    Expression = case_when(logFC > 0 &  P.Value<= 0.05 ~ "Up-regulated",
-                           logFC <= -0 & P.Value <= 0.05 ~ "Down-regulated",
-                           TRUE ~ "Unchanged")
-  )
-head(data.1) 
-
-#Map the column Expression to the colour aesthetic 
-p2.1 <- ggplot(data.1, aes(logFC, -log(P.Value,10))) +
-  geom_point(aes(color = Expression), size = 2/5) +
-  xlab(expression("log"[2]*"FC")) + 
-  ylab(expression("-log"[10]*"P.Value")) +
-  scale_color_manual(values = c("dodgerblue3", "firebrick3")) +
-  guides(colour = guide_legend(override.aes = list(size=1.5))) 
-p2.1
-
-
-#Find out how many genes are up or down regulated or unchanged
-data.1 %>% 
-  count(Expression) %>% 
-  knitr::kable()
-
-
-#Colour genes according to their significance level
-#First add another column with Significance, classify genes according to their significance thresholds
-#Did I just add a threshold on top of the already existing threshold?
-data.1 <- data.1 %>% 
-  mutate(
-    Significance = case_when(
-      P.Value <= 0.05 & P.Value > 0.01 ~ "P.Value 0.05", 
-      P.Value <= 0.01 & P.Value > 0.001 ~ "P.Value 0.01",
-      P.Value <= 0.001 ~ "P.Value 0.001", 
-      TRUE ~ "Unchanged")
-  )
-head(data.1) %>% 
-  knitr::kable()
-
-
-#Map colour of the points to their corresponding significance thresholds
-p3.1 <- ggplot(data.1, aes(logFC, -log(P.Value,10))) +
-  geom_point(aes(color = Significance), size = 2/5) +
-  xlab(expression("log"[2]*"FC")) + 
-  ylab(expression("-log"[10]*"P.Value")) +
-  scale_color_viridis_d() +
-  guides(colour = guide_legend(override.aes = list(size=1.5))) 
-
-p3.1
-
-
-#Counting how many genes are up- or down- regulated according to the different significance thresholds
-data.1 %>% 
-  count(Expression, Significance) %>% 
-  knitr::kable()
-
-
-#Add labels to selected genes 
-top <- 10
-top_genes.1 <- bind_rows(
-  data.1 %>% 
-    filter(Expression == 'Up-regulated') %>% 
-    arrange(P.Value, desc(abs(logFC))) %>% 
-    head(top),
-  data %>% 
-    filter(Expression == 'Down-regulated') %>% 
-    arrange(P.Value, desc(abs(logFC))) %>% 
-    head(top)
-)
-top_genes.1 %>% 
-  knitr::kable()
-
-
-p4.1 <-  p3.1 +
-  geom_label_repel(data = top_genes.1,
-                   mapping = aes(logFC, -log(P.Value,10), label = Gene.name),
-                   size = 2)
-p4.1
-
-ggsave("barplot_tras_in_the_dataset_2.jpg", width = 12, height = 10)
-
+set.seed(123456)
+for (i in 1:length(deg_list_p001)){
+  fviz_cluster(kmeans(deg_list_p001[[i]][,2:3], 4, nstart = 25), data = deg_list_p001[[i]][, 2:3],
+               geom = "point",
+               ellipse = TRUE,
+               ellipse.type = "convex",
+               main = paste("Cluster plot for day" , degs_kmeans_names[i], sep = " ", collapse= NULL),
+               ylab = "Average expression")
+  ggsave(paste("Kmeans_" , save_degs_kmeans_names[i], "_p001.png"))
+}
 
 
 
 #############################################
-#limma for Chemokines p=0.05 ----
+#Volcano plot----
 #############################################
-save.image(file='Data_Project.RData')
 
-load('Data_Project.RData')
 
-#annotating chemokines
+setwd("./../../volcanoplots/volcanoplots_p005")
 
-setwd("raw_data")
+for (i in 1:length(deg_list)){
+  name = paste("data_", i, sep = "")
+  name = deg_list[[i]][,c(16,2,5)]
+  colnames(name)=c("Gene.name", "logFC", "P.Value")
+  name <- name %>% 
+    mutate(
+      Expression = case_when(logFC >= log(2) &  P.Value<= 0.05 ~ "Up-regulated",
+                             logFC <= -log(2) & P.Value <= 0.05 ~ "Down-regulated",
+                             TRUE ~ "Unchanged"))
+  name <- name %>% 
+    mutate(
+      Significance = case_when(
+        abs(logFC) >= log(2) & P.Value <= 0.05 & P.Value > 0.01 ~ "P.Value 0.05", 
+        abs(logFC) >= log(2) & P.Value <= 0.01 & P.Value > 0.001 ~ "P.Value 0.01",
+        abs(logFC) >= log(2) & P.Value <= 0.001 ~ "P.Value 0.001",
+        TRUE ~ "Unchanged"))
+  top_genes <- bind_rows(
+    name %>% 
+      filter(Expression == 'Up-regulated') %>% 
+      arrange(P.Value, desc(abs(logFC))) %>% 
+      head(10),
+    name %>% 
+      filter(Expression == 'Down-regulated') %>% 
+      arrange(P.Value, desc(abs(logFC))) %>% 
+      head(10))
+  ggplot(name, aes(logFC, -log(P.Value,10))) +
+    geom_point(aes(color = Significance), size = 2/5) +
+    ggtitle(paste("Volcano plots for", degs_kmeans_names[i], ))
+  xlab(expression("log"[2]*"FC")) + 
+    ylab(expression("-log"[10]*"P.Value")) +
+    scale_color_viridis_d() +
+    guides(colour = guide_legend(override.aes = list(size=1.5))) +
+    geom_label_repel(data = top_genes,
+                     mapping = aes(logFC, -log(P.Value,10), label = Gene.name),
+                     size = 2)
+  ggsave(paste("Volcanoplot_", save_degs_kmeans_names[i], "_p005.png"))
+}
+
+data_x = c("data_1", "data_2", "data_3", "data_4", "data_5", "data_6", "data_7")
+
+
+
+#############################################
+#Chemokines ----
+#############################################
+
+#create chemokines annotation table
+
 library(readr)
+setwd("./../../../raw_data")
+
 anno_chem = read_table("mart_export_chemokines.txt")
 
+setwd("./../tables")
 chemokines = grep("chemokine",anno_chem$Gene.description)
 anno_chem = anno_chem[chemokines,]
 anno_chem = as.data.frame(anno_chem)
 write.csv(anno_chem, file = "anno_chem.csv")
 
-anno_chem = read.csv(file = "anno_chem.csv")
 
 
-#load our main data frame
-
-setwd("./raw_data")
-eset = read.csv("eset.csv")
-
-#----------------------------------------
-#Exploratory Data Analysis for Chemokines
-#----------------------------------------
+#############################################
+#Annotating Chemokines----
+#############################################
 
 
-
-chem_data = merge(eset, anno_chem, by.x = "X", by.y = "AFFY.Mouse430.2.probe", all = FALSE)
-chem_data = chem_data[!duplicated(chem_data$X),]
-chem_data = chem_data[,1:21]
-rownames(chem_data) = chem_data$X
-chem_data = chem_data[, 2:21]
+chem_data = merge(eset, anno_chem, by.x = 0, by.y = "AFFY.Mouse430.2.probe", all = FALSE)
+colnames(chem_data)[1] = "AFFY.Mouse430.2.probe"
+chem_data = chem_data[!duplicated(chem_data$AFFY.Mouse430.2.probe),]
+rownames(chem_data) = chem_data$AFFY.Mouse430.2.probe
+chem_data = chem_data[ -c(1) ]
 write.csv(chem_data, file = "chem_data.csv")
-
-#> chem_data = read.csv("chem_data.csv", row.names = 1)
-
 
 
 #Differential expression
@@ -1259,25 +992,31 @@ write.csv(chem_data, file = "chem_data.csv")
 #GSM701734 	[E-MTAB-368] Mouse developmental stage E18.5 1
 #GSM701735 	[E-MTAB-368] Mouse developmental stage E18.5 2
 
-chem_data_not_anno = chem_data#[,1:20] #von row.names bis zum letzten Chip.
+chem_data_not_anno = chem_data[,1:20]
 
 
-# all-in-one limma
-#-----------------
+# creating design matrices
 
 design = model.matrix(~ 0+factor(c(1,1,1,2,2,2,3,3,3,4,4,4,5,5,6,6,7,7,8,8)))
 colnames(design) = c("Day_7.5", "Day_8.5", "Day_9.5", "Day_10.5", "Day_12.5", "Day_14.5", "Day_16.5", "Day_18.5")
-fit = lmFit(chem_data_not_anno, design) #Fit linear model for each gene given a series of arrays
+fit_chem = lmFit(chem_data_not_anno, design) #Fit linear model for each gene given a series of arrays
 
 # making pairwise comparisons
 
 contrast.matrix_chem = makeContrasts(Day_7.5-Day_8.5, Day_8.5-Day_9.5, Day_9.5-Day_10.5, Day_10.5-Day_12.5, Day_12.5-Day_14.5, Day_14.5-Day_16.5, Day_16.5-Day_18.5, levels = design)
-fit2_chem = contrasts.fit(fit, contrast.matrix_chem)
+fit2_chem = contrasts.fit(fit_chem, contrast.matrix_chem)
 fit2_chem = eBayes(fit2_chem)
+
+
+
+#############################################
+#limma for Chemokines p=0.05 ----
+#############################################
 
 #extracting a list of top expressed genes
 #create a table of top genes from linear model fit via topTable
 
+setwd("./limma_chemokines_p005")
 topTable_chem_7.5_8.5 = topTable(fit2_chem, coef = 1, adjust.method="BH", p.value = 0.05, number = 6631) #104 for chem
 write.csv(topTable_chem_7.5_8.5, file = "topTable_chem_7.5_8.5.csv")
 topTable_chem_8.5_9.5 = topTable(fit2_chem, coef = 2, adjust.method="BH", p.value = 0.05, number = 6631)
@@ -1296,41 +1035,104 @@ write.csv(topTable_chem_16.5_18.5, file = "topTable_chem_16.5_18.5.csv")
 
 # annotating differentially expressed genes
 
-deg_list_chem = list(topTable_chem_7.5_8.5, topTable_chem_8.5_9.5, topTable_chem_9.5_10.5, topTable_chem_9.5_10.5, topTable_chem_10.5_12.5, topTable_chem_12.5_14.5, topTable_chem_14.5_16.5, topTable_chem_16.5_18.5)
-deg_list_chem = lapply(deg_list_chem, function(x) merge(x, anno_chem, by.x = "X", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
+deg_list_chem = list(topTable_chem_7.5_8.5, topTable_chem_8.5_9.5, topTable_chem_9.5_10.5, topTable_chem_10.5_12.5, topTable_chem_12.5_14.5, topTable_chem_14.5_16.5, topTable_chem_16.5_18.5)
+deg_list_chem = lapply(deg_list_chem, function(x) merge(x, anno_chem, by.x = "row.names", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
 
-setwd("./deg_chem")
+setwd("./annotated")
 
 #splitting of the list into dataframes
 
 anno_chem_7.5_8.5 = deg_list_chem[[1]]
-anno_chem_7.5_8.5 = anno_chem_7.5_8.5[!duplicated(anno_chem_7.5_8.5$X),]
+anno_chem_7.5_8.5 = anno_chem_7.5_8.5[!duplicated(anno_chem_7.5_8.5$row.nameas),]
 write.csv(anno_chem_7.5_8.5, file = "anno_chem_7.5_8.5.csv")
 
 anno_chem_8.5_9.5 = deg_list_chem[[2]]
-anno_chem_8.5_9.5 = anno_chem_8.5_9.5[!duplicated(anno_chem_8.5_9.5$X),]
+anno_chem_8.5_9.5 = anno_chem_8.5_9.5[!duplicated(anno_chem_8.5_9.5$row.nameas),]
 write.csv(anno_chem_8.5_9.5, file = "anno_chem_8.5_9.5.csv")
 
 anno_chem_9.5_10.5 = deg_list_chem[[3]]
-anno_chem_9.5_10.5 = anno_chem_9.5_10.5[!duplicated(anno_chem_9.5_10.5$X),]
+anno_chem_9.5_10.5 = anno_chem_9.5_10.5[!duplicated(anno_chem_9.5_10.5$row.nameas),]
 write.csv(anno_chem_9.5_10.5, file = "anno_chem_9.5_10.5.csv")
 
 anno_chem_10.5_12.5 = deg_list_chem[[4]]
-anno_chem_10.5_12.5 = anno_chem_10.5_12.5[!duplicated(anno_chem_10.5_12.5$X),]
+anno_chem_10.5_12.5 = anno_chem_10.5_12.5[!duplicated(anno_chem_10.5_12.5$row.nameas),]
 write.csv(anno_chem_10.5_12.5, file = "anno_chem_10.5_12.5.csv")
 
 anno_chem_12.5_14.5 = deg_list_chem[[5]]
-anno_chem_12.5_14.5 = anno_chem_12.5_14.5[!duplicated(anno_chem_12.5_14.5$X),]
+anno_chem_12.5_14.5 = anno_chem_12.5_14.5[!duplicated(anno_chem_12.5_14.5$row.nameas),]
 write.csv(anno_chem_12.5_14.5, file = "anno_chem_12.5_14.5.csv")
 
 anno_chem_14.5_16.5 = deg_list_chem[[6]]
-anno_chem_14.5_16.5 = anno_chem_14.5_16.5[!duplicated(anno_chem_14.5_16.5$X),]
+anno_chem_14.5_16.5 = anno_chem_14.5_16.5[!duplicated(anno_chem_14.5_16.5$row.nameas),]
 write.csv(anno_chem_14.5_16.5, file = "anno_chem_14.5_16.5.csv")
 
 anno_chem_16.5_18.5 = deg_list_chem[[7]]
-anno_chem_16.5_18.5 = anno_chem_16.5_18.5[!duplicated(anno_chem_16.5_18.5$X),]
+anno_chem_16.5_18.5 = anno_chem_16.5_18.5[!duplicated(anno_chem_16.5_18.5$row.nameas),]
 write.csv(anno_chem_16.5_18.5, file = "anno_chem_16.5_18.5.csv")
 
+
+#############################################
+#limma for Chemokines p=0.01 ----
+#############################################
+
+
+#extracting a list of top expressed genes
+#create a table of top genes from linear model fit via topTable
+
+setwd("./../../limma_chemokines_p001")
+
+topTable_chem_7.5_8.5_p001 = topTable(fit2_chem, coef = 1, adjust.method="BH", p.value = 0.01, number = 6631) 
+write.csv(topTable_chem_7.5_8.5_p001, file = "topTable_chem_7.5_8.5_p001.csv")
+topTable_chem_8.5_9.5_p001 = topTable(fit2_chem, coef = 2, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_8.5_9.5_p001, file = "topTable_chem_8.5_9.5_p001.csv")
+topTable_chem_9.5_10.5_p001 = topTable(fit2_chem, coef = 3, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_9.5_10.5_p001, file = "topTable_chem_9.5_10.5_p001.csv")
+topTable_chem_10.5_12.5_p001 = topTable(fit2_chem, coef = 4, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_10.5_12.5_p001, file = "topTable_chem_10.5_12.5_p001.csv")
+topTable_chem_12.5_14.5_p001 = topTable(fit2_chem, coef = 5, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_12.5_14.5_p001, file = "topTable_chem_12.5_14.5_p001.csv")
+topTable_chem_14.5_16.5_p001 = topTable(fit2_chem, coef = 6, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_14.5_16.5_p001, file = "topTable_chem_14.5_16.5_p001.csv")
+topTable_chem_16.5_18.5_p001 = topTable(fit2_chem, coef = 7, adjust.method="BH", p.value = 0.01, number = 6631)
+write.csv(topTable_chem_16.5_18.5_p001, file = "topTable_chem_16.5_18.5_p001.csv")
+
+
+# annotating differentially expressed genes
+
+deg_list_chem_p001 = list(topTable_chem_7.5_8.5_p001, topTable_chem_8.5_9.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_10.5_12.5_p001, topTable_chem_12.5_14.5_p001, topTable_chem_14.5_16.5_p001, topTable_chem_16.5_18.5_p001)
+deg_list_chem_p001 = lapply(deg_list_chem_p001, function(x) merge(x, anno_chem, by.x = "row.nameas", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
+
+setwd("./annotated")
+
+#splitting of the list into dataframes
+
+anno_chem_7.5_8.5_p001 = deg_list_chem_p001[[1]]
+anno_chem_7.5_8.5_p001 = anno_chem_7.5_8.5_p001[!duplicated(anno_chem_7.5_8.5_p001$row.nameas),]
+write.csv(anno_chem_7.5_8.5_p001, file = "anno_chem_7.5_8.5_p001.csv")
+
+anno_chem_8.5_9.5_p001 = deg_list_chem_p001[[2]]
+anno_chem_8.5_9.5_p001 = anno_chem_8.5_9.5_p001[!duplicated(anno_chem_8.5_9.5_p001$row.nameas),]
+write.csv(anno_chem_8.5_9.5_p001, file = "anno_chem_8.5_9.5_p001.csv")
+
+anno_chem_9.5_10.5_p001 = deg_list_chem_p001[[3]]
+anno_chem_9.5_10.5_p001 = anno_chem_9.5_10.5_p001[!duplicated(anno_chem_9.5_10.5_p001$row.nameas),]
+write.csv(anno_chem_9.5_10.5_p001, file = "anno_chem_9.5_10.5_p001.csv")
+
+anno_chem_10.5_12.5_p001 = deg_list_chem_p001[[4]]
+anno_chem_10.5_12.5_p001 = anno_chem_10.5_12.5_p001[!duplicated(anno_chem_10.5_12.5_p001$row.nameas),]
+write.csv(anno_chem_10.5_12.5_p001, file = "anno_chem_10.5_12.5_p001.csv")
+
+anno_chem_12.5_14.5_p001 = deg_list_chem_p001[[5]]
+anno_chem_12.5_14.5_p001 = anno_chem_12.5_14.5_p001[!duplicated(anno_chem_12.5_14.5_p001$row.nameas),]
+write.csv(anno_chem_12.5_14.5_p001, file = "anno_chem_12.5_14.5_p001.csv")
+
+anno_chem_14.5_16.5_p001 = deg_list_chem_p001[[6]]
+anno_chem_14.5_16.5_p001 = anno_chem_14.5_16.5_p001[!duplicated(anno_chem_14.5_16.5_p001$row.nameas),]
+write.csv(anno_chem_14.5_16.5_p001, file = "anno_chem_14.5_16.5_p001.csv")
+
+anno_chem_16.5_18.5_p001 = deg_list_chem_p001[[7]]
+anno_chem_16.5_18.5_p001 = anno_chem_16.5_18.5_p001[!duplicated(anno_chem_16.5_18.5_p001$row.nameas),]
+write.csv(anno_chem_16.5_18.5_p001, file = "anno_chem_16.5_18.5_p001.csv")
 
 
 #############################################
@@ -1484,66 +1286,7 @@ dev.copy2pdf(file="Chem_PCA_12v13.pdf")
 
 
 
-#############################################
-#limma for Chemokines p=0.01
-#############################################
 
-
-#extracting a list of top expressed genes
-#create a table of top genes from linear model fit via topTable
-
-topTable_chem_7.5_8.5_p001 = topTable(fit2_chem, coef = 1, adjust.method="BH", p.value = 0.01, number = 6631) 
-write.csv(topTable_chem_7.5_8.5_p001, file = "topTable_chem_7.5_8.5_p001.csv")
-topTable_chem_8.5_9.5_p001 = topTable(fit2_chem, coef = 2, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable_chem_8.5_9.5_p001, file = "topTable_chem_8.5_9.5_p001.csv")
-topTable_chem_9.5_10.5_p001 = topTable(fit2_chem, coef = 3, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable_chem_9.5_10.5_p001, file = "topTable_chem_9.5_10.5_p001.csv")
-topTable_chem_10.5_12.5_p001 = topTable(fit2_chem, coef = 4, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable_chem_10.5_12.5_p001, file = "topTable_chem_10.5_12.5_p001.csv")
-topTable_chem_12.5_14.5_p001 = topTable(fit2_chem, coef = 5, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable_chem_12.5_14.5_p001, file = "topTable_chem_12.5_14.5_p001.csv")
-topTable_chem_14.5_16.5_p001 = topTable(fit2_chem, coef = 6, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable_chem_14.5_16.5_p001, file = "topTable_chem_14.5_16.5_p001.csv")
-topTable_chem_16.5_18.5_p001 = topTable(fit2_chem, coef = 7, adjust.method="BH", p.value = 0.01, number = 6631)
-write.csv(topTable_chem_16.5_18.5_p001, file = "topTable_chem_16.5_18.5_p001.csv")
-
-
-# annotating differentially expressed genes
-
-deg_list_chem_p001 = list(topTable_chem_7.5_8.5_p001, topTable_chem_8.5_9.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_10.5_12.5_p001, topTable_chem_12.5_14.5_p001, topTable_chem_14.5_16.5_p001, topTable_chem_16.5_18.5_p001)
-deg_list_chem_p001 = lapply(deg_list_chem_p001, function(x) merge(x, anno_chem, by.x = "X", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
-
-setwd("./deg_chem")
-
-#splitting of the list into dataframes
-
-anno_chem_7.5_8.5_p001 = deg_list_chem_p001[[1]]
-anno_chem_7.5_8.5_p001 = anno_chem_7.5_8.5_p001[!duplicated(anno_chem_7.5_8.5_p001$X),]
-write.csv(anno_chem_7.5_8.5_p001, file = "anno_chem_7.5_8.5_p001.csv")
-
-anno_chem_8.5_9.5_p001 = deg_list_chem_p001[[2]]
-anno_chem_8.5_9.5_p001 = anno_chem_8.5_9.5_p001[!duplicated(anno_chem_8.5_9.5_p001$X),]
-write.csv(anno_chem_8.5_9.5_p001, file = "anno_chem_8.5_9.5_p001.csv")
-
-anno_chem_9.5_10.5_p001 = deg_list_chem_p001[[3]]
-anno_chem_9.5_10.5_p001 = anno_chem_9.5_10.5_p001[!duplicated(anno_chem_9.5_10.5_p001$X),]
-write.csv(anno_chem_9.5_10.5_p001, file = "anno_chem_9.5_10.5_p001.csv")
-
-anno_chem_10.5_12.5_p001 = deg_list_chem_p001[[4]]
-anno_chem_10.5_12.5_p001 = anno_chem_10.5_12.5_p001[!duplicated(anno_chem_10.5_12.5_p001$X),]
-write.csv(anno_chem_10.5_12.5_p001, file = "anno_chem_10.5_12.5_p001.csv")
-
-anno_chem_12.5_14.5_p001 = deg_list_chem_p001[[5]]
-anno_chem_12.5_14.5_p001 = anno_chem_12.5_14.5_p001[!duplicated(anno_chem_12.5_14.5_p001$X),]
-write.csv(anno_chem_12.5_14.5_p001, file = "anno_chem_12.5_14.5_p001.csv")
-
-anno_chem_14.5_16.5_p001 = deg_list_chem_p001[[6]]
-anno_chem_14.5_16.5_p001 = anno_chem_14.5_16.5_p001[!duplicated(anno_chem_14.5_16.5_p001$X),]
-write.csv(anno_chem_14.5_16.5_p001, file = "anno_chem_14.5_16.5_p001.csv")
-
-anno_chem_16.5_18.5_p001 = deg_list_chem_p001[[7]]
-anno_chem_16.5_18.5_p001 = anno_chem_16.5_18.5_p001[!duplicated(anno_chem_16.5_18.5_p001$X),]
-write.csv(anno_chem_16.5_18.5_p001, file = "anno_chem_16.5_18.5_p001.csv")
 
 
 
