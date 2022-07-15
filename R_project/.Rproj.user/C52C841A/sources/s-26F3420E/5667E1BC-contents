@@ -6,11 +6,13 @@ load('Data_Project.RData')
 
 setwd("rawdata")
 library(readr)
-anno_chem = read_table("mart_export_chemokines.txt")
+anno_chem = read_table("mart_export_chemokines.txt", col_names = TRUE)
 
 chemokines = grep("chemokine",anno_chem$Gene.description)
 anno_chem = anno_chem[chemokines,]
 anno_chem = as.data.frame(anno_chem)
+
+setwd("./../rawdata")
 write.csv(anno_chem, file = "anno_chem.csv")
 
 anno_chem = read.csv(file = "anno_chem.csv")
@@ -18,7 +20,6 @@ anno_chem = read.csv(file = "anno_chem.csv")
 
 #load our main data frame
 
-setwd("./rawdata")
 eset = read.csv("eset.csv")
 
 #----------------------------------------

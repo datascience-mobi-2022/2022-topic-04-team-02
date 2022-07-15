@@ -1043,31 +1043,31 @@ setwd("./annotated")
 #splitting of the list into dataframes
 
 anno_chem_7.5_8.5 = deg_list_chem[[1]]
-anno_chem_7.5_8.5 = anno_chem_7.5_8.5[!duplicated(anno_chem_7.5_8.5$row.nameas),]
+anno_chem_7.5_8.5 = anno_chem_7.5_8.5[!duplicated(anno_chem_7.5_8.5$Row.names),]
 write.csv(anno_chem_7.5_8.5, file = "anno_chem_7.5_8.5.csv")
 
 anno_chem_8.5_9.5 = deg_list_chem[[2]]
-anno_chem_8.5_9.5 = anno_chem_8.5_9.5[!duplicated(anno_chem_8.5_9.5$row.nameas),]
+anno_chem_8.5_9.5 = anno_chem_8.5_9.5[!duplicated(anno_chem_8.5_9.5$Row.names),]
 write.csv(anno_chem_8.5_9.5, file = "anno_chem_8.5_9.5.csv")
 
 anno_chem_9.5_10.5 = deg_list_chem[[3]]
-anno_chem_9.5_10.5 = anno_chem_9.5_10.5[!duplicated(anno_chem_9.5_10.5$row.nameas),]
+anno_chem_9.5_10.5 = anno_chem_9.5_10.5[!duplicated(anno_chem_9.5_10.5$Row.names),]
 write.csv(anno_chem_9.5_10.5, file = "anno_chem_9.5_10.5.csv")
 
 anno_chem_10.5_12.5 = deg_list_chem[[4]]
-anno_chem_10.5_12.5 = anno_chem_10.5_12.5[!duplicated(anno_chem_10.5_12.5$row.nameas),]
+anno_chem_10.5_12.5 = anno_chem_10.5_12.5[!duplicated(anno_chem_10.5_12.5$Row.names),]
 write.csv(anno_chem_10.5_12.5, file = "anno_chem_10.5_12.5.csv")
 
 anno_chem_12.5_14.5 = deg_list_chem[[5]]
-anno_chem_12.5_14.5 = anno_chem_12.5_14.5[!duplicated(anno_chem_12.5_14.5$row.nameas),]
+anno_chem_12.5_14.5 = anno_chem_12.5_14.5[!duplicated(anno_chem_12.5_14.5$Row.names),]
 write.csv(anno_chem_12.5_14.5, file = "anno_chem_12.5_14.5.csv")
 
 anno_chem_14.5_16.5 = deg_list_chem[[6]]
-anno_chem_14.5_16.5 = anno_chem_14.5_16.5[!duplicated(anno_chem_14.5_16.5$row.nameas),]
+anno_chem_14.5_16.5 = anno_chem_14.5_16.5[!duplicated(anno_chem_14.5_16.5$Row.names),]
 write.csv(anno_chem_14.5_16.5, file = "anno_chem_14.5_16.5.csv")
 
 anno_chem_16.5_18.5 = deg_list_chem[[7]]
-anno_chem_16.5_18.5 = anno_chem_16.5_18.5[!duplicated(anno_chem_16.5_18.5$row.nameas),]
+anno_chem_16.5_18.5 = anno_chem_16.5_18.5[!duplicated(anno_chem_16.5_18.5$Row.names),]
 write.csv(anno_chem_16.5_18.5, file = "anno_chem_16.5_18.5.csv")
 
 
@@ -1100,39 +1100,40 @@ write.csv(topTable_chem_16.5_18.5_p001, file = "topTable_chem_16.5_18.5_p001.csv
 # annotating differentially expressed genes
 
 deg_list_chem_p001 = list(topTable_chem_7.5_8.5_p001, topTable_chem_8.5_9.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_9.5_10.5_p001, topTable_chem_10.5_12.5_p001, topTable_chem_12.5_14.5_p001, topTable_chem_14.5_16.5_p001, topTable_chem_16.5_18.5_p001)
-deg_list_chem_p001 = lapply(deg_list_chem_p001, function(x) merge(x, anno_chem, by.x = "row.nameas", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
+deg_list_chem_p001 = lapply(deg_list_chem_p001, function(x) merge(x, anno_chem, by.x = "row.names", by.y = "AFFY.Mouse430.2.probe", all = FALSE))
 
 setwd("./annotated")
 
 #splitting of the list into dataframes
 
 anno_chem_7.5_8.5_p001 = deg_list_chem_p001[[1]]
-anno_chem_7.5_8.5_p001 = anno_chem_7.5_8.5_p001[!duplicated(anno_chem_7.5_8.5_p001$row.nameas),]
+anno_chem_7.5_8.5_p001 = anno_chem_7.5_8.5_p001[!duplicated(anno_chem_7.5_8.5_p001$Row.names),]
 write.csv(anno_chem_7.5_8.5_p001, file = "anno_chem_7.5_8.5_p001.csv")
 
 anno_chem_8.5_9.5_p001 = deg_list_chem_p001[[2]]
-anno_chem_8.5_9.5_p001 = anno_chem_8.5_9.5_p001[!duplicated(anno_chem_8.5_9.5_p001$row.nameas),]
+anno_chem_8.5_9.5_p001 = anno_chem_8.5_9.5_p001[!duplicated(anno_chem_8.5_9.5_p001$Row.names),]
 write.csv(anno_chem_8.5_9.5_p001, file = "anno_chem_8.5_9.5_p001.csv")
 
 anno_chem_9.5_10.5_p001 = deg_list_chem_p001[[3]]
-anno_chem_9.5_10.5_p001 = anno_chem_9.5_10.5_p001[!duplicated(anno_chem_9.5_10.5_p001$row.nameas),]
+anno_chem_9.5_10.5_p001 = anno_chem_9.5_10.5_p001[!duplicated(anno_chem_9.5_10.5_p001$Row.names),]
 write.csv(anno_chem_9.5_10.5_p001, file = "anno_chem_9.5_10.5_p001.csv")
 
 anno_chem_10.5_12.5_p001 = deg_list_chem_p001[[4]]
-anno_chem_10.5_12.5_p001 = anno_chem_10.5_12.5_p001[!duplicated(anno_chem_10.5_12.5_p001$row.nameas),]
+anno_chem_10.5_12.5_p001 = anno_chem_10.5_12.5_p001[!duplicated(anno_chem_10.5_12.5_p001$Row.names),]
 write.csv(anno_chem_10.5_12.5_p001, file = "anno_chem_10.5_12.5_p001.csv")
 
 anno_chem_12.5_14.5_p001 = deg_list_chem_p001[[5]]
-anno_chem_12.5_14.5_p001 = anno_chem_12.5_14.5_p001[!duplicated(anno_chem_12.5_14.5_p001$row.nameas),]
+anno_chem_12.5_14.5_p001 = anno_chem_12.5_14.5_p001[!duplicated(anno_chem_12.5_14.5_p001$Row.names),]
 write.csv(anno_chem_12.5_14.5_p001, file = "anno_chem_12.5_14.5_p001.csv")
 
 anno_chem_14.5_16.5_p001 = deg_list_chem_p001[[6]]
-anno_chem_14.5_16.5_p001 = anno_chem_14.5_16.5_p001[!duplicated(anno_chem_14.5_16.5_p001$row.nameas),]
+anno_chem_14.5_16.5_p001 = anno_chem_14.5_16.5_p001[!duplicated(anno_chem_14.5_16.5_p001$Row.names),]
 write.csv(anno_chem_14.5_16.5_p001, file = "anno_chem_14.5_16.5_p001.csv")
 
 anno_chem_16.5_18.5_p001 = deg_list_chem_p001[[7]]
-anno_chem_16.5_18.5_p001 = anno_chem_16.5_18.5_p001[!duplicated(anno_chem_16.5_18.5_p001$row.nameas),]
+anno_chem_16.5_18.5_p001 = anno_chem_16.5_18.5_p001[!duplicated(anno_chem_16.5_18.5_p001$Row.names),]
 write.csv(anno_chem_16.5_18.5_p001, file = "anno_chem_16.5_18.5_p001.csv")
+
 
 
 #############################################
@@ -1147,19 +1148,31 @@ library("EMCluster")
 library("BAMMtools")
 
 
-chem_data2.pca <- prcomp(t(chem_data [,2:21]), center = TRUE, scale = TRUE)
+chem_data2.pca <- prcomp(t(chem_data [,1:20]), center = TRUE, scale = TRUE)
 chem_data2.pca_unlist = unlist(chem_data2.pca)
 
 # Inspect new PCA object and its variation accounting
 chem_data2.pca.varprop <- chem_data2.pca %>% summary() %>% pluck("importance")
 chem_data2.pca.varprop[c(1,2), ]
 
-# Plot the PCAs agains each other until PC13 which includes 95% of the variance
+# Plot the PCAs against each other until PC13 which includes 95% of the variance
+
+setwd("./../../../plots/PCA/PCA_chemokines")
+
+
+autoplot(chem_data2.pca, label = FALSE, label.size = 2.5, ylim = c(-0.4, 0.4), xlim = c(-0.4, 0.5))+
+  aes(color = Days, legend = FALSE) +
+  ggtitle("Chemokines PCA")+
+  theme(plot.title = element_text(hjust = 0.5))
+
+dev.copy2pdf(file="chem_PCA_no_labels.pdf")
+
 
 #PC1 v PC2
 pca_chem.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC1, y = PC2)) +
   ggtitle("Chemokine PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem.fig
@@ -1171,6 +1184,7 @@ dev.copy2pdf(file="Chem_PCA.pdf")
 pca_chem_2v3.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC2, y = PC3)) +
   ggtitle("Chemokine PC2 vs. PC3 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_2v3.fig
@@ -1182,6 +1196,7 @@ dev.copy2pdf(file="Chem_PCA_2v3.pdf")
 pca_chem_3v4.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC3, y = PC4)) +
   ggtitle("Chemokine PC3 vs. PC4 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_3v4.fig
@@ -1193,6 +1208,7 @@ dev.copy2pdf(file="Chem_PCA_3v4.pdf")
 pca_chem_4v5.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC4, y = PC5)) +
   ggtitle("Chemokine PC4 vs. PC5 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_4v5.fig
@@ -1204,6 +1220,7 @@ dev.copy2pdf(file="Chem_PCA_4v5.pdf")
 pca_chem_5v6.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC5, y = PC6)) +
   ggtitle("Chemokine PC5 vs. PC6 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_5v6.fig
@@ -1214,7 +1231,8 @@ dev.copy2pdf(file="Chem_PCA_5v6.pdf")
 #PC6 v PC7
 pca_chem_6v7.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC6, y = PC7)) +
-  ggtitle("Chemokine PC6 vs. PC7 PCA") +
+  ggtitle("Chemokine PC6 vs. PC7 PCA")+
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_6v7.fig
@@ -1225,7 +1243,8 @@ dev.copy2pdf(file="Chem_PCA_6v7.pdf")
 #PC7 v PC8
 pca_chem_7v8.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC7, y = PC8)) +
-  ggtitle("Chemokine PC7 vs. PC8 PCA") +
+  ggtitle("Chemokine PC7 vs. PC8 PCA")+
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_7v8.fig
@@ -1236,7 +1255,8 @@ dev.copy2pdf(file="Chem_PCA_7v8.pdf")
 #PC8 v PC9
 pca_chem_8v9.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC8, y = PC9)) +
-  ggtitle("Chemokine PC8 vs. PC9 PCA") +
+  ggtitle("Chemokine PC8 vs. PC9 PCA")+
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_8v9.fig
@@ -1248,6 +1268,7 @@ dev.copy2pdf(file="Chem_PCA_8v9.pdf")
 pca_chem_9v10.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC9, y = PC10)) +
   ggtitle("Chemokine PC9 vs. PC10 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_9v10.fig
@@ -1258,6 +1279,7 @@ dev.copy2pdf(file="Chem_PCA_9v10.pdf")
 pca_chem_10v11.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC10, y = PC11)) +
   ggtitle("Chemokine PC10 vs. PC11 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_10v11.fig
@@ -1268,6 +1290,7 @@ dev.copy2pdf(file="Chem_PCA_10v11.pdf")
 pca_chem_11v12.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC11, y = PC12)) +
   ggtitle("Chemokine PC11 vs. PC12 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_11v12.fig
@@ -1278,20 +1301,12 @@ dev.copy2pdf(file="Chem_PCA_11v12.pdf")
 pca_chem_12v13.fig <- ggplot(chem_data2.pca$x %>% as.data.frame()) + 
   geom_point(aes(x = PC12, y = PC13)) +
   ggtitle("Chemokine PC12 vs. PC13 PCA") +
+  theme(plot.title = element_text(hjust = 0.5))+
   aes(color = Days, legend = FALSE)
 
 pca_chem_12v13.fig
 
 dev.copy2pdf(file="Chem_PCA_12v13.pdf")
-
-
-
-
-
-
-
-
-
 
 
 
@@ -1303,61 +1318,52 @@ dev.copy2pdf(file="Chem_PCA_12v13.pdf")
 
 BiocManager::install("org.Mm.eg.db")
 BiocManager::install("clusterProfiler")
-BiocManager::install("pathview")
 BiocManager::install("enrichplot")
 
 library(clusterProfiler)
 library(enrichplot)
 library(org.Mm.eg.db)
+library(DOSE)
 
+setwd("./../../GSEA")
 
 gsea_tra_7.5_8.5 = anno_7.5_8.5$logFC
-names(gsea_tra_7.5_8.5) = anno_7.5_8.5$X.entrezID.
+names(gsea_tra_7.5_8.5) = anno_7.5_8.5$entrezID
 gsea_tra_7.5_8.5 = na.omit(gsea_tra_7.5_8.5)
 gsea_tra_7.5_8.5 = sort(gsea_tra_7.5_8.5, decreasing = TRUE)
 
 gsea_tra_8.5_9.5 = anno_8.5_9.5$logFC
-names(gsea_tra_8.5_9.5) = anno_8.5_9.5$X.entrezID.
+names(gsea_tra_8.5_9.5) = anno_8.5_9.5$entrezID
 gsea_tra_8.5_9.5 = na.omit(gsea_tra_8.5_9.5)
 gsea_tra_8.5_9.5 = sort(gsea_tra_8.5_9.5, decreasing = TRUE)
 
 gsea_tra_9.5_10.5 = anno_9.5_10.5$logFC
-names(gsea_tra_9.5_10.5) = anno_9.5_10.5$X.entrezID.
+names(gsea_tra_9.5_10.5) = anno_9.5_10.5$entrezID
 gsea_tra_9.5_10.5 = na.omit(gsea_tra_9.5_10.5)
 gsea_tra_9.5_10.5 = sort(gsea_tra_9.5_10.5, decreasing = TRUE)
 
 gsea_tra_10.5_12.5 = anno_10.5_12.5$logFC
-names(gsea_tra_10.5_12.5) = anno_10.5_12.5$X.entrezID.
+names(gsea_tra_10.5_12.5) = anno_10.5_12.5$entrezID
 gsea_tra_10.5_12.5 = na.omit(gsea_tra_10.5_12.5)
 gsea_tra_10.5_12.5 = sort(gsea_tra_10.5_12.5, decreasing = TRUE)
 
 gsea_tra_12.5_14.5 = anno_12.5_14.5$logFC
-names(gsea_tra_12.5_14.5) = anno_12.5_14.5$X.entrezID.
+names(gsea_tra_12.5_14.5) = anno_12.5_14.5$entrezID
 gsea_tra_12.5_14.5 = na.omit(gsea_tra_12.5_14.5)
 gsea_tra_12.5_14.5 = sort(gsea_tra_12.5_14.5, decreasing = TRUE)
 
 gsea_tra_14.5_16.5 = anno_14.5_16.5$logFC
-names(gsea_tra_14.5_16.5) = anno_14.5_16.5$X.entrezID.
+names(gsea_tra_14.5_16.5) = anno_14.5_16.5$entrezID
 gsea_tra_14.5_16.5 = na.omit(gsea_tra_14.5_16.5)
 gsea_tra_14.5_16.5 = sort(gsea_tra_14.5_16.5, decreasing = TRUE)
 
 gsea_tra_16.5_18.5 = anno_16.5_18.5$logFC
-names(gsea_tra_16.5_18.5) = anno_16.5_18.5$X.entrezID.
+names(gsea_tra_16.5_18.5) = anno_16.5_18.5$entrezID
 gsea_tra_16.5_18.5 = na.omit(gsea_tra_16.5_18.5)
 gsea_tra_16.5_18.5 = sort(gsea_tra_16.5_18.5, decreasing = TRUE)
 
-gsea_list = list(gsea_tra_7.5_8.5, gsea_tra_8.5_9.5, gsea_tra_9.5_10.5, gsea_tra_10.5_12.5, gsea_tra_12.5_14.5, gsea_tra_14.5_16.5, gsea_tra_16.5_18.5)
-gsea_names = c("day 7.5 to 8.5", "day 8.5 to 9.5", "day 9.5 to 10.5", "day 10.5 to 12.5", "day 12.5 to 14.5", "day 14.5 to 16.5", "day 16.5 to 18.5")
-save_gsea_names = c("7.5_8.5", "8.5_9.5", "9.5_10.5", "10.5_12.5", "12.5_14.5", "14.5_16.5", "16.5_18.5")
-gse_names = c("gsea_1", "gsea_2", "gsea_3", "gsea_4", "gsea_5", "gsea_6", "gsea_7")
 
-setwd("./plots/GSEA")
-require(DOSE)
-
-
-
-
-#GSEA dotplotss with 20 categories
+#GSEA dotplots with 20 categories
 
 gse_1_20 = gseGO(geneList = gsea_tra_7.5_8.5,
                  ont = "BP",
@@ -1452,59 +1458,31 @@ ggsave("GSEA_16.5_18.5_20_Dotplot.jpeg", height = 18, width = 18)
 
 
 
-
-
-
 #############################################
-#Venn diagrams
+#Venn diagrams ----
 #############################################
 
+library(ggVennDiagram)
 
-
-anno_7.5_8.5 = read.csv("anno_7.5_8.5.csv")
-anno_8.5_9.5 = read.csv("anno_8.5_9.5.csv")
-anno_9.5_10.5 = read.csv("anno_9.5_10.5.csv")
-anno_10.5_12.5 = read.csv("anno_10.5_12.5.csv")
-anno_12.5_14.5 = read.csv("anno_12.5_14.5.csv")
-anno_14.5_16.5 = read.csv("anno_14.5_16.5.csv")
-anno_16.5_18.5 = read.csv("anno_16.5_18.5.csv")
-
-deg_list_tras = list(anno_7.5_8.5, anno_8.5_9.5, anno_9.5_10.5, anno_9.5_10.5, anno_10.5_12.5, anno_12.5_14.5, anno_14.5_16.5, anno_16.5_18.5)
-tops_names = c("7.5_8.5", "8.5_9.5", "9.5_10.5", "10.5_12.5", "12.5_14.5", "14.5_16.5", "16.5_18.5")
-
-for (i in length(deg_list_tras)) {
-  deg_list_tras[[i]] = deg_list_tras[[i]][(abs(deg_list_tras[[i]]$logFC) > 1.5),] 
-  name = paste("tops_", tops_names[i], sep = " ", collapse = NULL)
-  assign(name, deg_list_tras[[i]])
-  write.csv(paste("tops_", tops_names[i], ".scv")) 
-  
-}
-
+setwd("./../venndiagrams/logFC_higher_1.5")
 
 #select TRAs genes with absolute value of logFC > 1.5
 
 tops_7.5_8.5 = anno_7.5_8.5[abs(anno_7.5_8.5$logFC) > 1.5,] #79
-write.csv(tops_7.5_8.5, file = "tops_7.5_8.5.csv")
 tops_8.5_9.5 = anno_8.5_9.5[abs(anno_8.5_9.5$logFC) > 1.5,] #14
-write.csv(tops_8.5_9.5, file = "tops_8.5_9.5.csv")
 tops_9.5_10.5 = anno_9.5_10.5[abs(anno_9.5_10.5$logFC) > 1.5,] #12
-write.csv(tops_9.5_10.5, file = "tops_9.5_10.5.csv")
 tops_10.5_12.5 = anno_10.5_12.5[abs(anno_10.5_12.5$logFC) > 1.5,] #12
-write.csv(tops_10.5_12.5, file = "tops_10.5_12.5.csv")
 tops_12.5_14.5 = anno_12.5_14.5[abs(anno_12.5_14.5$logFC) > 1.5,] #23
-write.csv(tops_12.5_14.5, file = "tops_12.5_14.5.csv")
 tops_14.5_16.5 = anno_14.5_16.5[abs(anno_14.5_16.5$logFC) > 1.5,] #22
-write.csv(tops_14.5_16.5, file = "tops_14.5_16.5.csv")
 tops_16.5_18.5 = anno_16.5_18.5[abs(anno_16.5_18.5$logFC) > 1.5,] #44
-write.csv(tops_16.5_18.5, file = "tops_16.5_18.5.csv")
 
 
 #---------------------
-#venn diagrams of TRAs
-#---------------------
+#venn diagrams of TRAs----
 
 tops_list_tra_up = list(tops_7.5_8.5[tops_7.5_8.5$logFC > 0, 2], tops_8.5_9.5[tops_8.5_9.5$logFC > 0,2], tops_9.5_10.5[tops_9.5_10.5$logFC > 0,2], tops_10.5_12.5[tops_10.5_12.5$logFC > 0,2], tops_12.5_14.5[tops_12.5_14.5$logFC > 0,2], tops_14.5_16.5[tops_14.5_16.5$logFC > 0, 2], tops_16.5_18.5[tops_16.5_18.5 > 0, 2])
 tops_list_tra_down = list(tops_7.5_8.5[tops_7.5_8.5$logFC < 0, 2], tops_8.5_9.5[tops_8.5_9.5$logFC < 0,2], tops_9.5_10.5[tops_9.5_10.5$logFC < 0,2], tops_10.5_12.5[tops_10.5_12.5$logFC < 0,2], tops_12.5_14.5[tops_12.5_14.5$logFC < 0,2], tops_14.5_16.5[tops_14.5_16.5$logFC < 0, 2], tops_16.5_18.5[tops_16.5_18.5 > 0,2])
+
 
 #venn diagram of top up-regulted TRAs
 
@@ -1516,6 +1494,7 @@ ggVennDiagram(tops_list_tra_up,
   theme(plot.title = element_text(hjust = 0.5))+
   ggplot2::scale_fill_gradient(low = "blue", high = "yellow")
 ggsave("venn_diagram_top_tras_up.jpeg", width = 12, height = 10)
+
 
 #venn diagram of top down-regulated TRAs
 
@@ -1530,10 +1509,14 @@ ggsave("venn_diagram_top_tras_down.jpeg", width = 12, height = 10)
 
 venn_names = c("day 7 to 8", "day 8 to 9", "day 9 to 10", "day 10 to 12", "day 12 to 14", "day 14 to 16", "day 16 to 18")
 
+
+setwd("./../all")
+
 #venn diagram of all up-regulted TRAs
 
-list_tra_up = list(topTable_7.5_8.5[topTable_7.5_8.5$logFC > 0, 2], topTable_8.5_9.5[topTable_8.5_9.5$logFC > 0, 2], topTable_9.5_10.5[topTable_9.5_10.5$logFC > 0, 2], topTable_10.5_12.5[topTable_10.5_12.5$logFC > 0, 2], topTable_12.5_14.5[topTable_12.5_14.5$logFC > 0, 2], topTable_14.5_16.5[topTable_14.5_16.5$logFC > 0, 2], topTable_16.5_18.5[topTable_16.5_18.5 > 0, 2])
-list_tra_down = list(topTable_7.5_8.5[topTable_7.5_8.5$logFC < 0, 2], topTable_8.5_9.5[topTable_8.5_9.5$logFC < 0, ], topTable_9.5_10.5[topTable_9.5_10.5$logFC < 0, 2], topTable_10.5_12.5[topTable_10.5_12.5$logFC < 0, 2], topTable_12.5_14.5[topTable_12.5_14.5$logFC < 0, 2], topTable_14.5_16.5[topTable_14.5_16.5$logFC < 0, 2], topTable_16.5_18.5[topTable_16.5_18.5 > 0, 2])
+list_tra_up = list(anno_7.5_8.5[anno_7.5_8.5$logFC > 0, 3], anno_8.5_9.5[anno_8.5_9.5$logFC > 0, 3], anno_9.5_10.5[anno_9.5_10.5$logFC > 0, 3], anno_10.5_12.5[anno_10.5_12.5$logFC > 0, 3], anno_12.5_14.5[anno_12.5_14.5$logFC > 0, 3], anno_14.5_16.5[anno_14.5_16.5$logFC > 0, 3], anno_16.5_18.5[anno_16.5_18.5 > 0, 3])
+
+list_tra_down = list(anno_7.5_8.5[anno_7.5_8.5$logFC < 0, 3], anno_8.5_9.5[anno_8.5_9.5$logFC < 0, 3], anno_9.5_10.5[anno_9.5_10.5$logFC < 0, 3], anno_10.5_12.5[anno_10.5_12.5$logFC < 0, 3], anno_12.5_14.5[anno_12.5_14.5$logFC < 0, 3], anno_14.5_16.5[anno_14.5_16.5$logFC < 0, 3], anno_16.5_18.5[anno_16.5_18.5 > 0, 3])
 
 ggVennDiagram(list_tra_up,
               category.names = venn_names,
@@ -1544,6 +1527,7 @@ ggVennDiagram(list_tra_up,
   ggplot2::scale_fill_gradient(low = "blue", high = "yellow")
 ggsave("venn_diagram_all_tras_up.jpeg", width = 12, height = 10)
 ggsave("venn_diagram_all_tras_up.pdf", width = 12, height = 10)
+
 
 #venn diagram of all down-regulted TRAs 
 
@@ -1557,12 +1541,16 @@ ggVennDiagram(list_tra_down,
 ggsave("venn_diagram_all_tras_down.jpeg", width = 12, height = 10)
 ggsave("venn_diagram_all_tras_down.pdf", width = 12, height = 10)
 
+
 #--------------------------------
 #venn diagrams of chemokine genes
 #--------------------------------
 
+setwd("./../logFC_higher_1.5")
+
 tops_list_chem_up = list(tops_7.5_8.5[tops_7.5_8.5$logFC > 0, 2], tops_8.5_9.5[tops_8.5_9.5$logFC > 0,2], tops_9.5_10.5[tops_9.5_10.5$logFC > 0,2], tops_10.5_12.5[tops_10.5_12.5$logFC > 0,2], tops_12.5_14.5[tops_12.5_14.5$logFC > 0,2], tops_14.5_16.5[tops_14.5_16.5$logFC > 0, 2], tops_16.5_18.5[tops_16.5_18.5 > 0, 2])
 tops_list_tra_down = list(tops_7.5_8.5[tops_7.5_8.5$logFC < 0, 2], tops_8.5_9.5[tops_8.5_9.5$logFC < 0,2], tops_9.5_10.5[tops_9.5_10.5$logFC < 0,2], tops_10.5_12.5[tops_10.5_12.5$logFC < 0,2], tops_12.5_14.5[tops_12.5_14.5$logFC < 0,2], tops_14.5_16.5[tops_14.5_16.5$logFC < 0, 2], tops_16.5_18.5[tops_16.5_18.5 > 0,2])
+
 
 #venn diagram of top up-regulted chemokine genes
 
@@ -1590,6 +1578,8 @@ venn_names = c("day 7 to 8", "day 8 to 9", "day 9 to 10", "day 10 to 12", "day 1
 
 
 #venn diagram of all up-regulted chemokines genes
+
+setwd("./../all")
 
 list_chem_up = list(anno_chem_7.5_8.5[anno_chem_7.5_8.5$logFC > 0, 2], anno_chem_8.5_9.5[anno_chem_8.5_9.5$logFC > 0, 2], anno_chem_9.5_10.5[anno_chem_9.5_10.5$logFC > 0, 2], anno_chem_10.5_12.5[anno_chem_10.5_12.5$logFC > 0, 2], anno_chem_12.5_14.5[anno_chem_12.5_14.5$logFC > 0, 2], anno_chem_14.5_16.5[anno_chem_14.5_16.5$logFC > 0, 2], anno_chem_16.5_18.5[anno_chem_16.5_18.5 > 0, 2])
 list_chem_down = list(anno_chem_7.5_8.5[anno_chem_7.5_8.5$logFC < 0, 2], anno_chem_8.5_9.5[anno_chem_8.5_9.5$logFC < 0, ], anno_chem_9.5_10.5[anno_chem_9.5_10.5$logFC < 0, 2], anno_chem_10.5_12.5[anno_chem_10.5_12.5$logFC < 0, 2], anno_chem_12.5_14.5[anno_chem_12.5_14.5$logFC < 0, 2], anno_chem_14.5_16.5[anno_chem_14.5_16.5$logFC < 0, 2], anno_chem_16.5_18.5[anno_chem_16.5_18.5 > 0, 2])
@@ -1621,32 +1611,23 @@ ggsave("venn_diagram_all_chem_down.pdf", width = 12, height = 10)
 
 
 #############################################
-#chemokines expression over time 
+#chemokines expression over time----
 #############################################
 
+setwd("./../../time_plots")
 
-setwd("./raw_data/deg_chem")
-
-anno_chem_7.5_8.5_p001 = read.csv("anno_chem_7.5_8.5_p001.csv", row.names = 1)
-anno_chem_8.5_9.5_p001 = read.csv("anno_chem_8.5_9.5_p001.csv", row.names = 1)
-anno_chem_9.5_10.5_p001 = read.csv("anno_chem_9.5_10.5_p001.csv", row.names = 1)
-anno_chem_10.5_12.5_p001 = read.csv("anno_chem_10.5_12.5_p001.csv", row.names = 1)
-anno_chem_12.5_14.5_p001 = read.csv("anno_chem_12.5_14.5_p001.csv", row.names = 1)
-anno_chem_14.5_16.5_p001 = read.csv("anno_chem_14.5_16.5_p001.csv", row.names = 1)
-anno_chem_16.5_18.5_p001 = read.csv("anno_chem_16.5_18.5_p001.csv", row.names = 1)
-
-
-all_deg_chem = c(which(chem_data$X %in% anno_chem_7.5_8.5_p001$Row.names), # select differentially expressed chemokines in the dataframe
-                 which(chem_data$X %in% anno_chem_8.5_9.5_p001$Row.names),
-                 which(chem_data$X %in% anno_chem_9.5_10.5_p001$Row.names),
-                 which(chem_data$X %in% anno_chem_10.5_12.5_p001$Row.names),
-                 which(chem_data$X %in% anno_chem_12.5_14.5_p001$Row.names),
-                 which(chem_data$X %in% anno_chem_14.5_16.5_p001$Row.names),
-                 which(chem_data$X %in% anno_chem_16.5_18.5_p001$Row.names)
+all_deg_chem = c(which(chem_data$AFFY.Mouse430.2.probe %in% anno_chem_7.5_8.5_p001$Row.names), # select differentially expressed chemokines in the dataframe
+                 which(chem_data$AFFY.Mouse430.2.probe %in% anno_chem_8.5_9.5_p001$Row.names),
+                 which(chem_data$AFFY.Mouse430.2.probe %in% anno_chem_9.5_10.5_p001$Row.names),
+                 which(chem_data$AFFY.Mouse430.2.probe %in% anno_chem_10.5_12.5_p001$Row.names),
+                 which(chem_data$AFFY.Mouse430.2.probe %in% anno_chem_12.5_14.5_p001$Row.names),
+                 which(chem_data$AFFY.Mouse430.2.probe %in% anno_chem_14.5_16.5_p001$Row.names),
+                 which(chem_data$AFFY.Mouse430.2.probe %in% anno_chem_16.5_18.5_p001$Row.names)
 )
 
 deg_chem_data = chem_data[all_deg_chem, ]
-
+deg_chem_data = deg_chem_data[!duplicated(deg_chem_data$MGI.symbol),]
+  
 df = data.frame(deg_chem_data$MGI.symbol,
                 rowMeans(deg_chem_data[,2:4]),
                 rowMeans(deg_chem_data[,5:7]), 
@@ -1667,57 +1648,50 @@ deg_chem_long = melt(df, id.vars = "X")
 
 ggplot(data = deg_chem_long, aes(x = variable, y = value)) +
   geom_point(color = "orange") + 
-  geom_line(color = "blue") +
-  facet_wrap(~ X , nrow = 2) + 
+  facet_wrap(~ X , nrow = 3) + 
   labs(x = "days of embryogenesis", y = "expression", title = "Chemokines expression through embryogenesis") 
-ggsave("Chemokines expression through embryogenesis.pdf")
+ggsave("Chemokines expression through embryogenesis.pdf", height =8, width = 16)
 
 
 
 
 #############################################
-#TRA expression over time 
+#TRA expression over time----
 #############################################
 
+#picking 5 most differentially expressed genes from each phase
 
-setwd("./raw_data/deg")
-
-anno_7.5_8.5_p001 = read.csv("anno_7.5_8.5_p001.csv", row.names = 1)
 anno_7.5_8.5_p001 = anno_7.5_8.5_p001[order(abs(anno_7.5_8.5_p001$logFC), decreasing = TRUE),]
 top5_anno_7.5_8.5_p001 = anno_7.5_8.5_p001[1:5,]
-anno_8.5_9.5_p001 = read.csv("anno_8.5_9.5_p001.csv", row.names = 1)
 anno_8.5_9.5_p001 = anno_8.5_9.5_p001[order(abs(anno_8.5_9.5_p001$logFC), decreasing = TRUE),]
 top5_anno_8.5_9.5_p001 = anno_8.5_9.5_p001[1:5,]
-anno_9.5_10.5_p001 = read.csv("anno_9.5_10.5_p001.csv", row.names = 1)
 anno_9.5_10.5_p001 = anno_9.5_10.5_p001[order(abs(anno_9.5_10.5_p001$logFC), decreasing = TRUE),]
 top5_anno_9.5_10.5_p001 = anno_9.5_10.5_p001[1:5,]
-anno_10.5_12.5_p001 = read.csv("anno_10.5_12.5_p001.csv", row.names = 1)
 anno_10.5_12.5_p001 = anno_10.5_12.5_p001[order(abs(anno_10.5_12.5_p001$logFC), decreasing = TRUE),]
 top5_anno_10.5_12.5_p001 = anno_10.5_12.5_p001[1:5,]
-anno_12.5_14.5_p001 = read.csv("anno_12.5_14.5_p001.csv", row.names = 1)
 anno_12.5_14.5_p001 = anno_12.5_14.5_p001[order(abs(anno_12.5_14.5_p001$logFC), decreasing = TRUE),]
 top5_anno_12.5_14.5_p001 = anno_12.5_14.5_p001[1:5,]
-anno_14.5_16.5_p001 = read.csv("anno_14.5_16.5_p001.csv", row.names = 1)
 anno_14.5_16.5_p001 = anno_14.5_16.5_p001[order(abs(anno_14.5_16.5_p001$logFC), decreasing = TRUE),]
 top5_anno_14.5_16.5_p001 = anno_14.5_16.5_p001[1:5,]
-anno_16.5_18.5_p001 = read.csv("anno_16.5_18.5_p001.csv", row.names = 1)
 anno_16.5_18.5_p001 = anno_16.5_18.5_p001[order(abs(anno_16.5_18.5_p001$logFC), decreasing = TRUE),]
 top5_anno_16.5_18.5_p001 = anno_16.5_18.5_p001[1:5,]
 
 
-all_deg_tra = c(which(tra_data$Row.names %in% top5_anno_7.5_8.5_p001$Row.names), # select differentially expressed chemokines in the dataframe
-                which(tra_data$Row.names %in% top5_anno_8.5_9.5_p001$Row.names),
-                which(tra_data$Row.names %in% top5_anno_9.5_10.5_p001$Row.names),
-                which(tra_data$Row.names %in% top5_anno_10.5_12.5_p001$Row.names),
-                which(tra_data$Row.names %in% top5_anno_12.5_14.5_p001$Row.names),
-                which(tra_data$Row.names %in% top5_anno_14.5_16.5_p001$Row.names),
-                which(tra_data$Row.names %in% top5_anno_16.5_18.5_p001$Row.names)
+all_deg_tra = c(which(tra_data$AFFY.Mouse430.2.probe %in% top5_anno_7.5_8.5_p001$AFFY.Mouse430.2.probe), # select differentially expressed chemokines in the dataframe
+                which(tra_data$AFFY.Mouse430.2.probe %in% top5_anno_8.5_9.5_p001$AFFY.Mouse430.2.probe),
+                which(tra_data$AFFY.Mouse430.2.probe %in% top5_anno_9.5_10.5_p001$AFFY.Mouse430.2.probe),
+                which(tra_data$AFFY.Mouse430.2.probe %in% top5_anno_10.5_12.5_p001$AFFY.Mouse430.2.probe),
+                which(tra_data$AFFY.Mouse430.2.probe %in% top5_anno_12.5_14.5_p001$AFFY.Mouse430.2.probe),
+                which(tra_data$AFFY.Mouse430.2.probe %in% top5_anno_14.5_16.5_p001$AFFY.Mouse430.2.probe),
+                which(tra_data$AFFY.Mouse430.2.probe %in% top5_anno_16.5_18.5_p001$AFFY.Mouse430.2.probe)
 )
 
 deg_tra_data = tra_data[all_deg_tra, ]
-deg_tra_data$Transcript = str_c(deg_tra_data$Transcript, "  (", deg_tra_data$`"max.tissue"`, ")")
+deg_tra_data$Gene.name = str_c(deg_tra_data$Gene.name, "  (", deg_tra_data$max.tissue, ")")
 
-deg_tra_means = data.frame(deg_tra_data$Transcript,
+#creating dataframe with mean expression levels of duplicates/triplicats
+
+deg_tra_means = data.frame(deg_tra_data$Gene.name,
                            rowMeans(deg_tra_data[,3:5]),
                            rowMeans(deg_tra_data[,6:8]), 
                            rowMeans(deg_tra_data[,9:11]),
@@ -1725,21 +1699,23 @@ deg_tra_means = data.frame(deg_tra_data$Transcript,
                            rowMeans(deg_tra_data[,15:16]),
                            rowMeans(deg_tra_data[,17:18]),
                            rowMeans(deg_tra_data[,19:20]),
-                           rowMeans(deg_tra_data[,21:22])
-)
-colnames(deg_tra_means) = c("X", "7.5", "8.5", "9.5", "10.5", "12.5", "14.5", "16.6", "18.5")
+                           rowMeans(deg_tra_data[,21:22]),
+                           deg_tra_data$max.tissue)
 
+colnames(deg_tra_means) = c("X", "7.5", "8.5", "9.5", "10.5", "12.5", "14.5", "16.6", "18.5", "max.tissue")
+
+#creating a long version of the dataframe
 
 library(reshape2)
-deg_tra_long = melt(deg_tra_means, id.vars = "X")
+deg_tra_long = melt(deg_tra_means, id.vars = c("X", "max.tissue"))
 
+#visualizing expression over time
 
-
-ggplot(data = deg_tra_long, aes(x = variable, y = value)) +
-  geom_point(color = "orange", size = 3) + 
-  geom_line(color = "blue") +
-  facet_wrap(~ X , nrow = 5) + 
-  labs(x = "days of embryogenesis", y = "expression", title = "TRAs expression through embryogenesis") 
-ggsave("tras expression through embryogenesis.jpeg", height = 15, width = 17)
+ggplot(data = deg_tra_long, aes(x = variable, y = value, color = max.tissue)) +
+  geom_point(size = 3, show.legend = FALSE) + 
+  facet_wrap(~ X , nrow = 4) + 
+  labs(x = "days of embryogenesis", y = "expression", title = "TRAs expression through embryogenesis"
+       , subtitle = "5 most differentially expressed genes from each phase") 
+ggsave("tras expression through embryogenesis.png", height = 12, width = 17)
 
 

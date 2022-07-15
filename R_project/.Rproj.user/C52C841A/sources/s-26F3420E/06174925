@@ -1,0 +1,28 @@
+{
+    "id": "06174925",
+    "path": null,
+    "project_path": null,
+    "type": "object_explorer",
+    "hash": "0",
+    "contents": "",
+    "dirty": false,
+    "created": 1657875874501.0,
+    "source_on_save": false,
+    "relative_order": 9,
+    "properties": {
+        "id": "b1114b8b6b1f4a20b0693a43b13f12dd",
+        "name": "chem_data2.pca",
+        "title": "chem_data2.pca",
+        "language": "R",
+        "source_window_id": "",
+        "Source": "Source"
+    },
+    "folds": "",
+    "lastKnownWriteTime": 140683683924664,
+    "encoding": "",
+    "collab_server": "",
+    "source_window": "",
+    "last_content_update": 1657875874501,
+    "read_only": false,
+    "read_only_alternatives": []
+}
