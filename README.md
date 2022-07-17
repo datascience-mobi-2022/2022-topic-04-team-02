@@ -20,7 +20,7 @@ Barplot und TRA Dotplot
 align="center"
 img width="700" height="250" src="https://github.com/datascience-mobi-2022/2022-topic-04-team-04/blob/8bdce2e53b4b714cc99cee5cbfea0e31622c70e8/Topic4_cellstages.png"
 
-!['tras expression through embryogenesis'](https://github.com/datascience-mobi-2022/2022-topic-04-team-02/blob/master/plots/time_plots/tras expression through embryogenesis.png)
+!['tras expression through embryogenesis'](https://github.com/datascience-mobi-2022/2022-topic-04-team-02/blob/master/plots/time_plots/tras%20expression%20through%20embryogenesis.png)
 
 plots/time_plots/tras expression through embryogenesis.png
 https://github.com/datascience-mobi-2022/2022-topic-04-team-02/blob/17ae559b45eed917bab6ae3641dd919d6ab4877f/plots/time_plots/tras%20expression%20through%20embryogenesis.png
