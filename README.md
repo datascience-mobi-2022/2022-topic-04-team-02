@@ -17,3 +17,7 @@ This project aims to explore embryogenesis in mice by analysing the expression l
 Barplot und TRA Dotplot
 
 ![tras expression through embryogenesis](./plots/time_plots/tras expression through embryogenesis.png )
+align="center"
+img width="700" height="250" src="https://github.com/datascience-mobi-2022/2022-topic-04-team-04/blob/8bdce2e53b4b714cc99cee5cbfea0e31622c70e8/Topic4_cellstages.png"
+![tras expression through embryogenesis](https://github.com/[username]/datascience-mobi-2022/2022-topic-04-team-04/blob/plots/time_plots/tras expression through embryogenesis.png)
+plots/time_plots/tras expression through embryogenesis.png
