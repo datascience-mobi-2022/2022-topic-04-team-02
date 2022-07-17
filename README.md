@@ -21,7 +21,7 @@ This project aims to explore embryogenesis in mice by analysing the expression l
 
 
 
-**Table 2: TRA distribution of the !['GSE28389 dataset'](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28389)** The total of TRA genes, associated with certain tissues, were added together to form the following plot.
+**Table 2: TRA distribution of the !['GSE28389 dataset'](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28389).** The total of TRA genes, associated with certain tissues, were added together to form the following plot.
 
 <img src="/plots/TRAs_barplots/barplot_tras_in_the_dataset.jpg" width=60%>
 
