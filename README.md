@@ -26,5 +26,5 @@ semi:
 
 !['tras expression through embryogenesis'](https://github.com/datascience-mobi-2022/2022-topic-04-team-02/blob/master/plots/time_plots/tras%20expression%20through%20embryogenesis.png)
 
-!['tras expression through embryogenesis'](/assets/plots/time_plots/tras%20expression%20through%20embryogenesis.png)
+!['tras expression through embryogenesis'](/plots/time_plots/tras%20expression%20through%20embryogenesis.png)
 
