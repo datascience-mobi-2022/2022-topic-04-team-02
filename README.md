@@ -15,4 +15,5 @@ This project aims to explore embryogenesis in mice by analysing the expression l
 
 # Results
 Barplot und TRA Dotplot
-![tras expression through embryogenesis](./2022-topic-04-team-02/plots/time_plots/tras expression through embryogenesis.png )2022-topic-04-team-02/plots/time_plots/tras expression through embryogenesis.png 
+
+![tras expression through embryogenesis](./2022-topic-04-team-02/plots/time_plots/tras expression through embryogenesis.png )
