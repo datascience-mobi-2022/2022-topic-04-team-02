@@ -14,17 +14,5 @@ Such markers would be a useful method to not only further analyse and understand
 This project aims to explore embryogenesis in mice by analysing the expression levels of tissue restricted antigens over time and summarizing these findings in an applicable dataframe.
 
 # Results
-Barplot und TRA Dotplot
-
-![tras expression through embryogenesis](./plots/time_plots/tras expression through embryogenesis.png )
-align="center"
-img width="700" height="250" src="https://github.com/datascience-mobi-2022/2022-topic-04-team-04/blob/8bdce2e53b4b714cc99cee5cbfea0e31622c70e8/Topic4_cellstages.png"
-
-
-
-semi:
-
-!['tras expression through embryogenesis'](https://github.com/datascience-mobi-2022/2022-topic-04-team-02/blob/master/plots/time_plots/tras%20expression%20through%20embryogenesis.png)
-
-!['tras expression through embryogenesis'](/plots/time_plots/tras%20expression%20through%20embryogenesis.png)
-
+!['TRA expression through embryogenesis'](/plots/time_plots/tras%20expression%20through%20embryogenesis.png)
+!['Boxplot of the TRA distribution'](/plots/TRAs_barplots/barplot_tras_in_the_dataset.jpg)
