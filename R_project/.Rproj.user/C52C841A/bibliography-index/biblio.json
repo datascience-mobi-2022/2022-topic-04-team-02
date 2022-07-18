@@ -1,0 +1,926 @@
+{
+    "sources": [
+        {
+            "author": [
+                {
+                    "family": "Kyewski",
+                    "given": "Bruno"
+                },
+                {
+                    "family": "Derbinski",
+                    "given": "Jens"
+                }
+            ],
+            "container-title": "Nature Reviews Immunology",
+            "id": "Kyewski",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        2004
+                    ]
+                ]
+            },
+            "page": "688-698",
+            "publisher": "Nature Publishing Group",
+            "title": "Self-representation in the thymus: an extended view",
+            "title-short": "Self-representation in the thymus",
+            "type": "article-journal",
+            "volume": "4"
+        },
+        {
+            "author": [
+                {
+                    "family": "Irie",
+                    "given": "Naoki"
+                },
+                {
+                    "family": "Kuratani",
+                    "given": "Shigeru"
+                }
+            ],
+            "container-title": "Nature communications",
+            "id": "irie2011comparative",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2011
+                    ]
+                ]
+            },
+            "page": "1-8",
+            "publisher": "Nature Publishing Group",
+            "title": "Comparative transcriptome analysis reveals vertebrate phylotypic period during organogenesis",
+            "type": "article-journal",
+            "volume": "2"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chen",
+                    "given": "Ao"
+                },
+                {
+                    "family": "Liao",
+                    "given": "Sha"
+                },
+                {
+                    "family": "Cheng",
+                    "given": "Mengnan"
+                },
+                {
+                    "family": "Ma",
+                    "given": "Kailong"
+                },
+                {
+                    "family": "Wu",
+                    "given": "Liang"
+                },
+                {
+                    "family": "Lai",
+                    "given": "Yiwei"
+                },
+                {
+                    "family": "Qiu",
+                    "given": "Xiaojie"
+                },
+                {
+                    "family": "Yang",
+                    "given": "Jin"
+                },
+                {
+                    "family": "Xu",
+                    "given": "Jiangshan"
+                },
+                {
+                    "family": "Hao",
+                    "given": "Shijie"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Cell",
+            "id": "chen2022spatiotemporal",
+            "issue": "10",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "page": "1777-1792",
+            "publisher": "Elsevier",
+            "title": "Spatiotemporal transcriptomic atlas of mouse organogenesis using DNA nanoball-patterned arrays",
+            "type": "article-journal",
+            "volume": "185"
+        },
+        {
+            "DOI": "10.11588/HEIDOK.00027270",
+            "URL": "http://archiv.ub.uni-heidelberg.de/volltextserver/id/eprint/27270",
+            "author": [
+                {
+                    "family": "Dinkelacker",
+                    "given": "Maria"
+                }
+            ],
+            "id": "dinkelacker2019",
+            "issued": {
+                "date-parts": [
+                    [
+                        2021
+                    ]
+                ]
+            },
+            "keyword": "570 Life sciences",
+            "publisher": "Heidelberg University Library",
+            "title": "Chromosomal clustering of tissue restricted antigens",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Cunningham",
+                    "given": "Fiona"
+                },
+                {
+                    "family": "Allen",
+                    "given": "James E"
+                },
+                {
+                    "family": "Allen",
+                    "given": "Jamie"
+                },
+                {
+                    "family": "Alvarez-Jarreta",
+                    "given": "Jorge"
+                },
+                {
+                    "family": "Amode",
+                    "given": "M Ridwan"
+                },
+                {
+                    "family": "Armean",
+                    "given": "Irina M"
+                },
+                {
+                    "family": "Austine-Orimoloye",
+                    "given": "Olanrewaju"
+                },
+                {
+                    "family": "Azov",
+                    "given": "Andrey G"
+                },
+                {
+                    "family": "Barnes",
+                    "given": "If"
+                },
+                {
+                    "family": "Bennett",
+                    "given": "Ruth"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Nucleic acids research",
+            "id": "cunningham2022ensembl",
+            "issue": "D1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "page": "D988-D995",
+            "publisher": "Oxford University Press",
+            "title": "Ensembl 2022",
+            "type": "article-journal",
+            "volume": "50"
+        },
+        {
+            "author": [
+                {
+                    "family": "Gautier",
+                    "given": "L"
+                },
+                {
+                    "family": "Cope",
+                    "given": "L"
+                },
+                {
+                    "family": "Bolstad",
+                    "given": "BM"
+                }
+            ],
+            "container-title": "Oxford, England)",
+            "id": "gautier2004irizarry",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2004
+                    ]
+                ]
+            },
+            "page": "307-15",
+            "title": "Irizarry affy–analysis of Affymetrix GeneChip data at the probe lev Bioinformatics",
+            "type": "article-journal",
+            "volume": "20"
+        },
+        {
+            "author": [
+                {
+                    "family": "Ritchie",
+                    "given": "Matthew E"
+                },
+                {
+                    "family": "Phipson",
+                    "given": "Belinda"
+                },
+                {
+                    "family": "Wu",
+                    "given": "DI"
+                },
+                {
+                    "family": "Hu",
+                    "given": "Yifang"
+                },
+                {
+                    "family": "Law",
+                    "given": "Charity W"
+                },
+                {
+                    "family": "Shi",
+                    "given": "Wei"
+                },
+                {
+                    "family": "Smyth",
+                    "given": "Gordon K"
+                }
+            ],
+            "container-title": "Nucleic acids research",
+            "id": "ritchie2015limma",
+            "issue": "7",
+            "issued": {
+                "date-parts": [
+                    [
+                        2015
+                    ]
+                ]
+            },
+            "page": "e47-e47",
+            "publisher": "Oxford Academic",
+            "title": "limma powers differential expression analyses for RNA-sequencing and microarray studies",
+            "type": "article-journal",
+            "volume": "43"
+        },
+        {
+            "author": [
+                {
+                    "family": "Huber",
+                    "given": "Wolfgang"
+                },
+                {
+                    "family": "Von Heydebreck",
+                    "given": "Anja"
+                },
+                {
+                    "family": "Sültmann",
+                    "given": "Holger"
+                },
+                {
+                    "family": "Poustka",
+                    "given": "Annemarie"
+                },
+                {
+                    "family": "Vingron",
+                    "given": "Martin"
+                }
+            ],
+            "container-title": "Bioinformatics",
+            "id": "huber2002variance",
+            "issue": "suppl_1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "page": "S96-S104",
+            "publisher": "Oxford University Press",
+            "title": "Variance stabilization applied to microarray data calibration and to the quantification of differential expression",
+            "type": "article-journal",
+            "volume": "18"
+        },
+        {
+            "URL": "https://www.R-project.org/",
+            "author": [
+                {
+                    "literal": "R Core Team"
+                }
+            ],
+            "id": "R",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "publisher": "R Foundation for Statistical Computing",
+            "publisher-place": "Vienna, Austria",
+            "title": "R: A Language and Environment for Statistical Computing",
+            "title-short": "R",
+            "type": "book"
+        },
+        {
+            "author": [
+                {
+                    "family": "Hartl",
+                    "given": "Daniela"
+                },
+                {
+                    "family": "Irmler",
+                    "given": "Martin"
+                },
+                {
+                    "family": "Römer",
+                    "given": "Irmgard"
+                },
+                {
+                    "family": "Mader",
+                    "given": "Michael T"
+                },
+                {
+                    "family": "Mao",
+                    "given": "Lei"
+                },
+                {
+                    "family": "Zabel",
+                    "given": "Claus"
+                },
+                {
+                    "dropping-particle": "de",
+                    "family": "Angelis",
+                    "given": "Martin Hrabé"
+                },
+                {
+                    "family": "Beckers",
+                    "given": "Johannes"
+                },
+                {
+                    "family": "Klose",
+                    "given": "Joachim"
+                }
+            ],
+            "container-title": "Proteomics",
+            "id": "hartl2008transcriptome",
+            "issue": "6",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "1257-1265",
+            "publisher": "Wiley Online Library",
+            "title": "Transcriptome and proteome analysis of early embryonic mouse brain development",
+            "type": "article-journal",
+            "volume": "8"
+        },
+        {
+            "author": [
+                {
+                    "family": "Keng",
+                    "given": "Vincent W"
+                },
+                {
+                    "family": "Yagi",
+                    "given": "Hideshi"
+                },
+                {
+                    "family": "Ikawa",
+                    "given": "Masahito"
+                },
+                {
+                    "family": "Nagano",
+                    "given": "Takashi"
+                },
+                {
+                    "family": "Myint",
+                    "given": "Zaw"
+                },
+                {
+                    "family": "Yamada",
+                    "given": "Kazuya"
+                },
+                {
+                    "family": "Tanaka",
+                    "given": "Takashi"
+                },
+                {
+                    "family": "Sato",
+                    "given": "Ayuko"
+                },
+                {
+                    "family": "Muramatsu",
+                    "given": "Ikunobu"
+                },
+                {
+                    "family": "Okabe",
+                    "given": "Masaru"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Biochemical and biophysical research communications",
+            "id": "keng2000homeobox",
+            "issue": "3",
+            "issued": {
+                "date-parts": [
+                    [
+                        2000
+                    ]
+                ]
+            },
+            "page": "1155-1161",
+            "publisher": "Elsevier",
+            "title": "Homeobox gene Hex is essential for onset of mouse embryonic liver development and differentiation of the monocyte lineage",
+            "type": "article-journal",
+            "volume": "276"
+        },
+        {
+            "author": [
+                {
+                    "family": "Shanker",
+                    "given": "S"
+                },
+                {
+                    "family": "Hu",
+                    "given": "Z"
+                },
+                {
+                    "family": "Wilkinson",
+                    "given": "MF"
+                }
+            ],
+            "container-title": "International journal of andrology",
+            "id": "shanker2008epigenetic",
+            "issue": "5",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "page": "462-470",
+            "publisher": "Wiley Online Library",
+            "title": "Epigenetic regulation and downstream targets of the Rhox5 homeobox gene",
+            "type": "article-journal",
+            "volume": "31"
+        },
+        {
+            "author": [
+                {
+                    "family": "Capellera-Garcia",
+                    "given": "Sandra"
+                },
+                {
+                    "family": "Pulecio",
+                    "given": "Julian"
+                },
+                {
+                    "family": "Dhulipala",
+                    "given": "Kishori"
+                },
+                {
+                    "family": "Siva",
+                    "given": "Kavitha"
+                },
+                {
+                    "family": "Rayon-Estrada",
+                    "given": "Violeta"
+                },
+                {
+                    "family": "Singbrant",
+                    "given": "Sofie"
+                },
+                {
+                    "family": "Sommarin",
+                    "given": "Mikael NE"
+                },
+                {
+                    "family": "Walkley",
+                    "given": "Carl R"
+                },
+                {
+                    "family": "Soneji",
+                    "given": "Shamit"
+                },
+                {
+                    "family": "Karlsson",
+                    "given": "Göran"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Cell reports",
+            "id": "capellera2016defining",
+            "issue": "11",
+            "issued": {
+                "date-parts": [
+                    [
+                        2016
+                    ]
+                ]
+            },
+            "page": "2550-2562",
+            "publisher": "Elsevier",
+            "title": "Defining the minimal factors required for erythropoiesis through direct lineage conversion",
+            "type": "article-journal",
+            "volume": "15"
+        },
+        {
+            "author": [
+                {
+                    "family": "Sun",
+                    "given": "Junming"
+                },
+                {
+                    "family": "Guo",
+                    "given": "Xiaoping"
+                },
+                {
+                    "family": "Yu",
+                    "given": "Ping"
+                },
+                {
+                    "family": "Liang",
+                    "given": "Jinning"
+                },
+                {
+                    "family": "Mo",
+                    "given": "Zhongxiang"
+                },
+                {
+                    "family": "Zhang",
+                    "given": "Mingyuan"
+                },
+                {
+                    "family": "Yang",
+                    "given": "Lichao"
+                },
+                {
+                    "family": "Huang",
+                    "given": "Xuejing"
+                },
+                {
+                    "family": "Hu",
+                    "given": "Bing"
+                },
+                {
+                    "family": "Liu",
+                    "given": "Jiajuan"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "Journal of Cellular and Molecular Medicine",
+            "id": "sun2022vasorin",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2022
+                    ]
+                ]
+            },
+            "page": "88-98",
+            "publisher": "Wiley Online Library",
+            "title": "Vasorin deficiency leads to cardiac hypertrophy by targeting MYL7 in young mice",
+            "type": "article-journal",
+            "volume": "26"
+        },
+        {
+            "author": [
+                {
+                    "family": "Padget",
+                    "given": "Rachel L"
+                },
+                {
+                    "family": "Mohite",
+                    "given": "Shilpa S"
+                },
+                {
+                    "family": "Hoog",
+                    "given": "Tanner G"
+                },
+                {
+                    "family": "Justis",
+                    "given": "Blake S"
+                },
+                {
+                    "family": "Green",
+                    "given": "Bruce E"
+                },
+                {
+                    "family": "Udan",
+                    "given": "Ryan S"
+                }
+            ],
+            "container-title": "Mechanisms of Development",
+            "id": "padget2019hemodynamic",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "8-19",
+            "publisher": "Elsevier",
+            "title": "Hemodynamic force is required for vascular smooth muscle cell recruitment to blood vessels during mouse embryonic development",
+            "type": "article-journal",
+            "volume": "156"
+        },
+        {
+            "author": [
+                {
+                    "family": "Chemokine",
+                    "given": "C"
+                }
+            ],
+            "container-title": "J Interferon Cytokine Res",
+            "id": "chemokine2002chemokine",
+            "issued": {
+                "date-parts": [
+                    [
+                        2002
+                    ]
+                ]
+            },
+            "page": "1067-1068",
+            "title": "Chemokine/chemokine receptor nomenclature",
+            "type": "article-journal",
+            "volume": "22"
+        },
+        {
+            "author": [
+                {
+                    "family": "Law",
+                    "given": "Nathan C"
+                },
+                {
+                    "family": "Oatley",
+                    "given": "Melissa J"
+                },
+                {
+                    "family": "Oatley",
+                    "given": "Jon M"
+                }
+            ],
+            "container-title": "Nature communications",
+            "id": "law2019developmental",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2019
+                    ]
+                ]
+            },
+            "page": "1-14",
+            "publisher": "Nature Publishing Group",
+            "title": "Developmental kinetics and transcriptome dynamics of stem cell specification in the spermatogenic lineage",
+            "type": "article-journal",
+            "volume": "10"
+        },
+        {
+            "author": [
+                {
+                    "family": "Alanko",
+                    "given": "Jonna"
+                },
+                {
+                    "family": "Sixt",
+                    "given": "Michael"
+                }
+            ],
+            "container-title": "Elife",
+            "id": "alanko2018chemokines",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "page": "e37888",
+            "publisher": "eLife Sciences Publications Limited",
+            "title": "Chemokines: The cell sets the tone",
+            "title-short": "Chemokines",
+            "type": "article-journal",
+            "volume": "7"
+        },
+        {
+            "DOI": "https://doi.org/10.1016/j.jsbmb.2010.03.014",
+            "ISSN": "0960-0760",
+            "URL": "https://www.sciencedirect.com/science/article/pii/S0960076010001056",
+            "abstract": "Corticosteroid-binding globulin (CBG, transcortin) belongs to the serpin family of serine protease inhibitors (SERPINA6) and is mainly secreted by the liver. The negative acute phase protein CBG regulates free cortisol levels in the blood and distributes cortisol to its target tissues. So far no CBG serpin partner protease has been identified. However, its cleavage by human neutrophil elastase destroys ligand binding capacity and supposedly liberates cortisol at sites of inflammation. Here we report on the recombinant expression and secretion of human wild-type CBG and several novel mutants by human 293-EBNA cells. Functional characterization of wild-type and mutant CBG revealed distinct differences in ligand binding sensitivity to heat or elastase. Certain mutants are almost devoid of cortisol binding activity (Q232R and CBG Lyon), some display higher sensitivity for heat inactivation (G335V, Q232R and CBG Lyon) or for elastase cleavage (G335V). CBG mutant T342A is more resistant to elastase cleavage. Our data support the validity of the serpin structural concept. The expression system used provides functionally active human recombinant transcortin for further functional characterization of wild-type and human CBG mutant variants, which have been associated with altered serum free cortisol levels or pathophysiological constellations such as increased body weight, fatigue or hypotension.",
+            "author": [
+                {
+                    "family": "Braun",
+                    "given": "Beate C."
+                },
+                {
+                    "family": "Meyer",
+                    "given": "Hellmuth-A."
+                },
+                {
+                    "family": "Reetz",
+                    "given": "Antje"
+                },
+                {
+                    "family": "Fuhrmann",
+                    "given": "Ulrike"
+                },
+                {
+                    "family": "Köhrle",
+                    "given": "Josef"
+                }
+            ],
+            "container-title": "The Journal of Steroid Biochemistry and Molecular Biology",
+            "id": "BRAUN201030",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        2010
+                    ]
+                ]
+            },
+            "keyword": "Serpin, Corticosteroid, Hormone binding protein, Transcortin, Cortisol, Elastase, Reactive center loop, Heat sensitivity, CBG Lyon",
+            "page": "30-37",
+            "title": "Effect of mutations of the human serpin protein corticosteroid-binding globulin on cortisol-binding, thermal and protease sensitivity",
+            "type": "article-journal",
+            "volume": "120"
+        },
+        {
+            "author": [
+                {
+                    "family": "Rossi",
+                    "given": "Devora L"
+                },
+                {
+                    "family": "Hurst",
+                    "given": "Stephen D"
+                },
+                {
+                    "family": "Xu",
+                    "given": "Yuming"
+                },
+                {
+                    "family": "Wang",
+                    "given": "Wei"
+                },
+                {
+                    "family": "Menon",
+                    "given": "Satish"
+                },
+                {
+                    "family": "Coffman",
+                    "given": "Robert L"
+                },
+                {
+                    "family": "Zlotnik",
+                    "given": "Albert"
+                }
+            ],
+            "container-title": "The Journal of Immunology",
+            "id": "rossi1999lungkine",
+            "issue": "9",
+            "issued": {
+                "date-parts": [
+                    [
+                        1999
+                    ]
+                ]
+            },
+            "page": "5490-5497",
+            "publisher": "Am Assoc Immnol",
+            "title": "Lungkine, a novel CXC chemokine, specifically expressed by lung bronchoepithelial cells",
+            "type": "article-journal",
+            "volume": "162"
+        },
+        {
+            "author": [
+                {
+                    "family": "Van der Maaten",
+                    "given": "Laurens"
+                },
+                {
+                    "family": "Hinton",
+                    "given": "Geoffrey"
+                }
+            ],
+            "container-title": "Journal of machine learning research",
+            "id": "van2008visualizing",
+            "issue": "11",
+            "issued": {
+                "date-parts": [
+                    [
+                        2008
+                    ]
+                ]
+            },
+            "title": "Visualizing data using t-SNE.",
+            "type": "article-journal",
+            "volume": "9"
+        },
+        {
+            "author": [
+                {
+                    "family": "McInnes",
+                    "given": "Leland"
+                },
+                {
+                    "family": "Healy",
+                    "given": "John"
+                },
+                {
+                    "family": "Melville",
+                    "given": "James"
+                }
+            ],
+            "container-title": "arXiv preprint arXiv:1802.03426",
+            "id": "mcinnes2018umap",
+            "issued": {
+                "date-parts": [
+                    [
+                        2018
+                    ]
+                ]
+            },
+            "title": "Umap: Uniform manifold approximation and projection for dimension reduction",
+            "title-short": "Umap",
+            "type": "article-journal"
+        },
+        {
+            "author": [
+                {
+                    "family": "Akishita",
+                    "given": "Masahiro"
+                },
+                {
+                    "family": "Ito",
+                    "given": "Masaaki"
+                },
+                {
+                    "family": "Lehtonen",
+                    "given": "Jukka YA"
+                },
+                {
+                    "family": "Daviet",
+                    "given": "Laurent"
+                },
+                {
+                    "family": "Dzau",
+                    "given": "Victor J"
+                },
+                {
+                    "family": "Horiuchi",
+                    "given": "Masatsugu"
+                },
+                {
+                    "literal": "others"
+                }
+            ],
+            "container-title": "The Journal of clinical investigation",
+            "id": "akishita1999expression",
+            "issue": "1",
+            "issued": {
+                "date-parts": [
+                    [
+                        1999
+                    ]
+                ]
+            },
+            "page": "63-71",
+            "publisher": "Am Soc Clin Investig",
+            "title": "Expression of the AT2 receptor developmentally programs extracellular signal-regulated kinase activity and influences fetal vascular growth",
+            "type": "article-journal",
+            "volume": "103"
+        }
+    ],
+    "project_biblios": []
+}

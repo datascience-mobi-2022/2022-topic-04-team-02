@@ -1,89 +1,100 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.2) (preloaded format=pdflatex 2021.4.16)  18 JUL 2022 08:24
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.18)  18 JUL 2022 08:37
 entering extended mode
-**./topic4_team2.tex
-(topic4_team2.tex
-LaTeX2e <2020-10-01> patch level 4
-L3 programming layer <2021-02-18> xparse <2020-03-03> (C:\Users\Nina\AppData\Lo
-cal\Programs\MiKTeX\tex/latex/base\article.cls
-Document Class: article 2020/04/10 v1.4m Standard LaTeX document class
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/base\size10.clo
-File: size10.clo 2020/04/10 v1.4m Standard LaTeX file (size option)
+ restricted \write18 enabled.
+ %&-line parsing enabled.
+**topic4_team2.tex
+(./topic4_team2.tex
+LaTeX2e <2022-06-01> patch level 5
+L3 programming layer <2022-07-15> (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/base/size10.clo
+File: size10.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count179
-\c@section=\count180
-\c@subsection=\count181
-\c@subsubsection=\count182
-\c@paragraph=\count183
-\c@subparagraph=\count184
-\c@figure=\count185
-\c@table=\count186
+\c@part=\count185
+\c@section=\count186
+\c@subsection=\count187
+\c@subsubsection=\count188
+\c@paragraph=\count189
+\c@subparagraph=\count190
+\c@figure=\count191
+\c@table=\count192
 \abovecaptionskip=\skip47
 \belowcaptionskip=\skip48
 \bibindent=\dimen138
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsmath.sty
-Package: amsmath 2020/09/23 v2.17i AMS math features
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsmath.sty
+Package: amsmath 2022/04/08 v2.17n AMS math features
 \@mathmargin=\skip49
 For additional information on amsmath, use the `?' option.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amstext.sty
-Package: amstext 2000/06/29 v2.01 AMS text
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsgen.sty
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amstext.sty
+Package: amstext 2021/08/26 v2.01 AMS text
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsgen.sty
 File: amsgen.sty 1999/11/30 v2.0 generic functions
-\@emptytoks=\toks15
+\@emptytoks=\toks16
 \ex@=\dimen139
-)) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsbsy.sty
+)) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsbsy.sty
 Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 \pmbraise@=\dimen140
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsmath\amsopn.sty
-Package: amsopn 2016/03/08 v2.02 operator names
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsmath/amsopn.sty
+Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count187
+\inf@bad=\count193
 LaTeX Info: Redefining \frac on input line 234.
-\uproot@=\count188
-\leftroot@=\count189
+\uproot@=\count194
+\leftroot@=\count195
 LaTeX Info: Redefining \overline on input line 399.
-\classnum@=\count190
-\DOTSCASE@=\count191
+LaTeX Info: Redefining \colon on input line 410.
+\classnum@=\count196
+\DOTSCASE@=\count197
 LaTeX Info: Redefining \ldots on input line 496.
 LaTeX Info: Redefining \dots on input line 499.
 LaTeX Info: Redefining \cdots on input line 620.
-\Mathstrutbox@=\box47
-\strutbox@=\box48
+\Mathstrutbox@=\box51
+\strutbox@=\box52
+LaTeX Info: Redefining \big on input line 722.
+LaTeX Info: Redefining \Big on input line 723.
+LaTeX Info: Redefining \bigg on input line 724.
+LaTeX Info: Redefining \Bigg on input line 725.
 \big@size=\dimen141
 LaTeX Font Info:    Redeclaring font encoding OML on input line 743.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 744.
-\macc@depth=\count192
-\c@MaxMatrixCols=\count193
+\macc@depth=\count198
+LaTeX Info: Redefining \bmod on input line 905.
+LaTeX Info: Redefining \pmod on input line 910.
+LaTeX Info: Redefining \smash on input line 940.
+LaTeX Info: Redefining \relbar on input line 970.
+LaTeX Info: Redefining \Relbar on input line 971.
+\c@MaxMatrixCols=\count199
 \dotsspace@=\muskip16
-\c@parentequation=\count194
-\dspbrk@lvl=\count195
-\tag@help=\toks16
-\row@=\count196
-\column@=\count197
-\maxfields@=\count198
-\andhelp@=\toks17
+\c@parentequation=\count266
+\dspbrk@lvl=\count267
+\tag@help=\toks17
+\row@=\count268
+\column@=\count269
+\maxfields@=\count270
+\andhelp@=\toks18
 \eqnshift@=\dimen142
 \alignsep@=\dimen143
 \tagshift@=\dimen144
 \tagwidth@=\dimen145
 \totwidth@=\dimen146
 \lineht@=\dimen147
-\@envbody=\toks18
+\@envbody=\toks19
 \multlinegap=\skip50
 \multlinetaggap=\skip51
-\mathdisplay@stack=\toks19
-LaTeX Info: Redefining \[ on input line 2923.
-LaTeX Info: Redefining \] on input line 2924.
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amssymb.sty
+\mathdisplay@stack=\toks20
+LaTeX Info: Redefining \[ on input line 2953.
+LaTeX Info: Redefining \] on input line 2954.
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amssymb.sty
 Package: amssymb 2013/01/14 v3.01 AMS font symbols
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\amsfonts.sty
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/amsfonts.sty
 Package: amsfonts 2013/01/14 v3.01 Basic AMSFonts support
 \symAMSa=\mathgroup4
 \symAMSb=\mathgroup5
 LaTeX Font Info:    Redeclaring math symbol \hbar on input line 98.
 LaTeX Font Info:    Overwriting math alphabet `\mathfrak' in version `bold'
 (Font)                  U/euf/m/n --> U/euf/b/n on input line 106.
-)) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/lm\lmodern.sty
-Package: lmodern 2009/10/30 v1.6 Latin Modern Fonts
+)) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/lm/lmodern.sty
+Package: lmodern 2015/05/01 v1.6.1 Latin Modern Fonts
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  OT1/cmr/m/n --> OT1/lmr/m/n on input line 22.
 LaTeX Font Info:    Overwriting symbol font `letters' in version `normal'
@@ -116,310 +127,233 @@ LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> OT1/lmr/bx/it on input line 37.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 (Font)                  OT1/cmtt/m/n --> OT1/lmtt/m/n on input line 38.
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/iftex\iftex.sty
-Package: iftex 2020/03/06 v1.0d TeX engine tests
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/base\fontenc.sty
-Package: fontenc 2020/08/10 v2.0s Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-2.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
-File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/base\inputenc.sty
-Package: inputenc 2020/08/01 v1.3d Input encoding file
-\inpenc@prehook=\toks20
-\inpenc@posthook=\toks21
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/base\textcomp.sty
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/iftex/iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/base/fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 112.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/lm/t1lmr.fd
+File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
+)) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/base/inputenc.sty
+Package: inputenc 2021/02/14 v1.3d Input encoding file
+\inpenc@prehook=\toks21
+\inpenc@posthook=\toks22
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/base/textcomp.sty
 Package: textcomp 2020/02/02 v2.0n Standard LaTeX package
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/upquote\upquote.sty
-Package: upquote 2012/04/19 v1.3 upright-quote and grave-accent glyphs in verba
-tim
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.st
-y
-Package: microtype 2022/03/14 v3.0d Micro-typographical refinements (RS)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/graphics\keyval.sty
-Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
-\KV@toks@=\toks22
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/etoolbox\etoolbox.sty
-Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count199
-)
-\MT@toks=\toks23
-\MT@tempbox=\box49
-\MT@count=\count266
-LaTeX Info: Redefining \noprotrusionifhmode on input line 1027.
-LaTeX Info: Redefining \leftprotrusion on input line 1028.
-LaTeX Info: Redefining \rightprotrusion on input line 1036.
-LaTeX Info: Redefining \textls on input line 1195.
-\MT@outer@kern=\dimen148
-LaTeX Info: Redefining \textmicrotypecontext on input line 1781.
-\MT@listname@count=\count267
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype-pdft
-ex.def
-File: microtype-pdftex.def 2022/03/14 v3.0d Definitions specific to pdftex (RS)
-
-LaTeX Info: Redefining \lsstyle on input line 900.
-LaTeX Info: Redefining \lslig on input line 900.
-\MT@outer@space=\skip52
-)
-Package microtype Info: Loading configuration file microtype.cfg.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/microtype\microtype.cfg
-File: microtype.cfg 2022/03/14 v3.0d microtype main configuration file (RS)
-)) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/parskip\parskip.sty
-Package: parskip 2021-03-14 v2.0h non-zero parskip adjustments
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/kvoptions\kvoptions.sty
-Package: kvoptions 2020-10-07 v3.14 Key value format for package options (HO)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/ltxcmds\ltxcmds.sty
-Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/kvsetkeys\kvsetkeys.st
-y
-Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
-))) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/xcolor\xcolor.sty
-Package: xcolor 2016/05/11 v2.12 LaTeX color extensions (UK)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\color.cfg
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/xcolor/xcolor.sty
+Package: xcolor 2022/06/12 v2.14 LaTeX color extensions (UK)
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: pdftex.def on input line 225.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/graphics-def\pdftex.def
+Package xcolor Info: Driver file: pdftex.def on input line 227.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics-def/pdftex.def
 File: pdftex.def 2020/10/05 v1.2a Graphics/color driver for pdftex
-)
-Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1348.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1352.
-Package xcolor Info: Model `RGB' extended on input line 1364.
-Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1366.
-Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1367.
-Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1368.
-Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1369.
-Package xcolor Info: Model `Gray' substituted by `gray' on input line 1370.
-Package xcolor Info: Model `wave' substituted by `hsb' on input line 1371.
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/xurl\xurl.sty
-Package: xurl 2022/01/09 v 0.10 modify URL breaks
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/url\url.sty
-\Urlmuskip=\muskip17
-Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
-)) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bookmark.sty
-Package: bookmark 2020-11-06 v1.29 PDF bookmarks (HO)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref.sty
-Package: hyperref 2021-02-10 v7.00j Hypertext links for LaTeX
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/pdftexcmds\pdftexcmds.
-sty
-Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO
-)
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/infwarerr\infwarerr.st
-y
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics/mathcolor.ltx)
+Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1353.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1357.
+Package xcolor Info: Model `RGB' extended on input line 1369.
+Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1371.
+Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1372.
+Package xcolor Info: Model `tHsb' substituted by `hsb' on input line 1373.
+Package xcolor Info: Model `HSB' substituted by `hsb' on input line 1374.
+Package xcolor Info: Model `Gray' substituted by `gray' on input line 1375.
+Package xcolor Info: Model `wave' substituted by `hsb' on input line 1376.
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hyperref.sty
+Package: hyperref 2022-06-20 v7.00s Hypertext links for LaTeX
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/ltxcmds/ltxcmds.sty
+Package: ltxcmds 2020-05-10 v1.25 LaTeX kernel commands for general use (HO)
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/pdftexcmds/pdftexcmds.sty
+Package: pdftexcmds 2020-06-27 v0.33 Utility functions of pdfTeX for LuaTeX (HO)
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/infwarerr/infwarerr.sty
 Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
 Package pdftexcmds Info: \pdfdraftmode found.
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/kvdefinekeys\kvdefinek
-eys.sty
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 2022/05/29 v1.15 key=value parser (DPC)
+\KV@toks@=\toks23
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/kvsetkeys/kvsetkeys.sty
+Package: kvsetkeys 2019/12/15 v1.18 Key value parser (HO)
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
 Package: kvdefinekeys 2019-12-19 v1.6 Define keys (HO)
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/pdfescape\pdfescape.st
-y
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/pdfescape/pdfescape.sty
 Package: pdfescape 2019/12/09 v1.15 Implements pdfTeX's escape features (HO)
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/hycolor\hycolor.sty
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/letltxmacro\letltxmacro.
-sty
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/letltxmacro/letltxmacro.sty
 Package: letltxmacro 2019/12/03 v1.6 Let assignment for LaTeX macros (HO)
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/auxhook\auxhook.sty
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/auxhook/auxhook.sty
 Package: auxhook 2019-12-17 v1.6 Hooks for auxiliary files (HO)
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2022-05-17 v2.50 Cross-referencing by name of section
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/refcount/refcount.sty
+Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
+Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/kvoptions/kvoptions.sty
+Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
+))
+\c@section@level=\count271
 )
-\@linkdim=\dimen149
-\Hy@linkcounter=\count268
-\Hy@pagecounter=\count269
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\pd1enc.def
-File: pd1enc.def 2021-02-10 v7.00j Hyperref: PDFDocEncoding definition (HO)
+\@linkdim=\dimen148
+\Hy@linkcounter=\count272
+\Hy@pagecounter=\count273
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/hyperref/pd1enc.def
+File: pd1enc.def 2022-06-20 v7.00s Hyperref: PDFDocEncoding definition (HO)
 Now handling font encoding PD1 ...
 ... no UTF-8 mapping file for font encoding PD1
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hyperref-langpa
-tches.def
-File: hyperref-langpatches.def 2021-02-10 v7.00j Hyperref: patches for babel la
-nguages
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/intcalc\intcalc.sty
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/etexcmds\etexcmds.st
-y
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/etexcmds/etexcmds.sty
 Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 )
-\Hy@SavedSpaceFactor=\count270
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\puenc.def
-File: puenc.def 2021-02-10 v7.00j Hyperref: PDF Unicode definition (HO)
+\Hy@SavedSpaceFactor=\count274
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/hyperref/puenc.def
+File: puenc.def 2022-06-20 v7.00s Hyperref: PDF Unicode definition (HO)
 Now handling font encoding PU ...
 ... no UTF-8 mapping file for font encoding PU
 )
-Package hyperref Info: Option `unicode' set `true' on input line 4073.
-Package hyperref Info: Hyper figures OFF on input line 4192.
-Package hyperref Info: Link nesting OFF on input line 4197.
-Package hyperref Info: Hyper index ON on input line 4200.
-Package hyperref Info: Plain pages OFF on input line 4207.
-Package hyperref Info: Backreferencing OFF on input line 4212.
+Package hyperref Info: Option `unicode' set `true' on input line 4045.
+Package hyperref Info: Hyper figures OFF on input line 4162.
+Package hyperref Info: Link nesting OFF on input line 4167.
+Package hyperref Info: Hyper index ON on input line 4170.
+Package hyperref Info: Plain pages OFF on input line 4177.
+Package hyperref Info: Backreferencing OFF on input line 4182.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
-Package hyperref Info: Bookmarks ON on input line 4445.
-\c@Hy@tempcnt=\count271
-LaTeX Info: Redefining \url on input line 4804.
-\XeTeXLinkMargin=\dimen150
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/bitset\bitset.sty
+Package hyperref Info: Bookmarks ON on input line 4408.
+\c@Hy@tempcnt=\count275
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/url/url.sty
+\Urlmuskip=\muskip17
+Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
+)
+LaTeX Info: Redefining \url on input line 4746.
+\XeTeXLinkMargin=\dimen149
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/bitset/bitset.sty
 Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/bigintcalc\bigintcalc.
-sty
-Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
-)
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/bigintcalc/bigintcalc.sty
+Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO)
 ))
-\Fld@menulength=\count272
-\Field@Width=\dimen151
-\Fld@charsize=\dimen152
-Package hyperref Info: Hyper figures OFF on input line 6075.
-Package hyperref Info: Link nesting OFF on input line 6080.
-Package hyperref Info: Hyper index ON on input line 6083.
-Package hyperref Info: backreferencing OFF on input line 6090.
-Package hyperref Info: Link coloring OFF on input line 6095.
-Package hyperref Info: Link coloring with OCG OFF on input line 6100.
-Package hyperref Info: PDF/A mode OFF on input line 6105.
-LaTeX Info: Redefining \ref on input line 6145.
-LaTeX Info: Redefining \pageref on input line 6149.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/base\atbegshi-ltx.sty
-Package: atbegshi-ltx 2020/08/17 v1.0a Emulation of the original atbegshi packa
-ge
-with kernel methods
+\Fld@menulength=\count276
+\Field@Width=\dimen150
+\Fld@charsize=\dimen151
+Package hyperref Info: Hyper figures OFF on input line 6024.
+Package hyperref Info: Link nesting OFF on input line 6029.
+Package hyperref Info: Hyper index ON on input line 6032.
+Package hyperref Info: backreferencing OFF on input line 6039.
+Package hyperref Info: Link coloring OFF on input line 6044.
+Package hyperref Info: Link coloring with OCG OFF on input line 6049.
+Package hyperref Info: PDF/A mode OFF on input line 6054.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/base/atbegshi-ltx.sty
+Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
+package with kernel methods
 )
-\Hy@abspage=\count273
-\c@Item=\count274
-\c@Hfootnote=\count275
+\Hy@abspage=\count277
+\c@Item=\count278
+\c@Hfootnote=\count279
 )
 Package hyperref Info: Driver (autodetected): hpdftex.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\hpdftex.def
-File: hpdftex.def 2021-02-10 v7.00j Hyperref driver for pdfTeX
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/base\atveryend-ltx.sty
-Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atvery packag
-e
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2022-06-20 v7.00s Hyperref driver for pdfTeX
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/base/atveryend-ltx.sty
+Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend package
 with kernel methods
 )
-\Fld@listcount=\count276
-\c@bookmark@seq@number=\count277
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/rerunfilecheck\rerunfile
-check.sty
-Package: rerunfilecheck 2019/12/05 v1.9 Rerun checks for auxiliary files (HO)
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/uniquecounter\uniqueco
-unter.sty
+\Fld@listcount=\count280
+\c@bookmark@seq@number=\count281
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/rerunfilecheck/rerunfilecheck.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/uniquecounter/uniquecounter.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
 )
-Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
-86.
+Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 285.
 )
-\Hy@SectionHShift=\skip53
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/bookmark\bkm-pdftex.de
-f
-File: bkm-pdftex.def 2020-11-06 v1.29 bookmark driver for pdfTeX (HO)
-\BKM@id=\count278
-)) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.sty
+\Hy@SectionHShift=\skip52
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/iftex\ifvtex.sty
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/generic/iftex/ifvtex.sty
 Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 )
-\Gm@cnth=\count279
-\Gm@cntv=\count280
-\c@Gm@tempcnt=\count281
-\Gm@bindingoffset=\dimen153
-\Gm@wd@mp=\dimen154
-\Gm@odd@mp=\dimen155
-\Gm@even@mp=\dimen156
-\Gm@layoutwidth=\dimen157
-\Gm@layoutheight=\dimen158
-\Gm@layouthoffset=\dimen159
-\Gm@layoutvoffset=\dimen160
+\Gm@cnth=\count282
+\Gm@cntv=\count283
+\c@Gm@tempcnt=\count284
+\Gm@bindingoffset=\dimen152
+\Gm@wd@mp=\dimen153
+\Gm@odd@mp=\dimen154
+\Gm@even@mp=\dimen155
+\Gm@layoutwidth=\dimen156
+\Gm@layoutheight=\dimen157
+\Gm@layouthoffset=\dimen158
+\Gm@layoutvoffset=\dimen159
 \Gm@dimlist=\toks24
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/geometry\geometry.cfg)) 
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphicx.sty
-Package: graphicx 2020/09/09 v1.2b Enhanced LaTeX Graphics (DPC,SPQR)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/graphics\graphics.sty
-Package: graphics 2020/08/30 v1.4c Standard LaTeX Graphics (DPC,SPQR)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/graphics\trig.sty
-Package: trig 2016/01/03 v1.10 sin cos tan (DPC)
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/graphics-cfg\graphics.cf
-g
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 2021/09/16 v1.2d Enhanced LaTeX Graphics (DPC,SPQR)
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2022/03/10 v1.4e Standard LaTeX Graphics (DPC,SPQR)
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 2021/08/11 v1.11 sin cos tan (DPC)
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: pdftex.def on input line 105.
+Package graphics Info: Driver file: pdftex.def on input line 107.
 )
-\Gin@req@height=\dimen161
-\Gin@req@width=\dimen162
+\Gin@req@height=\dimen160
+\Gin@req@width=\dimen161
 )
-\cslhangindent=\skip54
-\csllabelwidth=\skip55
-\cslentryspacingunit=\skip56
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\calc.sty
+\cslhangindent=\skip53
+\csllabelwidth=\skip54
+\cslentryspacingunit=\skip55
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/tools/calc.sty
 Package: calc 2017/05/25 v4.3 Infix arithmetic (KKT,FJ)
-\calc@Acount=\count282
-\calc@Bcount=\count283
-\calc@Adimen=\dimen163
-\calc@Bdimen=\dimen164
-\calc@Askip=\skip57
-\calc@Bskip=\skip58
+\calc@Acount=\count285
+\calc@Bcount=\count286
+\calc@Adimen=\dimen162
+\calc@Bdimen=\dimen163
+\calc@Askip=\skip56
+\calc@Bskip=\skip57
 LaTeX Info: Redefining \setlength on input line 80.
 LaTeX Info: Redefining \addtolength on input line 81.
-\calc@Ccount=\count284
-\calc@Cskip=\skip59
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/booktabs\booktabs.sty
+\calc@Ccount=\count287
+\calc@Cskip=\skip58
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/booktabs/booktabs.sty
 Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
-\heavyrulewidth=\dimen165
-\lightrulewidth=\dimen166
-\cmidrulewidth=\dimen167
-\belowrulesep=\dimen168
-\belowbottomsep=\dimen169
-\aboverulesep=\dimen170
-\abovetopsep=\dimen171
-\cmidrulesep=\dimen172
-\cmidrulekern=\dimen173
-\defaultaddspace=\dimen174
-\@cmidla=\count285
-\@cmidlb=\count286
-\@aboverulesep=\dimen175
-\@belowrulesep=\dimen176
-\@thisruleclass=\count287
-\@lastruleclass=\count288
-\@thisrulewidth=\dimen177
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+\heavyrulewidth=\dimen164
+\lightrulewidth=\dimen165
+\cmidrulewidth=\dimen166
+\belowrulesep=\dimen167
+\belowbottomsep=\dimen168
+\aboverulesep=\dimen169
+\abovetopsep=\dimen170
+\cmidrulesep=\dimen171
+\cmidrulekern=\dimen172
+\defaultaddspace=\dimen173
+\@cmidla=\count288
+\@cmidlb=\count289
+\@aboverulesep=\dimen174
+\@belowrulesep=\dimen175
+\@thisruleclass=\count290
+\@lastruleclass=\count291
+\@thisrulewidth=\dimen176
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/makecell/makecell.sty
 Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/latex-tools\array.sty
-Package: array 2020/10/01 v2.5c Tabular extension package (FMi)
-\col@sep=\dimen178
-\ar@mcellbox=\box50
-\extrarowheight=\dimen179
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/tools/array.sty
+Package: array 2022/03/10 v2.5f Tabular extension package (FMi)
+\col@sep=\dimen177
+\ar@mcellbox=\box53
+\extrarowheight=\dimen178
 \NC@list=\toks25
-\extratabsurround=\skip60
-\backup@length=\skip61
-\ar@cellbox=\box51
+\extratabsurround=\skip59
+\backup@length=\skip60
+\ar@cellbox=\box54
 )
-\rotheadsize=\dimen180
-\c@nlinenum=\count289
+\rotheadsize=\dimen179
+\c@nlinenum=\count292
 \TeXr@lab=\toks26
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdft
-ex.def
-File: l3backend-pdftex.def 2021-02-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count290
-\l__pdf_internal_box=\box52
-) (topic4_team2.aux
-
-LaTeX Warning: Label `id.class' multiply defined.
-
-
-LaTeX Warning: Label `id.class' multiply defined.
-
-)
+) (/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/l3backend/l3backend-pdftex.def
+File: l3backend-pdftex.def 2022-07-01 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count293
+\l__pdf_internal_box=\box55
+) (./topic4_team2.aux)
 \openout1 = `topic4_team2.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 95.
@@ -440,61 +374,17 @@ LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 95.
 LaTeX Font Info:    ... okay on input line 95.
 LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 95.
 LaTeX Font Info:    ... okay on input line 95.
-LaTeX Info: Redefining \microtypecontext on input line 95.
-Package microtype Info: Applying patch `item' on input line 95.
-Package microtype Info: Applying patch `toc' on input line 95.
-Package microtype Info: Applying patch `eqnum' on input line 95.
-Package microtype Info: Applying patch `footnote' on input line 95.
-Package microtype Info: Generating PDF output.
-Package microtype Info: Character protrusion enabled (level 2).
-Package microtype Info: Using protrusion set `basicmath'.
-Package microtype Info: Automatic font expansion enabled (level 2),
-(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
-Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 95.
-Package microtype Info: No adjustment of tracking.
-Package microtype Info: No adjustment of interword spacing.
-Package microtype Info: No adjustment of character kerning.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-cmr.cfg
-File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
-(RS)
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mki
-i
-[Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count291
-\scratchdimen=\dimen181
-\scratchbox=\box53
-\nofMPsegments=\count292
-\nofMParguments=\count293
-\everyMPshowfont=\toks27
-\MPscratchCnt=\count294
-\MPscratchDim=\dimen182
-\MPnumerator=\count295
-\makeMPintoPDFobject=\count296
-\everyMPtoPDFconversion=\toks28
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-ba
-se.sty
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
-Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
-85.
-)
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
+))
 Package hyperref Info: Link coloring OFF on input line 95.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
-Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
-Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
-)
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitl
-estring.sty
-Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
-)
-\c@section@level=\count297
-)
-LaTeX Info: Redefining \ref on input line 95.
-LaTeX Info: Redefining \pageref on input line 95.
-LaTeX Info: Redefining \nameref on input line 95.
+(./topic4_team2.out) (./topic4_team2.out)
+\@outlinefile=\write3
+\openout3 = `topic4_team2.out'.
+
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
@@ -529,25 +419,21 @@ LaTeX Info: Redefining \nameref on input line 95.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 9
-7.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
-File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 97.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/lm/ot1lmr.fd
+File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 9
-7.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
-File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 97.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/lm/omllmm.fd
+File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-97.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
-File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 97.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/lm/omslmsy.fd
+File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-97.
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
-File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 97.
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/lm/omxlmex.fd
+File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <12> on input line 97.
@@ -556,21 +442,15 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <6> on input line 97.
 LaTeX Font Info:    Trying to load font information for U+msa on input line 97.
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
-File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
 LaTeX Font Info:    Trying to load font information for U+msb on input line 97.
-
-(C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
+(/Users/lydiasteiner/Library/TinyTeX/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-) (C:\Users\Nina\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
-File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
-{C:/Users/Nina/AppData/Local/MiKTeX/pdftex/config/pdftex.map}] [2]
+{/Users/lydiasteiner/Library/TinyTeX/texmf-var/fonts/map/pdftex/updmap/pdftex.map}] [2]
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10> on input line 231.
 LaTeX Font Info:    External font `lmex10' loaded for size
@@ -581,212 +461,143 @@ LaTeX Font Info:    External font `lmex10' loaded for size
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 [3]
-<./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf, id=49, 650.43pt 
-x 650.43pt>
-File: ./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf Graphic file
- (type pdf)
+<./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf, id=166, 650.43pt x 650.43pt>
+File: ./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf Graphic file (type pdf)
 <use ./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf>
-Package pdftex.def Info: ./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_re
-p3.pdf  used on input line 282.
+Package pdftex.def Info: ./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf  used on input line 282.
 (pdftex.def)             Requested size: 187.89536pt x 187.89536pt.
-<./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_rep1.pdf, id=50, 650.43pt
- x 650.43pt>
-File: ./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_rep1.pdf Graphic fil
-e (type pdf)
+<./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_rep1.pdf, id=167, 650.43pt x 650.43pt>
+File: ./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_rep1.pdf Graphic file (type pdf)
 <use ./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_rep1.pdf>
-Package pdftex.def Info: ./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_r
-ep1.pdf  used on input line 283.
+Package pdftex.def Info: ./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_rep1.pdf  used on input line 283.
 (pdftex.def)             Requested size: 187.89536pt x 187.89536pt.
-[4 <./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf> <./plots/qc/s
-ingle_chip_control/GSM701717_Mouse_E12_5_rep1.pdf>]
-<plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf, id=76, 646.415pt x 493
-.845pt>
-File: plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf Graphic file (type
- pdf)
+[4 <./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep3.pdf> <./plots/qc/single_chip_control/GSM701717_Mouse_E12_5_rep1.pdf>]
+<plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf, id=190, 646.415pt x 493.845pt>
+File: plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf Graphic file (type pdf)
 <use plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf>
-Package pdftex.def Info: plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf
-  used on input line 305.
+Package pdftex.def Info: plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf  used on input line 302.
 (pdftex.def)             Requested size: 187.8994pt x 143.55048pt.
 [5 <./plots/qc/GSE28389_RNAdegrad_RawData_shifted_scaled.pdf>]
-<plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf, id=100, 646.415pt x 493.845pt>
+<plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf, id=207, 646.415pt x 493.845pt>
 File: plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf Graphic file (type pdf)
 <use plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf>
-Package pdftex.def Info: plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf  used on input lin
-e 373.
+Package pdftex.def Info: plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf  used on input line 371.
 (pdftex.def)             Requested size: 117.43466pt x 89.71716pt.
-<plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf, id=101, 646.415pt x 493.845pt>
+<plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf, id=208, 646.415pt x 493.845pt>
 File: plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf Graphic file (type pdf)
 <use plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf>
-Package pdftex.def Info: plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf  used on input lin
-e 374.
+Package pdftex.def Info: plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf  used on input line 372.
 (pdftex.def)             Requested size: 117.43466pt x 89.71716pt.
-<plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf, id=102, 646.415pt x 493.845pt>
+<plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf, id=209, 646.415pt x 493.845pt>
 File: plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf Graphic file (type pdf)
 <use plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf>
-Package pdftex.def Info: plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf  used on inp
-ut line 375.
+Package pdftex.def Info: plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf  used on input line 373.
 (pdftex.def)             Requested size: 117.43466pt x 89.71716pt.
-<plots/UMAP/UMAP_nneighobs_5_kmeans.pdf, id=103, 646.415pt x 493.845pt>
+<plots/UMAP/UMAP_nneighobs_5_kmeans.pdf, id=210, 646.415pt x 493.845pt>
 File: plots/UMAP/UMAP_nneighobs_5_kmeans.pdf Graphic file (type pdf)
 <use plots/UMAP/UMAP_nneighobs_5_kmeans.pdf>
-Package pdftex.def Info: plots/UMAP/UMAP_nneighobs_5_kmeans.pdf  used on input 
-line 376.
+Package pdftex.def Info: plots/UMAP/UMAP_nneighobs_5_kmeans.pdf  used on input line 374.
 (pdftex.def)             Requested size: 117.43466pt x 89.71716pt.
 
-Overfull \hbox (6.65027pt too wide) in paragraph at lines 373--385
+Overfull \hbox (6.65027pt too wide) in paragraph at lines 371--383
 [][] [] [] []
  []
 
-<./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg, id=104, 3613.5pt x 30
-11.25pt>
-File: ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg Graphic file (typ
-e jpg)
+<./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg, id=211, 3613.5pt x 3011.25pt>
+File: ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg>
-Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpe
-g  used on input line 404.
+Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg  used on input line 402.
 (pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
-<./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg, id=105, 3613.5pt x 3
-011.25pt>
-File: ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg Graphic file (ty
-pe jpg)
+<./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg, id=212, 3613.5pt x 3011.25pt>
+File: ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg>
-Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jp
-eg  used on input line 405.
+Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg  used on input line 403.
 (pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
-<./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg, id=106, 3613.5pt x 
-3011.25pt>
-File: ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg Graphic file (t
-ype jpg)
+<./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg, id=213, 3613.5pt x 3011.25pt>
+File: ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg>
-Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .j
-peg  used on input line 406.
+Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg  used on input line 404.
 (pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
-<./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg, id=107, 3613.5pt x 
-3011.25pt>
-File: ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg Graphic file (t
-ype jpg)
+<./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg, id=214, 3613.5pt x 3011.25pt>
+File: ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg>
-Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .j
-peg  used on input line 407.
+Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg  used on input line 405.
 (pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
 
-Overfull \hbox (6.46252pt too wide) in paragraph at lines 404--414
+Overfull \hbox (6.46252pt too wide) in paragraph at lines 402--412
 [][] [] [] []
  []
 
-[6 <./plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf> <./plots/PCA/PCA_TRAs/tra_PCA_2vs3.p
-df> <./plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf> <./plots/UMAP/UMAP_nneighobs_
-5_kmeans.pdf> <./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg> <./plot
-s/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg> <./plots/limma_TRAs/Barplot
-s_p005/barplot_ 12.5_14.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 14.
-5_16.5 .jpeg>]
-<./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png, id=142,
- 2697.07625pt x 2061.7025pt>
-File: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png Gra
-phic file (type png)
+[6 <./plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf> <./plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf> <./plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf> <./plots/UMAP/UMAP_nneighobs_5_kmeans.pdf> <./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg>]
+<./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png, id=248, 2697.07625pt x 2061.7025pt>
+File: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png Graphic file (type png)
 <use ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png>
-Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.
-5_8.5 _p005.png  used on input line 436.
+Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png  used on input line 434.
 (pdftex.def)             Requested size: 187.86809pt x 143.61035pt.
-<./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png, id=14
-4, 2697.07625pt x 2061.7025pt>
-File: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png G
-raphic file (type png)
+<./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png, id=250, 2697.07625pt x 2061.7025pt>
+File: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png Graphic file (type png)
 <use ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png>
-Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16
-.5_18.5 _p005.png  used on input line 437.
+Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png  used on input line 435.
 (pdftex.def)             Requested size: 187.86809pt x 143.61035pt.
-<./plots/venndiagrams/venn_diagram_all_tras_down.pdf, id=145, 867.24pt x 722.7p
-t>
-File: ./plots/venndiagrams/venn_diagram_all_tras_down.pdf Graphic file (type pd
-f)
+<./plots/venndiagrams/venn_diagram_all_tras_down.pdf, id=251, 867.24pt x 722.7pt>
+File: ./plots/venndiagrams/venn_diagram_all_tras_down.pdf Graphic file (type pdf)
 <use ./plots/venndiagrams/venn_diagram_all_tras_down.pdf>
-Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_down.pdf  u
-sed on input line 460.
+Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_down.pdf  used on input line 458.
 (pdftex.def)             Requested size: 234.87251pt x 195.72708pt.
-<./plots/venndiagrams/venn_diagram_all_tras_up.pdf, id=146, 867.24pt x 722.7pt>
-
+<./plots/venndiagrams/venn_diagram_all_tras_up.pdf, id=252, 867.24pt x 722.7pt>
 File: ./plots/venndiagrams/venn_diagram_all_tras_up.pdf Graphic file (type pdf)
-
 <use ./plots/venndiagrams/venn_diagram_all_tras_up.pdf>
-Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_up.pdf  use
-d on input line 461.
+Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_up.pdf  used on input line 459.
 (pdftex.def)             Requested size: 234.87251pt x 195.72708pt.
 
-Overfull \hbox (2.21222pt too wide) in paragraph at lines 460--467
+Overfull \hbox (2.21222pt too wide) in paragraph at lines 458--465
 [][] []
  []
 
-[7 <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png> <./p
-lots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png> <./plots/
-venndiagrams/venn_diagram_all_tras_down.pdf> <./plots/venndiagrams/venn_diagram
-_all_tras_up.pdf>]
-<./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg, id=170, 5420.25pt x 5420.25pt>
+[7 <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png> <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png>]
+<./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg, id=262, 5420.25pt x 5420.25pt>
 File: ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg Graphic file (type jpg)
 <use ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg>
-Package pdftex.def Info: ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg  used on in
-put line 486.
+Package pdftex.def Info: ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg  used on input line 484.
 (pdftex.def)             Requested size: 187.82588pt x 187.82588pt.
-<./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg, id=171, 5420.25pt x 5420.25pt>
+<./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg, id=263, 5420.25pt x 5420.25pt>
 File: ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg Graphic file (type jpg)
 <use ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg>
-Package pdftex.def Info: ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg  used on i
-nput line 487.
+Package pdftex.def Info: ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg  used on input line 485.
 (pdftex.def)             Requested size: 187.82588pt x 187.82588pt.
-pdfTeX warning (ext4): destination with the same identifier (name{id.class}) ha
-s been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.517 }
-       
-<./plots/time_plots/tras expression through embryogenesis.png, id=172, 5119.125
-pt x 3613.5pt>
-File: ./plots/time_plots/tras expression through embryogenesis.png Graphic file
- (type png)
+[8 <./plots/venndiagrams/venn_diagram_all_tras_down.pdf> <./plots/venndiagrams/venn_diagram_all_tras_up.pdf> <./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg> <./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg>]
+<./plots/time_plots/tras expression through embryogenesis.png, id=281, 5119.125pt x 3613.5pt>
+File: ./plots/time_plots/tras expression through embryogenesis.png Graphic file (type png)
 <use ./plots/time_plots/tras expression through embryogenesis.png>
-Package pdftex.def Info: ./plots/time_plots/tras expression through embryogenes
-is.png  used on input line 517.
-(pdftex.def)             Requested size: 234.80304pt x 165.74332pt.
-[8 <./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg> <./plots/GSEA/GSEA_14.5_16.5_20
-_Dotplot.jpeg>]pdfTeX warning (ext4): destination with the same identifier (nam
-e{id.class}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.556 }
-       
-<./plots/time_plots/Chemokines expression through embryogenesis.pdf, id=182, 11
-56.32pt x 578.16pt>
-File: ./plots/time_plots/Chemokines expression through embryogenesis.pdf Graphi
-c file (type pdf)
-<use ./plots/time_plots/Chemokines expression through embryogenesis.pdf>
-Package pdftex.def Info: ./plots/time_plots/Chemokines expression through embry
-ogenesis.pdf  used on input line 556.
-(pdftex.def)             Requested size: 234.87692pt x 117.43846pt.
-[9 <./plots/time_plots/tras expression through embryogenesis.png> <./plots/time
-_plots/Chemokines expression through embryogenesis.pdf>] [10] [11] [12] [13] (t
-opic4_team2.aux)
+Package pdftex.def Info: ./plots/time_plots/tras expression through embryogenesis.png  used on input line 512.
+(pdftex.def)             Requested size: 427.4259pt x 301.71239pt.
+[9 <./plots/time_plots/tras expression through embryogenesis.png>]
+<plots/time_plots/Chemokines expression through embryogenesis.jpeg, id=291, 4818.0pt x 2409.0pt>
+File: plots/time_plots/Chemokines expression through embryogenesis.jpeg Graphic file (type jpg)
+<use plots/time_plots/Chemokines expression through embryogenesis.jpeg>
+Package pdftex.def Info: plots/time_plots/Chemokines expression through embryogenesis.jpeg  used on input line 547.
+(pdftex.def)             Requested size: 469.69798pt x 234.84898pt.
 
-LaTeX Warning: There were multiply-defined labels.
+Package hyperref Warning: Difference (2) between bookmark levels is greater 
+(hyperref)                than one, level fixed on input line 577.
 
+[10 <./plots/time_plots/Chemokines expression through embryogenesis.jpeg>] [11] [12] [13] [14] (./topic4_team2.aux)
+Package rerunfilecheck Info: File `topic4_team2.out' has not changed.
+(rerunfilecheck)             Checksum: 36C2BAFE4C3FB8E83057DB8C880CE0B9;5652.
  ) 
 Here is how much of TeX's memory you used:
- 13235 strings out of 479334
- 202321 string characters out of 2857559
- 540774 words of memory out of 3000000
- 30188 multiletter control sequences out of 15000+200000
- 460031 words of font info for 144 fonts, out of 3000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 85i,15n,88p,1011b,340s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/Users/Nina/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C:
-/Users/Nina/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/
-Users/Nina/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/U
-sers/Nina/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Use
-rs/Nina/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users
-/Nina/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/N
-ina/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmri10.pfb>
-Output written on topic4_team2.pdf (13 pages, 22049544 bytes).
+ 11150 strings out of 479983
+ 179893 string characters out of 5886638
+ 472369 words of memory out of 5000000
+ 29043 multiletter control sequences out of 15000+600000
+ 518807 words of font info for 67 fonts, out of 8000000 for 9000
+ 14 hyphenation exceptions out of 8191
+ 72i,15n,77p,453b,437s stack positions out of 10000i,1000n,20000p,200000b,200000s
+{/Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
+Output written on topic4_team2.pdf (14 pages, 22934122 bytes).
 PDF statistics:
- 400 PDF objects out of 1000 (max. 8388607)
+ 407 PDF objects out of 1000 (max. 8388607)
+ 342 compressed objects within 4 object streams
  99 named destinations out of 1000 (max. 500000)
- 29008 words of extra memory for PDF output out of 29859 (max. 10000000)
+ 336 words of extra memory for PDF output out of 10000 (max. 10000000)
 
