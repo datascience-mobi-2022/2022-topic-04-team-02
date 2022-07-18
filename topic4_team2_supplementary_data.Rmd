@@ -1,0 +1,100 @@
+---
+title: "Tissue-restricted antigens (TRAs) in embryonic development Supplementary data"
+author: "Alina Aksianova, Letizia Holube, Lydia Steiner, Nina Bank" 
+date: '2022-07-11'
+output: pdf_document #Enables: Knitting to PDF document
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# 1 Quality control
+
+## 1.1 Single Chip Control
+Supplementary examples of the Single Chip Control.
+
+![E7.5_1](./plots/qc/single_chip_control/GSM701717_Mouse_E7_5_rep1.pdf){#id.class width=33%}
+![E7.5_2](./plots/qc/single_chip_control/GSM701717_Mouse_E7_5_rep2.pdf){#id.class width=33%}
+![E8.5_1](./plots/qc/single_chip_control/GSM701717_Mouse_E8_5_rep1.pdf){#id.class width=33%}
+![E10.5_1](./plots/qc/single_chip_control/GSM701717_Mouse_E10_5_rep1.pdf){#id.class width=33%}
+![E14.5_1](./plots/qc/single_chip_control/GSM701717_Mouse_E14_5_rep1.pdf){#id.class width=33%}
+![E18.5_1](./plots/qc/single_chip_control/GSM701717_Mouse_E18_5_rep1.pdf){#id.class width=33%}
+
+\newpage
+## 1.2 Normalisation
+Boxplots of the data from before and after normalisation.
+
+![bevore normalisation](./plots/qc/GSE28389_BoxPlot_before_norm.pdf){#id.class width=40%}
+![after normalisation](./plots/qc/GSE28389_BoxPlot_normalizeddata.pdf){#id.class width=40%}
+
+## 1.3 Scatterplots
+Two examples from within one day and from comparing two different days.
+
+![scatterplot 1 and 2](./plots/qc/scatter_plots/GSE28389_scatterplot_probe 1 _and_probe 2 .pdf){#id.class width=40%}
+![scatterplot 3 and 4](./plots/qc/scatter_plots/GSE28389_scatterplot_probe 3 _and_probe 4 .pdf){#id.class width=40%}
+
+ 
+## 1.4 MeanSDplot
+MeanSDplot of the normalised data.
+
+![meansdplot](./plots/qc/GSE28389_meanSdPlot_normalized.pdf){#id.class width=40%}
+
+
+\newpage
+# 2 Results
+
+## 2.1 Dimensionality Reduction and Clustering
+Further examples of PCA,T-SNE and UMAP of TRAs.
+
+
+![pca_tra_2vs3](./plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf){#id.class width=33%}
+![pca_tra_3vs4](./plots/PCA/PCA_TRAs/tra_PCA_3vs4.pdf){#id.class width=33%}
+![armbend pca](./plots/PCA/PCA_TRAs/Arm_bend_PCA_tra.pdf){#id.class width=33%}
+![tsne 2kmeans](./plots/t-SNE/t-SNE_perplexity_2_kmeans.pdf){#id.class width=33%}
+![tsne 3kmeans](./plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf){#id.class width=33%}
+![umap 15](./plots/UMAP/UMAP_nneighobs_15_kmeans.pdf){#id.class width=33%}
+![umap 20](./plots/UMAP/UMAP_nneighobs_20_kmeans.pdf){#id.class width=33%}
+
+## 2.2 Differential Expressed Gene Analysis
+Difference in TRA expression over the course of mid- to late embryogenesis.
+
+![barplot7to8](./plots/limma_TRAs/Barplots_p005/barplot_ 7.5_8.5 .jpeg){#id.class width=33%}
+![barplot10to12](./plots/limma_TRAs/Barplots_p005/barplot_ 10.5_12.5 .jpeg){#id.class width=33%}
+![barplot16to18](./plots/limma_TRAs/Barplots_p005/barplot_ 16.5_18.5 .jpeg){#id.class width=33%}
+
+\newpage
+## 2.3 Volcano plots
+Supplementary volcano plots from different developmental stages.
+
+![volcano8to9](./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 8.5_9.5 _p005.png){#id.class width=33%}
+![volcano9to10](./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 9.5_10.5 _p005.png){#id.class width=33%}
+![volcano10to12](./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 10.5_12.5 _p005.png){#id.class width=33%}
+![volcano12to14](./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 12.5_14.5 _p005.png){#id.class width=33%}
+![volcano14to16](./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 14.5_16.5 _p005.png){#id.class width=33%}
+
+
+
+
+## 2.4 Gene Set Enrichment Analysis
+Supplementary example plots for GSEA.
+
+![gsea7to8](./plots/GSEA/GSEA_7.5_8.5_20_Dotplot.jpeg){#id.class width=33%}
+![gsea10to12](./plots/GSEA/GSEA_10.5_12.5_20_Dotplot.jpeg){#id.class width=33%}
+![gsea12to14](./plots/GSEA/GSEA_12.5_14.5_20_Dotplot.jpeg){#id.class width=33%}
+
+\newpage
+## 2.5 Chemokine
+PCA and venn diagrams
+
+![pca_chem_1vs2](./plots/PCA/PCA_chemokines/Chem_PCA.pdf){#id.class width=50%}
+![pca_chem_2vs3](./plots/PCA/PCA_chemokines/Chem_PCA_2v3.pdf){#id.class width=50%}
+![pca_chem_3vs4](./plots/PCA/PCA_chemokines/Chem_PCA_3v4.pdf){#id.class width=50%}
+
+![venn_chem_down](./plots/venndiagrams/venn_diagram_all_chem_down.pdf){#id.class width=50%}
+![venn_chem_up](./plots/venndiagrams/venn_diagram_all_chem_up.pdf){#id.class width=50%}
+
+
+
