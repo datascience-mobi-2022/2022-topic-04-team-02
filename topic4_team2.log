@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.18)  18 JUL 2022 08:37
+This is pdfTeX, Version 3.141592653-2.6-1.40.24 (TeX Live 2022) (preloaded format=pdflatex 2022.7.18)  18 JUL 2022 08:47
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -507,81 +507,81 @@ Overfull \hbox (6.65027pt too wide) in paragraph at lines 371--383
 File: ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg>
 Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg  used on input line 402.
-(pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
+(pdftex.def)             Requested size: 169.1067pt x 140.92226pt.
 <./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg, id=212, 3613.5pt x 3011.25pt>
 File: ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg>
 Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg  used on input line 403.
-(pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
+(pdftex.def)             Requested size: 164.36488pt x 136.97073pt.
 <./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg, id=213, 3613.5pt x 3011.25pt>
 File: ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg>
 Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg  used on input line 404.
-(pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
+(pdftex.def)             Requested size: 164.36488pt x 136.97073pt.
 <./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg, id=214, 3613.5pt x 3011.25pt>
 File: ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg Graphic file (type jpg)
 <use ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg>
 Package pdftex.def Info: ./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg  used on input line 405.
-(pdftex.def)             Requested size: 117.38773pt x 97.8231pt.
+(pdftex.def)             Requested size: 169.1067pt x 140.92226pt.
 
-Overfull \hbox (6.46252pt too wide) in paragraph at lines 402--412
-[][] [] [] []
+Overfull \hbox (32.52588pt too wide) in paragraph at lines 402--406
+[][] [] []
  []
 
-[6 <./plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf> <./plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf> <./plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf> <./plots/UMAP/UMAP_nneighobs_5_kmeans.pdf> <./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg>]
+[6 <./plots/PCA/PCA_TRAs/tra_PCA_1vs2.pdf> <./plots/PCA/PCA_TRAs/tra_PCA_2vs3.pdf> <./plots/t-SNE/t-SNE_perplexity_4_kmeans.pdf> <./plots/UMAP/UMAP_nneighobs_5_kmeans.pdf>]
 <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png, id=248, 2697.07625pt x 2061.7025pt>
 File: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png Graphic file (type png)
 <use ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png>
-Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png  used on input line 434.
+Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png  used on input line 435.
 (pdftex.def)             Requested size: 187.86809pt x 143.61035pt.
 <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png, id=250, 2697.07625pt x 2061.7025pt>
 File: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png Graphic file (type png)
 <use ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png>
-Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png  used on input line 435.
+Package pdftex.def Info: ./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png  used on input line 436.
 (pdftex.def)             Requested size: 187.86809pt x 143.61035pt.
-<./plots/venndiagrams/venn_diagram_all_tras_down.pdf, id=251, 867.24pt x 722.7pt>
+[7 <./plots/limma_TRAs/Barplots_p005/barplot_ 8.5_9.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 9.5_10.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 12.5_14.5 .jpeg> <./plots/limma_TRAs/Barplots_p005/barplot_ 14.5_16.5 .jpeg>]
+<./plots/venndiagrams/venn_diagram_all_tras_down.pdf, id=257, 867.24pt x 722.7pt>
 File: ./plots/venndiagrams/venn_diagram_all_tras_down.pdf Graphic file (type pdf)
 <use ./plots/venndiagrams/venn_diagram_all_tras_down.pdf>
-Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_down.pdf  used on input line 458.
+Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_down.pdf  used on input line 459.
 (pdftex.def)             Requested size: 234.87251pt x 195.72708pt.
-<./plots/venndiagrams/venn_diagram_all_tras_up.pdf, id=252, 867.24pt x 722.7pt>
+<./plots/venndiagrams/venn_diagram_all_tras_up.pdf, id=258, 867.24pt x 722.7pt>
 File: ./plots/venndiagrams/venn_diagram_all_tras_up.pdf Graphic file (type pdf)
 <use ./plots/venndiagrams/venn_diagram_all_tras_up.pdf>
-Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_up.pdf  used on input line 459.
+Package pdftex.def Info: ./plots/venndiagrams/venn_diagram_all_tras_up.pdf  used on input line 460.
 (pdftex.def)             Requested size: 234.87251pt x 195.72708pt.
 
-Overfull \hbox (2.21222pt too wide) in paragraph at lines 458--465
+Overfull \hbox (2.21222pt too wide) in paragraph at lines 459--466
 [][] []
  []
 
-[7 <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png> <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png>]
-<./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg, id=262, 5420.25pt x 5420.25pt>
+[8 <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 7.5_8.5 _p005.png> <./plots/volcanoplots/volcanoplots_p005/Volcanoplot_ 16.5_18.5 _p005.png> <./plots/venndiagrams/venn_diagram_all_tras_down.pdf> <./plots/venndiagrams/venn_diagram_all_tras_up.pdf>]
+<./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg, id=279, 5420.25pt x 5420.25pt>
 File: ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg Graphic file (type jpg)
 <use ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg>
-Package pdftex.def Info: ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg  used on input line 484.
+Package pdftex.def Info: ./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg  used on input line 485.
 (pdftex.def)             Requested size: 187.82588pt x 187.82588pt.
-<./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg, id=263, 5420.25pt x 5420.25pt>
+<./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg, id=280, 5420.25pt x 5420.25pt>
 File: ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg Graphic file (type jpg)
 <use ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg>
-Package pdftex.def Info: ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg  used on input line 485.
+Package pdftex.def Info: ./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg  used on input line 486.
 (pdftex.def)             Requested size: 187.82588pt x 187.82588pt.
-[8 <./plots/venndiagrams/venn_diagram_all_tras_down.pdf> <./plots/venndiagrams/venn_diagram_all_tras_up.pdf> <./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg> <./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg>]
 <./plots/time_plots/tras expression through embryogenesis.png, id=281, 5119.125pt x 3613.5pt>
 File: ./plots/time_plots/tras expression through embryogenesis.png Graphic file (type png)
 <use ./plots/time_plots/tras expression through embryogenesis.png>
-Package pdftex.def Info: ./plots/time_plots/tras expression through embryogenesis.png  used on input line 512.
+Package pdftex.def Info: ./plots/time_plots/tras expression through embryogenesis.png  used on input line 513.
 (pdftex.def)             Requested size: 427.4259pt x 301.71239pt.
-[9 <./plots/time_plots/tras expression through embryogenesis.png>]
-<plots/time_plots/Chemokines expression through embryogenesis.jpeg, id=291, 4818.0pt x 2409.0pt>
+<plots/time_plots/Chemokines expression through embryogenesis.jpeg, id=282, 4818.0pt x 2409.0pt>
 File: plots/time_plots/Chemokines expression through embryogenesis.jpeg Graphic file (type jpg)
 <use plots/time_plots/Chemokines expression through embryogenesis.jpeg>
-Package pdftex.def Info: plots/time_plots/Chemokines expression through embryogenesis.jpeg  used on input line 547.
+Package pdftex.def Info: plots/time_plots/Chemokines expression through embryogenesis.jpeg  used on input line 548.
 (pdftex.def)             Requested size: 469.69798pt x 234.84898pt.
+[9 <./plots/GSEA/GSEA_9.5_10.5_20_Dotplot.jpeg> <./plots/GSEA/GSEA_14.5_16.5_20_Dotplot.jpeg>] [10 <./plots/time_plots/tras expression through embryogenesis.png> <./plots/time_plots/Chemokines expression through embryogenesis.jpeg>]
 
 Package hyperref Warning: Difference (2) between bookmark levels is greater 
-(hyperref)                than one, level fixed on input line 577.
+(hyperref)                than one, level fixed on input line 578.
 
-[10 <./plots/time_plots/Chemokines expression through embryogenesis.jpeg>] [11] [12] [13] [14] (./topic4_team2.aux)
+[11] [12] [13] [14] (./topic4_team2.aux)
 Package rerunfilecheck Info: File `topic4_team2.out' has not changed.
 (rerunfilecheck)             Checksum: 36C2BAFE4C3FB8E83057DB8C880CE0B9;5652.
  ) 
@@ -592,9 +592,9 @@ Here is how much of TeX's memory you used:
  29043 multiletter control sequences out of 15000+600000
  518807 words of font info for 67 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 72i,15n,77p,453b,437s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 72i,15n,77p,453b,439s stack positions out of 10000i,1000n,20000p,200000b,200000s
 {/Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}</Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx10.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmbx12.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr10.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr12.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmr17.pfb></Users/lydiasteiner/Library/TinyTeX/texmf-dist/fonts/type1/public/lm/lmri10.pfb>
-Output written on topic4_team2.pdf (14 pages, 22934122 bytes).
+Output written on topic4_team2.pdf (14 pages, 22934141 bytes).
 PDF statistics:
  407 PDF objects out of 1000 (max. 8388607)
  342 compressed objects within 4 object streams

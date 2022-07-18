@@ -285,10 +285,11 @@ of mouse embryogenesis, every cons was plotted against the next (E7.5
 against E8.5, E8.5 against E 9.5) during Differential Expressed Gene
 Analysis (DEGA).
 
-![barplot8to9](./plots/limma_TRAs/Barplots_p005/barplot_%208.5_9.5%20.jpeg){width="25%"}
-![barplot9to10](./plots/limma_TRAs/Barplots_p005/barplot_%209.5_10.5%20.jpeg){width="25%"}
-![barplot12to14](./plots/limma_TRAs/Barplots_p005/barplot_%2012.5_14.5%20.jpeg){width="25%"}
-![barplot14to16](./plots/limma_TRAs/Barplots_p005/barplot_%2014.5_16.5%20.jpeg){width="25%"}
+![barplot8to9](./plots/limma_TRAs/Barplots_p005/barplot_%208.5_9.5%20.jpeg){width="36%"}
+![barplot9to10](./plots/limma_TRAs/Barplots_p005/barplot_%209.5_10.5%20.jpeg){width="35%"}
+![barplot12to14](./plots/limma_TRAs/Barplots_p005/barplot_%2012.5_14.5%20.jpeg){width="35%"}
+![barplot14to16](./plots/limma_TRAs/Barplots_p005/barplot_%2014.5_16.5%20.jpeg){width="36%"}
+
 Figure 3.1.2: **Difference in TRA expression over the course of mid- to
 late embryogenesis.** Here shown are the quantities of differentially
 expressed genes in different organs from one time point to the next.
