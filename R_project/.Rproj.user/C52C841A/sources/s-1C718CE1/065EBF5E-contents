@@ -51,6 +51,68 @@ setwd("..")
 setwd("./plots/qc/single_chip_control")
 
 
+image(data.mouse[,1], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E7_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,2], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E7_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,3], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E7_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,4], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E8_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,5], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E8_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,6], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E8_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,7], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E9_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,8], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E9_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,9], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E9_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,10], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E10_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,11], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E10_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,12], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E10_5_rep3.pdf", width= 9 , height=9)
+
+image(data.mouse[,13], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E12_5_rep1.pdf", width= 9 , height=9) #looks suspicious
+
+image(data.mouse[,14], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E12_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,15], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E14_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,16], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E14_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,17], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E16_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,18], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E16_5_rep2.pdf", width= 9 , height=9)
+
+image(data.mouse[,19], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E18_5_rep1.pdf", width= 9 , height=9)
+
+image(data.mouse[,20], col=rainbow(100, start=0, end=0.75)[100:1])
+dev.copy2pdf(file="GSM701717_Mouse_E18_5_rep2.pdf", width= 9 , height=9)
+
+
+
 #------------------
 #Normalization----
 #------------------
@@ -1463,7 +1525,7 @@ ggsave("venn_diagram_all_chem_up.jpeg", width = 12, height = 10)
 ggsave("venn_diagram_all_chem_up.pdf", width = 12, height = 10)
 
 
-#venn diagram of all down-regulted chemokine genes
+#venn diagram of all down-regulated chemokine genes
 
 venn_names_chem_down = c("day 7 to 8 (6)", "day 8 to 9 (5)", "day 9 to 10 (9)", "day 10 to 12 (13)", "day 12 to 14 (12)", "day 14 to 16 (9)", "day 16 to 18 (9)")
 
@@ -1521,7 +1583,7 @@ ggplot(data = deg_chem_long, aes(x = variable, y = value)) +
   geom_point(color = "orange") + 
   facet_wrap(~ X , nrow = 3) + 
   labs(x = "days of embryogenesis", y = "expression", title = "Chemokines expression through embryogenesis") 
-ggsave("Chemokines expression through embryogenesis.pdf", height =8, width = 16)
+ggsave("Chemokines expression through embryogenesis.jpeg", height =8, width = 16)
 
 
 
