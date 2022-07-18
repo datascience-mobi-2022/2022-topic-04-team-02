@@ -14,4 +14,14 @@ Such markers would be a useful method to not only further analyse and understand
 This project aims to explore embryogenesis in mice by analysing the expression levels of tissue restricted antigens over time and summarizing these findings in an applicable dataframe.
 
 # Results
-Barplot und TRA Dotplot
+
+**Table 1: Most differentially expressed genes from each developmental stage.** Several tissue types are mentioned with each plot and coloured according to their tissue classification, showing an expression profile of the most prominently expressed TRAs during embryogenesis.
+
+<img src="/plots/time_plots/tras%20expression%20through%20embryogenesis.png" width=60% height=60%>
+
+
+
+**Table 2: TRA distribution of the !['GSE28389 dataset'](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE28389).** The total of TRA genes, associated with certain tissues, were added together to form the following plot.
+
+<img src="/plots/TRAs_barplots/barplot_tras_in_the_dataset.jpg" width=60%>
+
