@@ -1463,7 +1463,7 @@ ggsave("venn_diagram_all_chem_up.jpeg", width = 12, height = 10)
 ggsave("venn_diagram_all_chem_up.pdf", width = 12, height = 10)
 
 
-#venn diagram of all down-regulted chemokine genes
+#venn diagram of all down-regulated chemokine genes
 
 venn_names_chem_down = c("day 7 to 8 (6)", "day 8 to 9 (5)", "day 9 to 10 (9)", "day 10 to 12 (13)", "day 12 to 14 (12)", "day 14 to 16 (9)", "day 16 to 18 (9)")
 
@@ -1521,7 +1521,7 @@ ggplot(data = deg_chem_long, aes(x = variable, y = value)) +
   geom_point(color = "orange") + 
   facet_wrap(~ X , nrow = 3) + 
   labs(x = "days of embryogenesis", y = "expression", title = "Chemokines expression through embryogenesis") 
-ggsave("Chemokines expression through embryogenesis.pdf", height =8, width = 16)
+ggsave("Chemokines expression through embryogenesis.jpeg", height =8, width = 16)
 
 
 

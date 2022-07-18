@@ -1,0 +1,65 @@
+---
+title: "Bioinformatikprojekt Thema 4"
+author: "Alina Aksianova, Lydia Steiner, Letizia Holube, Nina Bank"
+date: '2022-07-18'
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = = FALSE, warning = FALSE, message = FALSE)
+```
+
+## l Abstract
+
+Embryogenesis is difficult to study and therefore still not fully understood. Yet, a novel approach borrowed from immune biology may provide the necessary tools to embryo research in the scope of an interdisciplinary application. Tissue restricted antigens are utilised by the immune system for the production of t-cells to prevent autoreactive events. Therefore, they are expressed simultaneously with other genes in the corresponding tissue. Tissue specific antigens seem to be a promising biological indicator to depict the intensity of gene expression to a given time during tissue development. Such markers would be a useful method to not only further analyse and understand embryogenesis and organogenesis but inspect general tissue development with high accuracy.
+
+This project aims to explore embryogenesis in mice by analysing the expression levels of tissue restricted antigens over time and summarising these findings in an applicable dataframe.
+
+## 1. Introduction
+
+The immune system is responsible for recognising and eliminating threatening pathogens, such as bacteria, viruses or fungi, however, distinguishing these from endogenous cells and not harming them. CD8+ T cells (CD8s), also referred to as cytotoxic T cells precisely recognise antigens via specific T cell receptors (TCRs). Thus, playing a vital role in this process. In order to prevent an autoreactive self-antigen-CD8 complex that would be harmful to the organism, T cells undergo negative selection in addition to positive selection,  in the thymus. The negative selection process is mediated by medullary thymic epithelial cells that are presented to developing T cells, leading to the elimination of binding T cells (mTECs)[\@Kyewski]. 
+
+Auto-antigens fall in two categories: housekeeping antigens (HAs) and tissue restricted antigens (TRAs). While HAs are expressed in a multitude of tissues, TRAs are found to be expressed rather uniquely. This results in HAs experiencing only insignificant amounts of epigenetic inactivation. TRAs in contrast, display silencing extensively in a majority of tissues.
+
+To classify as a TRA, an antigen is required to exceed five times the median gene expression within one to four tissue expression profiles [\@dinkelacker2019]. An unpublished dataset  by Dr. Maria Dinkelacker will be utilised to analyse embryonic development.
+
+Antigen expression levels constantly vary during embryogenesis, since different stem cells undergo differentiation. This includes TRA expression levels that display a temporal connection to the development of specific organs. Due to this connection they offer an interesting approach to study organ development. Despite spatiotemporally mapping of organogenesis in mice recently, specific timing and expression levels of TRAs remain underexplored. Hence, this project aims to investigate TRA expression profiles within mice over a course of mid- to late embryogenesis. Data by \@irie2011comparative supported this undertaking. 
+
+In addition to the TRA analysis, the embryonic data will be examined regarding chemokine expression levels. Chemokines, chemotactic cytokines, are signalling molecules that do not only direct immune cells to pathogenic locations, but also orchestrate cell migration during developmental processes. Upon secretion, they promote cell survival, proliferation, strengthening of immune responses and direction of migrating cells. More than 40 chemokines are expected to operate within vertebrates,each one with a grand influence over the immune system and embryogenesis [\@chemokine2002chemokine, \@alanko2018chemokines].
+
+This project aims to utilise the datasets on time-dependent embryonic transcriptomes and TRAs to catalogue established TRAs in respect to specific stages of embryonic development to offer a base of data that may support further studies in tissue development. 
+
+##  2. Methods
+
+### Datasets
+
+\@irie2011comparative provided comparative data to study the expression-levels of tissue-restricted antigens (TRAs) during embryonic development. TRA data was isolated from the Microarray data with the help of a TRA dataset [\@dinkelacker2019]. The statistical open source programming language R version 4.2.0 [\@R], bioconductor packages, and an annotation file [\@cunningham2022ensembl] served to prepare data for the following analysis.
+
+**embryonic data set GSE28389** There were two main criteria for choosing a dataset. Firstly, it had to use Affymetrix microarray analysis. Secondly it was required to display expression levels of the whole mouse during different stages of embryogenesis. 
+
+For the purpose of this work the whole RNA of multiple wild type C57BL/6 mice embryos was collected at eight different stages (Microarray chips: 3x E7.5, 3x E8.5, 3x E9.5, 3x E10.5, 2x E12.5, 2x E14.5, 2x E16.5, 2x E18.5). Triplicates or Duplicates were homogenised before application on the Affymetrix Mouse Genome 430 2.0 Array [\@irie2011comparative].
+
+**TRA dataset**	Our TRA data stems from unpublished data by Dr. Maria Dinkelacker. The data included in the "tra.2014.mouse.4301.5x.table.tsv" table includes a larger quantity of TRAs and was thus chosen to work with. 
+
+### Packages 
+
+The essential Bioconductor packages for the analyses were "affy" (version 1.74.0), "limma" (version 3.52.1) and "vsn" (version 3.64.0). The package "affy" was applied for exploratory oligonucleotide array analysis [\@gautier2004irizarry]. Linear Models for Microarray and RNA-Seq Data (limma) was used for differential expression analysis of microarray data. The package uses voom method, linear modelling and empirical Bayes moderation to assess differential expression and give stable results even with a small number of arrays [\@ritchie2015limma]. "Limma" can be utilised for all gene expression technologies including microarray data. Variance stabilising normalisation via package "vsn" was employed for data normalisation. VSN executes data calibration, quantification of differential expression, and the quantification of measurement error [\@huber2002variance].
+
+### Quality control (QC) of the embryonic microarray data
+
+Four major quality complications are commonly encountered when working with microarray data. Low quality chips, imprints such as fingerprints or marks from pipette tips, irregularities in dye distribution, and light intensity extremes. To detect possible damages, we performed single-chip control for all twenty chips. Conspicuous chips should be removed at this point, however the number of biological replicates contained in the data was quite scarce. Some development stages only included data on two chips. Excluding an entire chip could thereby affect the significance of further statistical work. 
+
+### Single Chip Control
+
+There are no visual damages such as fingerprints present on the chips. Nevertheless the Affy chips of E12.5\\\_1 and E14.5\\\_1 are considerably lighter in intensity. This is also observable in the boxplot before normalisation.
+
+```{r echo=FALSE}
+
+image(data.mouse[,6], col=rainbow(100, start=0, end=0.75)[100:1])
+```
+
+\
+\
+
+\
+\
