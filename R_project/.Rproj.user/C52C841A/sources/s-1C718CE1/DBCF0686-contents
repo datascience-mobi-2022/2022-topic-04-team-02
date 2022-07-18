@@ -1,0 +1,129 @@
+---
+title: "Tissue-restricted antigens (TRAs) in embryonic development"
+author: "Alina Aksianova, Letizia Holube, Lydia Steiner, Nina Bank" 
+date: '2022-07-11'
+header-includes:
+  - \usepackage{booktabs} #Enables: Making charts
+  - \usepackage{makecell} #Enables: Making line breaks in charts
+output: pdf_document #Enables: Knitting to PDF document
+bibliography: references.bib #Enables: Making references (file: refrences.bib)
+link-citations: yes #Enables: Click on citation and go to the reference (Link)
+csl: cell.csl #Enables: Citation Style Cell (file: cell.csl)
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+
+\newpage
+# Abstract
+Embryogenesis is difficult to study and therefore still not fully understood. Yet, a novel approach borrowed from immune biology may provide the necessary tools to embryo research in the scope of an interdisciplinary application.
+Tissue restricted antigens are utilized by the immune system for the production of t-cells to prevent autoreactive events. Therefore, they are expressed simultaneously with other genes in the corresponding tissue. Tissue specific antigens seem to be a promising biological indicator to depict the intensity of gene expression to a given time during tissue development. 
+Such markers would be a useful method to not only further analyse and understand embryogenesis and organogenesis but inspect general tissue development with high accuracy.
+
+This project aims to explore embryogenesis in mice by analysing the expression levels of tissue restricted antigens over time and summarizing these findings in an applicable dataframe.
+
+
+\newpage
+# Introduction
+
+The immune system has the important job of recognising and eliminating dangerous pathogens, such as bacteria, viruses or fungi, while recognising the ?body’s own cells and ?leaving them alone. Especially CD8+ T cells (CD8s), also referred to as cytotoxic T cells, play a ?vital role within this process. CD8s recognise specific antigens via a ?spezifischer compatible T cell receptor (TCR). In order to prevent an autoreactive self-antigen-CD8 complex, T cells undergo ?positive and negative selection in the thymus which results in the elimination of T cells that bind to autoantigens presented by medullary thymic epithelial cells (mTECs) due to the negative selection [@Kyewski]. 
+
+Auto-antigens fall in two broad categories: housekeeping antigens (HAs) and tissue restricted antigens (TRAs). While HAs are expressed in a multitude of tissues, thereby experiencing insignificant amounts of epigenomic inactivation, TRAs are specifically expressed in a limited amount of tissue, therefore TRA genes display major silencing in a majority of tissues.
+To classify a TRA, an antigen needs to exceed five times the median gene expression within one to four tissue expression profiles in one dataset [@dinkelacker2019].
+
+Antigen expression levels constantly change during embryogenesis, since different stem cells undergo differentiation, including TRA expression levels that mark the development of specific organs. Despite @chen2022spatiotemporal spatiotemporally mapping organogenesis in mice recently, specific timing and expression levels of TRAs remain underexplored. Hence, this project aims to investigate TRA expression profiles within mice over a course of mid- to late embryogenesis.
+
+For embryonic expression data, previous research of @irie2011comparative was used. @irie2011comparative provided this data by homogenising whole embryos of the mouse model C57BL6 at different stages in embryogenesis, namely E7.5, E8.5, E9.5, E10.5, E12.5, E14.5, E16.5 and E18.5, and analysing the transcriptome of each developmental phase via microarray analysis [@irie2011comparative]. 
+
+?This project aims to utilize the provided datasets on time-dependent embryonic transcriptomes and tissue-specific TRAs to catalogue established TRAs in respect to specific stages of embryonic development.
+
+
+
+\newpage
+# Methods
+
+## Datasets
+To study the expression-levels of tissue-restricted antigens (TRAs) in the embryonic development we used an already published dataset by @irie2011comparative. We analysed the embryonic data regarding the levels of expressed TRAs using a TRA dataset [@dinkelacker2019] and the statistical open source programming language R [@R]. For the analyses we used bioconducter packages and an annotation file [@cunningham2022ensembl].
+	
+\paragraph{embryonic data set GSE28389} 
+For the analyses we choose an embryonic mouse dataset. The given guidelines were to choose a dataset which shows Affymetrix microarray analysis results of expression levels of the whole mouse in different stages of embryogenesis. In this dataset the whole RNA of multiple wild type C57BL/6 mice embryos was collected at eight different stages (Microarray chips: 3x E7.5, 3x E8.5, 3x E9.5, 3x E10.5, 2x E12.5, 2x E14.5, 2x E16.5, 2x E18.5). They used an Affymetrix Mouse Genome 430 2.0 Array to analyse the RNA [@irie2011comparative].
+	
+\paragraph{TRA dataset} 
+For the TRA dataset We used the unpublished data by Dr. Maria Dinkelacker. We choose the "tra.2014.mouse.4301.5x.table.tsv" table because this is the one which contains the most TRA`s.
+	
+\begin{table}[h] % hbpt!H are options for table placement
+    \centering
+    \caption{\textbf{Overview of datasets used for TRA analysis}}
+    \label{tab:Thisisadummytable}
+        \begin{tabular}{lcc}  % l(eft), r(ight), c(enter) are options for alignments of a column
+            \toprule
+            \textbf{dataset} & \textbf{datatype} & \textbf{source} \\
+            \midrule
+            embryonic dataset      & \makecell{Affymetrix Mouse Genome \\430 2.0 microarray}           & Irie and Kuratani, 2011            \\
+            TRA dataset     & ?  &  \makecell{unpublished data from \\Dr. Maria Dinkelacker}     \\
+
+        \end{tabular}
+\end{table}
+
+
+
+## Packages 
+The essential Bioconductor packages for our analyses were "affy" (version 1.74.0), "limma" (version 3.52.1) and "vsn" (version 3.64.0). The package "affy" helped us in exploratory oligonucleotide array analysis [@gautier2004irizarry]. We performed differential expression analysis of microarray data  with the help of the "limma" package. The methods of the package provide stable results even when the number of arrays is small like in this project [@ritchie2015limma]. "Limma" can be applied on all gen expression technologies including microarray data. The package "vsn" was applied in data normalisation. The package is able to execute data calibration, the quantification of differential expression, and the quantification of measurement error [@huber2002variance].
+
+
+
+## Quality control (QC) of the embryonic microarray data
+Four major quality problems are commonly known in microarray data. Low quality chips, fingerprints, imprints of pipette tips and irregularities in dye distribution or light intensity extremes. To detect possible damages, we performed single-chip control of all twenty chips. If there are enough biological replicates in the data, one should exclude broken chips in the study. In this case we partially only have two chips per development stage and an exclusion should be avoided. Nevertheless we looked at all twenty chips to keep possible damages in mind for later analysis.
+
+\paragraph{Single Chip Control}
+There are no visual damages such as fingerprints present on the chips. Nevertheless the Affy chips of E12.5\_1 and E14.5\_1 seemed to be considerably lighter in the intensity. This is also observable in the boxplot from before normalisation.
+
+```{r}
+#vergl von z.b 8.5 zu 12.5_1
+#image(data.mouse[,1], col=rainbow(100, start=0, end=0.75)[100:1])
+#dev.copy2pdf(file="GSM701717_Mouse_E7_5_rep1.pdf", width= 9 , height=9)
+```
+
+```{r}
+#GSE28389_BoxPlot_before_norm.pdf ????
+```
+    
+\paragraph{Normalisation}
+For the normalisation we used the function vsnrma which is specific for Affymetrix GeneChip probe level data. Vsnrma does probe-wise background correction and between-array normalization. The function returns an ExpressionSet with which we then did further analyses. 
+In the boxplot of the vsnrma-normalised data we can recognise that the mean values of the different chips are similar and the intensity differences are equalised. But even after normalisation, we can still see a slight increase in E12.5 and E14.5 compared to the other measuring points. (Could be biologically induced but this is no comment for the introduction)
+
+```{r}
+#GSE28389_BoxPlot_normalizeddata.pdf ?????
+```
+    
+\paragraph{RNA Degradation}
+An other way to analyse the chips for physical artifacts is to make a RNA degradation plot from the data before normalisation. In this plot we can see that the probe intensities are lower towards the 5' end of a transcript than towards the 3' end which is explained by the nature of RNA degradation. To analyse the plot for irregularities we need to look out for slops differing from the group pattern. 
+In the RNA degradation plot of the embryonic dataset below we can see that the group pattern overall is as expected and no slopes deviate significant.
+
+![RNADEG_Shifted_Scaled](./images/GSE28389_RNAdegrad_RawData_shifted_scaled-1.png){width=50% height=50%}
+
+
+```{r}
+#GSE28389_RNAdegrad_RawData_shifted_scaled.pdf
+```
+    
+\paragraph{Scatter Plot}
+An other method of quality control are scatter plots. We plotted the normalised chips against each other (E7.5\_1 against E7.5\_2,.., E8.5\_3
+against E 9.5\_1,..). The plots comparing the same measurement point in the embryogenesis are clean without a lot scattering. The plots comparing different measurement points were a bit more scattered but still linear. (This is what would be expected on the biological background.) 
+    
+\paragraph{MeanSdPlot}
+To verify the normalisation we did a MeanSDPlot on the normalised data to analyse it for variance-mean dependence. If there is no dependency the line should be approximately horizontal. In the plot below the line ascends with the increasing mean value, but we decided that this deviation is not significant for our analyses.
+
+
+
+\newpage
+# Results
+
+\newpage
+# References 
+

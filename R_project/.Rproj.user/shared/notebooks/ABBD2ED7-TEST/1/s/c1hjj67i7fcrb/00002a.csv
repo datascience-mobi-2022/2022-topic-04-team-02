@@ -1,0 +1,91 @@
+"0","eset = read.csv('../raw_data/eset.csv')"
+"0","eset = exprs(mouse.vsnrma)"
+"0","eset = eset[65:53573,] #delete Affymetrix internal quality control"
+"0","anno = read_table(file=""../raw_data/mart_export1.txt"")"
+"1","
+[36m──[39m [1mColumn specification[22m [36m────────────────────────────────────────────────────────────────────────────────────────────[39m
+cols(
+  Gene.stable.ID = [31mcol_character()[39m,
+  Gene.stable.ID.version = [31mcol_character()[39m,
+  Transcript.stable.ID = [31mcol_character()[39m,
+  Transcript.stable.ID.version = [31mcol_character()[39m,
+  AFFY.Mouse430.2.probe = [31mcol_character()[39m,
+  `Chromosome/scaffold.name` = [31mcol_character()[39m,
+  Gene.name = [31mcol_character()[39m,
+  MGI.symbol = [31mcol_character()[39m
+)
+
+"
+"2","Warnung:"
+"2"," 77231 parsing failures.
+row col  expected    actual                           file
+  1  -- 8 columns 7 columns '../raw_data/mart_export1.txt'
+  2  -- 8 columns 7 columns '../raw_data/mart_export1.txt'
+  3  -- 8 columns 7 columns '../raw_data/mart_export1.txt'
+  4  -- 8 columns 7 columns '../raw_data/mart_export1.txt'
+  5  -- 8 columns 7 columns '../raw_data/mart_export1.txt'
+... ... ......... ......... ..............................
+See problems(...) for more details.
+
+"
+"0","getwd()"
+"1","[1]"
+"1"," ""/Users/lydiasteiner/Desktop/2022-topic-04-team-02/R_project"""
+"1","
+"
+"0","tra_table = read_table(file=""../raw_data/tra.2014.mouse.4301.5x.table.tsv"")"
+"1","
+[36m──[39m [1mColumn specification[22m [36m────────────────────────────────────────────────────────────────────────────────────────────[39m
+cols(
+  `""ensembl.transcript""` = [31mcol_character()[39m,
+  `""ensembl.gene""` = [31mcol_character()[39m,
+  `""gene.symbol""` = [31mcol_character()[39m,
+  `""entrezID""` = [31mcol_character()[39m,
+  `""refseqID""` = [31mcol_character()[39m,
+  `""unigeneID""` = [31mcol_character()[39m,
+  `""chrom""` = [31mcol_character()[39m,
+  `""startsite""` = [31mcol_character()[39m,
+  `""tiss.number""` = [31mcol_character()[39m,
+  `""tissues""` = [31mcol_character()[39m,
+  `""max.tissue""` = [31mcol_character()[39m
+)
+
+"
+"0","tra_table = unique(tra_table)"
+"0",""
+"0",""
+"0","#Replace blanks with NAs:"
+"0",""
+"0","tra_table[tra_table == ""\""\""""] <- NA                    "
+"0",""
+"0",""
+"0","#Remove """" from TRA table"
+"0",""
+"0","tra_table = tra_table %>% "
+"0","  mutate(across("
+"0","    everything(),"
+"0","    ~ map_chr(.x, ~ gsub(""\"""", """", .x))"
+"0","  ))"
+"0","names(tra_table) = gsub('""', """", names(tra_table))"
+"0",""
+"0",""
+"0","#Annotating our gene expression table"
+"0",""
+"0","anno_data = merge(eset, anno, by.x = 0, by.y = ""AFFY.Mouse430.2.probe"", all = FALSE)"
+"0","anno_data = anno_data[!duplicated(anno_data$Gene.stable.ID),] #delete duplicates"
+"0",""
+"0",""
+"0",""
+"0","#Merging TRA table with annotated gene expression table, not-overlapping entries excluded"
+"0",""
+"0","tra_table = as.data.frame(tra_table)"
+"0","tra_data = merge(anno_data, tra_table, by.x = ""Transcript.stable.ID"", by.y =""ensembl.transcript"", all = FALSE)"
+"0","tra_data = tra_data[!duplicated(tra_data$Row.names),]"
+"0","colnames(tra_data)[2] = ""AFFY.Mouse430.2.probe"""
+"0",""
+"0",""
+"0",""
+"0","#Annotating TRA table"
+"0",""
+"0","tra_anno = merge(anno, tra_table, by.x = ""Transcript.stable.ID"",by.y = ""ensembl.transcript"", all = FALSE)"
+"0",""

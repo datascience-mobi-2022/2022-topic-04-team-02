@@ -1,0 +1,10 @@
+"0",""
+"0","library(""limma"")"
+"0","library(""Biobase"")"
+"0","library(""tidyverse"")"
+"0","library(""ggfortify"")"
+"0","library(""patchwork"")"
+"0","set.seed(123456)"
+"0","tra_data2.pca <- prcomp(t(tra_data [,3:22]), center = TRUE, scale = TRUE)"
+"2","Fehler in svd(x, nu = 0, nv = k) : eine Dimension ist 0
+"

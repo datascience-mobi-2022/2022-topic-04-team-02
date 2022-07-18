@@ -1,0 +1,27 @@
+
+tra_means = data.frame(tra_data$Gene.name,
+                           rowMeans(tra_data[,3:5]),
+                           rowMeans(tra_data[,6:8]), 
+                           rowMeans(tra_data[,9:11]),
+                           rowMeans(tra_data[,12:14]),
+                           rowMeans(tra_data[,15:16]),
+                           rowMeans(tra_data[,17:18]),
+                           rowMeans(tra_data[,19:20]),
+                           rowMeans(tra_data[,21:22]),
+                           tra_data$max.tissue)
+
+colnames(tra_means) = c("X", "7.5", "8.5", "9.5", "10.5", "12.5", "14.5", "16.6", "18.5", "max.tissue")
+
+#creating a long version of the dataframe
+
+library(reshape2)
+tra_long = gather(tra_means, "X", "max.tissue")
+
+#visualizing expression over time
+
+ggplot(data = tra_long, aes(x = variable, y = value, color = X)) +
+  geom_line() + 
+  facet_wrap(~ max.tissue , nrow = 9) + 
+  labs(x = "days of embryogenesis", y = "expression", title = "TRAs expression through embryogenesis"
+       , subtitle = "5 most differentially expressed genes from each phase") 
+ggsave("tras expression through embryogenesis.png", height = 12, width = 17)
